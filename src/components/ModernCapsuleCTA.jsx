@@ -62,7 +62,7 @@ import Link from "next/link";
 const THEMES = {
   dark: {
     button:
-      "text-white bg-[#12488e] border-white/10 shadow-black/45",
+      "text-white bg-primary border-white/10 shadow-black/45",
     glow: "rgba(59, 130, 246, 0.8)",
     bottomGlow: "from-blue-900/10",
     topShine: "via-white/30",
