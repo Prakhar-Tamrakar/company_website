@@ -4,8 +4,8 @@ import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import xss from "xss";
-import { verifyRecaptcha } from "@/lib/security/recaptcha";
-import { rateLimit } from "@/lib/security/rateLimit";
+import { verifyRecaptcha } from "../../../utility/recaptcha";
+import { rateLimit } from "../../../utility/rateLimit";
 
 /* ---------------- CONFIG ---------------- */
 
