@@ -83,14 +83,13 @@ export default function WhyClientsChooseUs() {
         <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((item, index) => {
             const Icon = item.icon;
-
             return (
               <div
                 key={index}
                 className={`
                   group relative overflow-hidden
                   p-8 sm:p-10 flex flex-col items-start
-                  border-gray-200 ${item.border}
+                  border-gray-300 ${item.border}
 
                   transition-all duration-300 ease-out
                   hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]

@@ -2,37 +2,37 @@ export const runtime = "nodejs";
 
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { z } from "zod";
+import xss from "xss";
+import { verifyRecaptcha } from "@/lib/security/recaptcha";
+import { rateLimit } from "@/lib/security/rateLimit";
 
 /* ---------------- CONFIG ---------------- */
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
 const ALLOWED_TYPES = [
   "application/pdf",
   "application/msword",
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ];
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/* ---------------- VALIDATION ---------------- */
 
-/* ---------------- HELPERS ---------------- */
+const schema = z.object({
+  fullName: z.string().min(1).max(100),
+  email: z.string().email().max(255),
+  position: z.string().max(255).optional(),
+  phone: z.string().max(30).optional(),
+});
 
-function sanitize(input) {
-  return String(input || "").replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  }[char]));
-}
-
-/* ---------------- EMAIL SETUP ---------------- */
+/* ---------------- MAIL ---------------- */
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // App password
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -40,119 +40,107 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(req) {
   try {
-    const formData = await req.formData();
+    /* 🔒 Rate limit */
+    const ip =
+      req.headers.get("x-forwarded-for") ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
 
-    const fullName = String(formData.get("fullName") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const position = String(formData.get("position") || "").trim();
-    const phone = String(formData.get("phone") || "").trim();
-    const resume = formData.get("resume");
-    const recaptchaToken = formData.get("recaptchaToken");
-
-    /* ---------------- reCAPTCHA ---------------- */
-
-    if (!recaptchaToken) {
+    if (!rateLimit(ip)) {
       return NextResponse.json(
-        { message: "reCAPTCHA verification required" },
-        { status: 400 }
+        { success: false, message: "Too many requests" },
+        { status: 429 }
       );
     }
 
-    const recaptchaResponse = await fetch(
-      "https://www.google.com/recaptcha/api/siteverify",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          secret: process.env.RECAPTCHA_SECRET_KEY,
-          response: recaptchaToken,
-        }),
-      }
+    /* 📥 Parse form */
+    const formData = await req.formData();
+
+    const fullName = formData.get("fullName");
+    const email = formData.get("email");
+    const position = formData.get("position");
+    const phone = formData.get("phone");
+    const resume = formData.get("resume");
+    const recaptchaToken = formData.get("recaptchaToken");
+
+    /* 🤖 Verify reCAPTCHA */
+    const recaptcha = await verifyRecaptcha(
+      recaptchaToken,
+      "job_apply"
     );
 
-    const recaptchaData = await recaptchaResponse.json();
+    if (!recaptcha.success) {
+      console.log("reCAPTCHA failed:", recaptcha.data);
 
-    if (
-      !recaptchaData.success ||
-      recaptchaData.score < 0.5 ||
-      recaptchaData.action !== "job_apply"
-    ) {
       return NextResponse.json(
-        { message: "Verification failed" },
+        { success: false, message: "Verification failed" },
         { status: 403 }
       );
     }
 
-    /* ---------------- BASIC VALIDATION ---------------- */
+    /* ✅ Validate input */
+    const parsed = schema.safeParse({
+      fullName,
+      email,
+      position,
+      phone,
+    });
 
-    if (!fullName || !email || !resume) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { message: "Missing required fields" },
+        { success: false, message: "Invalid input" },
         { status: 400 }
       );
     }
 
-    if (!EMAIL_REGEX.test(email)) {
-      return NextResponse.json(
-        { message: "Invalid email address" },
-        { status: 400 }
-      );
+    const data = parsed.data;
+
+    /* 🧼 Sanitize */
+    const clean = {};
+    for (const key in data) {
+      clean[key] = xss(data[key] || "");
     }
 
-    if (
-      fullName.length > 100 ||
-      email.length > 255 ||
-      phone.length > 30 ||
-      position.length > 255
-    ) {
-      return NextResponse.json(
-        { message: "Input too long" },
-        { status: 400 }
-      );
-    }
-
-    /* ---------------- FILE VALIDATION ---------------- */
-
+    /* 📎 File validation */
     if (!(resume instanceof File)) {
       return NextResponse.json(
-        { message: "Invalid resume file" },
+        { success: false, message: "Invalid resume file" },
         { status: 400 }
       );
     }
 
     if (!ALLOWED_TYPES.includes(resume.type)) {
       return NextResponse.json(
-        { message: "Only PDF, DOC, or DOCX files are allowed" },
+        { success: false, message: "Only PDF, DOC, DOCX allowed" },
         { status: 400 }
       );
     }
 
     if (resume.size > MAX_FILE_SIZE) {
       return NextResponse.json(
-        { message: "Resume must be under 5MB" },
+        { success: false, message: "File must be under 5MB" },
         { status: 400 }
       );
     }
 
-    /* ---------------- EMAIL ---------------- */
-
+    /* 📧 Send email */
     const buffer = Buffer.from(await resume.arrayBuffer());
 
     await transporter.sendMail({
       from: `"Careers" <${process.env.EMAIL_USER}>`,
       to: process.env.MANAGER_EMAIL,
-      replyTo: email,
+      replyTo: clean.email,
       subject: "New Job Application",
       html: `
         <h3>New Job Application</h3>
-        <p><strong>Name:</strong> ${sanitize(fullName)}</p>
-        <p><strong>Email:</strong> ${sanitize(email)}</p>
-        <p><strong>Position:</strong> ${sanitize(position) || "N/A"}</p>
-        <p><strong>Phone:</strong> ${sanitize(phone) || "N/A"}</p>
+        <p><strong>Name:</strong> ${clean.fullName}</p>
+        <p><strong>Email:</strong> ${clean.email}</p>
+        <p><strong>Position:</strong> ${clean.position || "N/A"}</p>
+        <p><strong>Phone:</strong> ${clean.phone || "N/A"}</p>
       `,
       attachments: [
         {
-          filename: resume.name,
+          filename: "resume", // don't trust original filename
           content: buffer,
         },
       ],
@@ -162,10 +150,12 @@ export async function POST(req) {
       success: true,
       message: "Application submitted successfully",
     });
+
   } catch (err) {
     console.error("Job apply error:", err);
+
     return NextResponse.json(
-      { message: "Server error" },
+      { success: false, message: "Server error" },
       { status: 500 }
     );
   }

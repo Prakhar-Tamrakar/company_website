@@ -2,38 +2,43 @@ export const runtime = "nodejs";
 
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { z } from "zod";
+import xss from "xss";
+import { verifyRecaptcha } from "../../../utility/recaptcha";
+import { rateLimit } from "../../../utility/rateLimit";
 
 /* ----------------------------------
    CONFIG
 ---------------------------------- */
 
-const ENQUIRY_TTL = 30 * 60 * 1000; // 30 minutes
+const ENQUIRY_TTL = 30 * 60 * 1000;
 
 /* ----------------------------------
-   GLOBAL IN-MEMORY STORE
+   GLOBAL STORE
 ---------------------------------- */
 
 const enquiryStore =
   global.enquiryStore || (global.enquiryStore = new Map());
 
 /* ----------------------------------
+   VALIDATION
+---------------------------------- */
+
+const schema = z.object({
+  firstName: z.string().min(1).max(100),
+  lastName: z.string().min(1).max(100),
+  email: z.string().email().max(255),
+  address: z.string().max(300).optional(),
+  message: z.string().min(1).max(2000),
+  product: z.string().max(150).optional(),
+});
+
+/* ----------------------------------
    HELPERS
 ---------------------------------- */
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 function normalizeEmail(email) {
-  return String(email || "").trim().toLowerCase();
-}
-
-function escapeHtml(input) {
-  return String(input || "").replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  }[char]));
+  return email.trim().toLowerCase();
 }
 
 function cleanupEnquiries() {
@@ -53,7 +58,7 @@ const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Gmail app password
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -63,10 +68,20 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(req) {
   try {
-    /* ------------------------------
-       Content-Type check
-    ------------------------------ */
+    /* 🔒 Rate limit */
+    const ip =
+      req.headers.get("x-forwarded-for") ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
 
+    if (!rateLimit(ip)) {
+      return NextResponse.json(
+        { success: false, message: "Too many requests" },
+        { status: 429 }
+      );
+    }
+
+    /* 📥 Content-Type check */
     const contentType = req.headers.get("content-type") || "";
     if (!contentType.includes("application/json")) {
       return NextResponse.json(
@@ -75,10 +90,7 @@ export async function POST(req) {
       );
     }
 
-    /* ------------------------------
-       Parse body
-    ------------------------------ */
-
+    /* 📥 Parse body */
     const {
       firstName,
       lastName,
@@ -89,82 +101,52 @@ export async function POST(req) {
       recaptchaToken,
     } = await req.json();
 
-    /* ------------------------------
-       reCAPTCHA verification
-    ------------------------------ */
-
-    if (!recaptchaToken) {
-      return NextResponse.json(
-        { success: false, message: "reCAPTCHA verification required" },
-        { status: 400 }
-      );
-    }
-
-    const recaptchaResponse = await fetch(
-      "https://www.google.com/recaptcha/api/siteverify",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          secret: process.env.RECAPTCHA_SECRET_KEY,
-          response: recaptchaToken,
-        }),
-      }
+    /* 🤖 Verify reCAPTCHA */
+    const recaptcha = await verifyRecaptcha(
+      recaptchaToken,
+      "product_enquiry"
     );
 
-    const recaptchaData = await recaptchaResponse.json();
+    if (!recaptcha.success) {
+      console.log("reCAPTCHA failed:", recaptcha.data);
 
-    if (
-      !recaptchaData.success ||
-      recaptchaData.score < 0.5 ||
-      recaptchaData.action !== "product_enquiry"
-    ) {
       return NextResponse.json(
-        { success: false, message: "Verification failed. Please try again." },
+        { success: false, message: "Verification failed" },
         { status: 403 }
       );
     }
 
-    /* ------------------------------
-       Validation
-    ------------------------------ */
+    /* ✅ Validate input */
+    const parsed = schema.safeParse({
+      firstName,
+      lastName,
+      email,
+      address,
+      message,
+      product,
+    });
 
-    if (!firstName || !lastName || !email || !message) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { success: false, message: "Missing required fields" },
+        { success: false, message: "Invalid input" },
         { status: 400 }
       );
     }
 
-    const normalizedEmail = normalizeEmail(email);
+    const data = parsed.data;
 
-    if (!EMAIL_REGEX.test(normalizedEmail)) {
-      return NextResponse.json(
-        { success: false, message: "Invalid email address" },
-        { status: 400 }
-      );
+    /* 🧼 Normalize + sanitize */
+    const normalizedEmail = normalizeEmail(data.email);
+
+    const clean = {};
+    for (const key in data) {
+      clean[key] = xss(data[key] || "");
     }
 
-    if (
-      firstName.length > 100 ||
-      lastName.length > 100 ||
-      message.length > 2000 ||
-      (address && address.length > 300) ||
-      (product && product.length > 150)
-    ) {
-      return NextResponse.json(
-        { success: false, message: "Input too long" },
-        { status: 400 }
-      );
-    }
-
-    /* ------------------------------
-       Duplicate enquiry prevention
-    ------------------------------ */
-
+    /* 🔁 Duplicate prevention */
     cleanupEnquiries();
 
-    const fingerprint = `${normalizedEmail}:${product || "general"}`;
+    const fingerprint = `${normalizedEmail}:${data.product || "general"}`;
 
     if (enquiryStore.has(fingerprint)) {
       return NextResponse.json(
@@ -178,21 +160,7 @@ export async function POST(req) {
 
     enquiryStore.set(fingerprint, Date.now());
 
-    /* ------------------------------
-       Escape output
-    ------------------------------ */
-
-    const safeFirstName = escapeHtml(firstName);
-    const safeLastName = escapeHtml(lastName);
-    const safeEmail = escapeHtml(normalizedEmail);
-    const safeMessage = escapeHtml(message);
-    const safeProduct = product ? escapeHtml(product) : "N/A";
-    const safeAddress = address ? escapeHtml(address) : "N/A";
-
-    /* ------------------------------
-       Send email
-    ------------------------------ */
-
+    /* 📧 Send email */
     await transporter.sendMail({
       from: `"Website Enquiry" <${process.env.EMAIL_USER}>`,
       to: process.env.MANAGER_EMAIL,
@@ -200,12 +168,12 @@ export async function POST(req) {
       subject: "New Product Enquiry",
       html: `
         <h2>New Product Enquiry</h2>
-        <p><strong>Name:</strong> ${safeFirstName} ${safeLastName}</p>
-        <p><strong>Email:</strong> ${safeEmail}</p>
-        <p><strong>Product:</strong> ${safeProduct}</p>
-        <p><strong>Address:</strong> ${safeAddress}</p>
+        <p><strong>Name:</strong> ${clean.firstName} ${clean.lastName}</p>
+        <p><strong>Email:</strong> ${clean.email}</p>
+        <p><strong>Product:</strong> ${clean.product || "N/A"}</p>
+        <p><strong>Address:</strong> ${clean.address || "N/A"}</p>
         <p><strong>Message:</strong></p>
-        <p>${safeMessage}</p>
+        <p>${clean.message}</p>
       `,
     });
 
@@ -213,6 +181,7 @@ export async function POST(req) {
       success: true,
       message: "Your enquiry has been sent successfully",
     });
+
   } catch (error) {
     console.error("Product enquiry API error:", error);
 

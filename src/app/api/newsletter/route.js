@@ -2,21 +2,32 @@ export const runtime = "nodejs";
 
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { z } from "zod";
+import xss from "xss";
+import { verifyRecaptcha } from "../../../utility/recaptcha";
+import { rateLimit } from "../../../utility/rateLimit";
 
 /* ----------------------------------
-   GLOBAL IN-MEMORY STORE
+   GLOBAL STORE (TEMP)
 ---------------------------------- */
 
 const subscribers =
   global.newsletterSubscribers ||
-  (global.newsletterSubscribers = new Map()); // email -> timestamp
+  (global.newsletterSubscribers = new Map());
 
 /* ----------------------------------
    CONSTANTS
 ---------------------------------- */
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const SUBSCRIBER_TTL = 24 * 60 * 60 * 1000; // 24 hours
+const SUBSCRIBER_TTL = 24 * 60 * 60 * 1000;
+
+/* ----------------------------------
+   VALIDATION
+---------------------------------- */
+
+const schema = z.object({
+  email: z.string().email().max(255),
+});
 
 /* ----------------------------------
    HELPERS
@@ -24,20 +35,6 @@ const SUBSCRIBER_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
 function normalizeEmail(email) {
   return email.trim().toLowerCase();
-}
-
-function escapeHtml(input) {
-  return String(input || "").replace(
-    /[&<>"']/g,
-    (char) =>
-      ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;",
-      })[char]
-  );
 }
 
 function cleanupSubscribers() {
@@ -50,14 +47,14 @@ function cleanupSubscribers() {
 }
 
 /* ----------------------------------
-   MAIL TRANSPORTER (REUSED)
+   MAIL TRANSPORTER
 ---------------------------------- */
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // app password
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -67,78 +64,53 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(req) {
   try {
-    /* ------------------------------
-       Parse request
-    ------------------------------ */
+    /* 🔒 Rate limit */
+    const ip =
+      req.headers.get("x-forwarded-for") ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
 
-    const { email, recaptchaToken } = await req.json();
-
-    /* ------------------------------
-       reCAPTCHA verification
-    ------------------------------ */
-
-    if (!recaptchaToken) {
+    if (!rateLimit(ip)) {
       return NextResponse.json(
-        { success: false, message: "reCAPTCHA verification required" },
-        { status: 400 }
+        { success: false, message: "Too many requests" },
+        { status: 429 }
       );
     }
 
-    const recaptchaResponse = await fetch(
-      "https://www.google.com/recaptcha/api/siteverify",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          secret: process.env.RECAPTCHA_SECRET_KEY,
-          response: recaptchaToken,
-        }),
-      }
-    );
+    /* 📥 Parse body */
+    const { email, recaptchaToken } = await req.json();
 
-    const recaptchaData = await recaptchaResponse.json();
+    /* 🤖 Verify reCAPTCHA */
+    const recaptcha = await verifyRecaptcha(recaptchaToken, "newsletter");
 
-    if (
-      !recaptchaData.success ||
-      recaptchaData.score < 0.5 ||
-      recaptchaData.action !== "newsletter" // ✅ FIXED
-    ) {
+    if (!recaptcha.success) {
+      console.log("reCAPTCHA failed:", recaptcha.data);
+
       return NextResponse.json(
-        { success: false, message: "Verification failed. Please try again." },
+        { success: false, message: "Verification failed" },
         { status: 403 }
       );
     }
 
-    /* ------------------------------
-       Validation
-    ------------------------------ */
+    /* ✅ Validate input */
+    const parsed = schema.safeParse({ email });
 
-    if (!email) {
+    if (!parsed.success) {
       return NextResponse.json(
-        { success: false, message: "Invalid request" },
+        { success: false, message: "Invalid email" },
         { status: 400 }
       );
     }
 
-    const normalizedEmail = normalizeEmail(email);
+    const normalizedEmail = normalizeEmail(parsed.data.email);
 
-    if (!EMAIL_REGEX.test(normalizedEmail) || normalizedEmail.length > 255) {
-      return NextResponse.json(
-        { success: false, message: "Invalid email address" },
-        { status: 400 }
-      );
-    }
+    /* 🧼 Sanitize */
+    const safeEmail = xss(normalizedEmail);
 
-    /* ------------------------------
-       Cleanup old subscribers
-    ------------------------------ */
-
+    /* 🧹 Cleanup old entries */
     cleanupSubscribers();
 
-    /* ------------------------------
-       Duplicate check
-    ------------------------------ */
-
+    /* 🔁 Duplicate check */
     if (subscribers.has(normalizedEmail)) {
       return NextResponse.json(
         { success: true, message: "You are already registered 😊" },
@@ -146,41 +118,30 @@ export async function POST(req) {
       );
     }
 
-    /* ------------------------------
-       Store subscriber
-    ------------------------------ */
-
+    /* 💾 Store */
     subscribers.set(normalizedEmail, Date.now());
 
-    /* ------------------------------
-       Send email notification
-    ------------------------------ */
-
+    /* 📧 Send email */
     await transporter.sendMail({
       from: `"Newsletter" <${process.env.EMAIL_USER}>`,
       to: process.env.MANAGER_EMAIL,
       subject: "New Newsletter Subscription",
       html: `
         <h2>New Subscriber 🎉</h2>
-        <p><strong>Email:</strong> ${escapeHtml(normalizedEmail)}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
       `,
     });
 
-    return NextResponse.json(
-      {
-        success: true,
-        message: "Subscription received successfully",
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({
+      success: true,
+      message: "Subscription received successfully",
+    });
+
   } catch (error) {
     console.error("Newsletter error:", error);
 
     return NextResponse.json(
-      {
-        success: false,
-        message: "Failed to process request",
-      },
+      { success: false, message: "Server error" },
       { status: 500 }
     );
   }

@@ -51,12 +51,14 @@ export default function NewsletterSection() {
 
     try {
       setLoading(true);
+      console.log(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
 
       // ✅ Execute reCAPTCHA
       const token = await window.grecaptcha.execute(
         process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
         { action: "newsletter" },
       );
+      console.log(token)
 
       // ✅ Update state (source of truth)
       setData((prev) => ({

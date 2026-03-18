@@ -12,25 +12,25 @@ export const metadata = {
   title: "Career",
   description:
     "Explore career opportunities at i-Connectresources and grow your career in ServiceNow, cloud, automation, and digital transformation.",
-  keywords:['Technology careers',
-	'Innovation careers',
-	'Purpose-driven careers',
-'	IT jobs in India / US',
-'	Hybrid work culture',
-'Mentorship and growth',
-'ServiceNow developer',
- 'Automation engineer',
- 'Python + PowerShell engineer',
- 'Business analyst (Healthcare IT)',
- 'Continuous learning culture',
- 'Agile + DevOps teams',
- 'Collaboration across geographies',
- 'Diversity and inclusion',
- 'Women in tech',
- 'Early career programs',
- 'Returnship programs',
-]
-
+  keywords: [
+    "Technology careers",
+    "Innovation careers",
+    "Purpose-driven careers",
+    "	IT jobs in India / US",
+    "	Hybrid work culture",
+    "Mentorship and growth",
+    "ServiceNow developer",
+    "Automation engineer",
+    "Python + PowerShell engineer",
+    "Business analyst (Healthcare IT)",
+    "Continuous learning culture",
+    "Agile + DevOps teams",
+    "Collaboration across geographies",
+    "Diversity and inclusion",
+    "Women in tech",
+    "Early career programs",
+    "Returnship programs",
+  ],
 };
 
 const page = () => {
@@ -50,7 +50,7 @@ const page = () => {
       <HowWeWorkSection />
       <JourneySection />
       <Diversity />
-      <JobApplySection/>
+      <JobApplySection />
       <TestimonialsCarousel />
     </div>
   );

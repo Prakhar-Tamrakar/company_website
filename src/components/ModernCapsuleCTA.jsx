@@ -116,8 +116,7 @@ const ModernCapsuleCTA = ({ href, text, theme = "dark" }) => {
             transparent 80%
           )`,
         }}
-      />
-
+      />  
       {/* Top Glass Shine */}
       <div
         className={`absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent ${currentTheme.topShine} to-transparent`}

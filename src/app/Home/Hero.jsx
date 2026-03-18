@@ -171,22 +171,21 @@ const Hero = () => {
           style={{
             backgroundImage:
               "linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)",
-            backgroundSize: "80px 80px",
+            backgroundSize: "100px 100px",
           }}
         />
       </div>
-
       {/* ---------- Main Content ---------- */}
-      <main className="relative z-30 flex flex-col px-6 sm:px-12 md:px-24 lg:px-40 pb-16 md:pb-0 md:h-full">
+      <main className= "container relative z-30 flex flex-col px-6 sm:px-12 md:px-24 lg:px-40 pb-16 md:pb-0 md:h-full">
         <div className="hero-content flex flex-col justify-end md:justify-center flex-1 mt-32 md:mt-0">
-          <h1 className="heading-default text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-left font-regular tracking-tight text-slate-900 leading-[1.1] sm:leading-tight mb-6">
+          <h1 className="heading-default text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-left font-regular  text-slate-900 sm:leading-tight mb-6">
             {"Empowering Business".split(" ").map((word, wIdx) => (
               <span
                 key={`w1-${wIdx}`}
                 className="inline-block whitespace-nowrap mr-[0.25em]"
               >
                 {word.split("").map((char, cIdx) => (
-                  <span key={cIdx} className="inline-block hero-letter">
+                  <span key={cIdx} className="inline-block hero-letter font-regular">
                     {char}
                   </span>
                 ))}
@@ -209,9 +208,8 @@ const Hero = () => {
               </span>
             ))}
           </h1>
-
-          <p className="text-base sm:text-xl  content-default text-left leading-relaxed mb-8 sm:mb-12 max-w-2xl text-slate-700">
-            <span className="inline-block hero-line mr-1 mb-1 sm:mb-0">
+          <p className="text-base sm:text-xl  content-default  text-left leading-relaxed mb-8 sm:mb-12 max-w-2xl text-slate-700">
+            <span className="inline-block hero-line mr-2 mb-1 sm:mb-0">
               We partner with forward-thinking enterprises
             </span>
             <span className="inline-block hero-line mr-1 mb-1 sm:mb-0">
@@ -221,7 +219,6 @@ const Hero = () => {
               scalable IT solutions that solve real-world challenges.
             </span>
           </p>
-
           <div className="w-fit hero-cta">
             <ModernCapsuleCTA href="/contact" text="Schedule a Consultation" />
           </div>
@@ -230,5 +227,4 @@ const Hero = () => {
     </div>
   );
 };
-
 export default Hero;
