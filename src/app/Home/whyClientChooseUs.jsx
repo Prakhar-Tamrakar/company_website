@@ -14,7 +14,7 @@ const features = [
     icon: Rocket,
     title: "60% Faster IT Service Delivery",
     description:
-      "Accelerated service fulfillment through process automation, streamlined workflows, and proactive issue resolution.",
+      "Accelerated service fulfilment through process automation, streamlined workflows, and proactive issue resolution.",
     border: "border-b md:border-r",
   },
   {
@@ -61,18 +61,17 @@ export default function WhyClientsChooseUs() {
         {/* Header */}
         {/* <Heading
             headline="Why Clients Choose Us"
-            subHeadline="We're more than an IT partner — we're a trusted ally focused on driving real outcomes. At i-Connectresources, we simplify complexity, enhance efficiency, and infuse innovation into every process we support."
+            subheadline="We're more than an IT partner — we're a trusted ally focused on driving real outcomes. At i-Connectresources, we simplify complexity, enhance efficiency, and infuse innovation into every process we support."
             maxWidth="6xl"
           /> */}
 
         {/* heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 px-3">
-          <h1 className="font-playfair text-left leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl"          >
+        {/* heading */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-12">
+          <h2 className="heading-default text-4xl sm:text-5xl md:text-6xl text-left">
             Why Clients <br className="hidden sm:block" /> Choose Us
-          </h1>
-
-          <p
-            className="card-subtitle max-w-md text-sm sm:text-base leading-relaxed" >
+          </h2>
+          <p className="card-subtitle w-full md:max-w-md content-default text-left">
             We're more than an IT partner — we're a trusted ally focused on
             driving real outcomes. At i-Connectresources, we simplify
             complexity, enhance efficiency, and infuse innovation into every
@@ -81,7 +80,7 @@ export default function WhyClientsChooseUs() {
         </div>
 
         {/* Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((item, index) => {
             const Icon = item.icon;
 
@@ -90,7 +89,7 @@ export default function WhyClientsChooseUs() {
                 key={index}
                 className={`
                   group relative overflow-hidden
-                  p-8 flex flex-col items-start
+                  p-8 sm:p-10 flex flex-col items-start
                   border-gray-200 ${item.border}
 
                   transition-all duration-300 ease-out
@@ -140,15 +139,15 @@ export default function WhyClientsChooseUs() {
                   </div>
 
                   {/* Title */}
-                  <div className="card-heading">
-                    <h3 className="card-heading-title transition-colors duration-300 group-hover:text-white">
+                  <div className="card-heading mb-4">
+                    <h3 className="text-base lg:text-lg font-normal  heading-default  ">
                       {item.title}
                     </h3>
-                    <span className="card-heading-underline" />
+                    <span className="card-heading-underline " />
                   </div>
 
                   {/* Description */}
-                  <p className="card-subtitle mt-2 transition-colors duration-300 group-hover:text-white">
+                  <p className="card-subtitle  content-default">
                     {item.description}
                   </p>
                 </div>

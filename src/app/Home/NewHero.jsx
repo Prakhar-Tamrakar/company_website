@@ -129,6 +129,7 @@ export default function HeroNewSection() {
   return (
     <section
       ref={container}
+      id="Hero"
       className="relative  py-36 sm:py-24 md:py-28 lg:py-36  w-full bg-white overflow-hidden flex items-center justify-center"
     >
       {/* -------- AMBIENT BACKGROUND -------- */}

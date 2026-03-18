@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Heading({
   headline,
-  subHeadline,
+  subheadline,
   align = "center",
   className = "",
   color = "primary",
@@ -15,12 +15,13 @@ export default function Heading({
 }) {
   const containerRef = useRef(null);
 
-  const headlineColorClass = color === "white" ? "text-white" : "text-slate-900";
-  const subHeadlineColorClass =
-    color === "white" ? "text-white/80" : "text-gray-600";
+  const headlineColorClass =
+    color === "white" ? "text-white" : "heading-default";
+  const subheadlineColorClass =
+    color === "white" ? "text-white/80" : "content-default";
 
   const headlineWords = headline.split(" ");
-  const subLines = subHeadline ? subHeadline.split(/(?<=[.!?])\s+/) : [];
+  const subLines = subheadline ? subheadline.split(/(?<=[.!?])\s+/) : [];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -50,13 +51,13 @@ export default function Heading({
             ease: "power3.out",
             stagger: 0.1,
           },
-          "-=0.4"
+          "-=0.4",
         );
       }
     }, containerRef);
 
     return () => ctx.revert();
-  }, [headline, subHeadline]);
+  }, [headline, subheadline]);
 
   return (
     <div
@@ -66,11 +67,11 @@ export default function Heading({
     >
       {/* Headline */}
       <h2
-        className={`font-playfair font-regular lg:font-regular leading-[1.2]
-          text-[28px] sm:text-[32px] md:text-[40px] lg:text-[52px]
-          tracking-[0.04em]
-          ${maxWidth || "max-w-[600px]"}
-          ${headlineColorClass}`}
+        className={`font-regular lg:font-medium
+    text-[28px] sm:text-[32px] md:text-[40px] lg:text-[52px]
+    leading-[1.1]
+    ${maxWidth || "max-w-[600px]"}
+    ${headlineColorClass}`}
       >
         {headlineWords.map((word, i) => (
           <span key={i} className="inline-block overflow-hidden mr-2">
@@ -79,10 +80,10 @@ export default function Heading({
         ))}
       </h2>
 
-      {/* subHeadline */}
-      {subHeadline && (
+      {/* Subheadline */}
+      {subheadline && (
         <p
-          className={`mt-3 leading-normal text-[16px] sm:text-[17px] md:text-[18px] font-light tracking-[0.02em] ${subHeadlineColorClass}`}
+          className={`text-base font-light leading-relaxed ${subheadlineColorClass}`}
         >
           {subLines.map((line, i) => (
             <span key={i} className="block overflow-hidden">

@@ -3,19 +3,21 @@ import SolutionsSection from "./Home/SolutionsSection";
 import Frame from "./Home/UniqueDifferences";
 import WhyClientsChooseUs from "./Home/whyClientChooseUs";
 import WeHelpYouSolve from "./Home/weHelpYouSolve";
-import ServicesGrid from "./Home/NewServicesSection";
 import NewsletterSection from "./Home/NewsletterSection";
 
-const HeroNewSection = dynamic(() => import("./Home/NewHero"));
-const Intro = dynamic(() => import("./Home/Intro"));
+const HeroNewSection = dynamic(() => import("./Home/Hero"));
+const IntroSection = dynamic(() => import("./Home/IntroSection"));
+const ServicesSection = dynamic(() => import("./Home/ServicesSection"));
+
+ 
 
 export default function Page() {
   return (
     <>
       <HeroNewSection/>
-      <Intro/>
+      <IntroSection/>
+      <ServicesSection/>
       <SolutionsSection />
-      <ServicesGrid/>
       <Frame />
       <WhyClientsChooseUs/>
       <WeHelpYouSolve/>

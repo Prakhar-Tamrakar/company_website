@@ -16,123 +16,208 @@ export default function Navbar() {
 
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
-  const isContactPage = pathname === "/contact";
-
-  // Fix hydration mismatch
+  /* ---------------- Body scroll lock ---------------- */
   useEffect(() => {
-    setMounted(true);
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  /* ---------------- Close on ESC / resize ---------------- */
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setMenuOpen(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  /* ---------------- Underline Logic ---------------- */
+  /* ---------------- Active underline ---------------- */
   useEffect(() => {
-    if (isContactPage) {
-      setUnderlineStyle({ width: 0, left: 0 });
-      return;
-    }
-
-    const activeIndex = navLinks.findIndex(link => link.url === pathname);
+    const activeIndex = navLinks.findIndex((l) => l.url === pathname);
     const activeEl = navRef.current[activeIndex];
-
     if (activeEl && underlineRef.current) {
       setUnderlineStyle({
-        width: activeEl.offsetWidth - 10,
-        left: activeEl.offsetLeft + 5,
+        width: activeEl.offsetWidth,
+        left: activeEl.offsetLeft,
       });
     } else {
       setUnderlineStyle({ width: 0, left: 0 });
     }
-  }, [pathname, isContactPage]);
+  }, [pathname]);
 
   return (
-    <div className="fixed top-4 left-0 z-50 w-full px-4 flex justify-center">
-      <nav className="relative w-full max-w-7xl flex items-center justify-between px-6 py-2 rounded-full border border-white/20 bg-white backdrop-blur-xl shadow-md transition-all duration-300">
+    <>
+      {/* ===== TOP NAVBAR ===== */}
+      <header className="fixed top-0 left-0 z-50 w-full bg-white/70 backdrop-blur-xl border-b border-slate-200/60 shadow-sm">
+        <div className="mx-auto flex h-18 w-full max-w-[1440px] items-center justify-between px-5 md:px-10">
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image src={logo} alt="Logo" width={42} height={42} className="shrink-0" />
-          <h1 className="text-lg md:text-xl font-bold tracking-tight text-primary">
-            i-Connectresources
-          </h1>
-        </Link>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 shrink-0">
+            <Image src={logo} alt="Logo" width={36} height={36} />
+            <span className="text-lg md:text-xl font-light tracking-tight text-primary">
+              i-Connectresources
+            </span>
+          </Link>
 
-        {/* Desktop Menu */}
-        <div className="relative hidden lg:block">
-          <ul className="flex gap-7 py-2 text-[0.95rem] font-semibold">
-            {navLinks.map((link, index) => (
+          {/* Desktop Nav */}
+          <nav className="relative hidden xl:block">
+            <ul className="flex gap-10 text-[13px] font-bold uppercase tracking-[0.15em]">
+              {navLinks.map((link, i) => (
+                <Link
+                  key={link.id}
+                  href={link.url}
+                  ref={(el) => (navRef.current[i] = el)}
+                  className={`transition-colors duration-300 ${
+                    pathname === link.url
+                      ? "text-primary"
+                      : "text-slate-500 hover:text-primary"
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </ul>
+            {/* Animated underline */}
+            <span
+              ref={underlineRef}
+              style={{ width: underlineStyle.width, left: underlineStyle.left }}
+              className="absolute -bottom-2 h-0.5 rounded-full bg-primary transition-all duration-500"
+            />
+          </nav>
+
+          {/* Desktop CTA */}
+          <div className="hidden xl:block shrink-0">
+            <Link
+              href="/contact"
+              className="px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest bg-primary text-white transition-all hover:opacity-90 active:scale-95"
+            >
+              Contact Us
+            </Link>
+          </div>
+
+          {/* Hamburger — mobile only */}
+          <button
+            id="hamburger"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="xl:hidden relative z-[70] flex flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-md"
+          >
+            <span
+              className={`block h-0.5 w-6 rounded bg-slate-800 transition-all duration-300 origin-center ${
+                menuOpen ? "rotate-45 translate-y-[7px]" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-4 rounded bg-slate-800 transition-all duration-300 ${
+                menuOpen ? "opacity-0 scale-x-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 rounded bg-slate-800 transition-all duration-300 origin-center ${
+                menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+              }`}
+            />
+          </button>
+        </div>
+      </header>
+
+      {/* ===== BACKDROP (click anywhere to close) ===== */}
+      <div
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+        className={`fixed inset-0 z-[55] bg-black/50 backdrop-blur-sm transition-opacity duration-300 xl:hidden ${
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* ===== SLIDING RIGHT SIDEBAR ===== */}
+      <aside
+        id="mobile-menu"
+        aria-label="Navigation sidebar"
+        className={`fixed top-0 right-0 z-[60] h-full w-[78vw] max-w-[300px] bg-white shadow-2xl flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] xl:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Sidebar header */}
+        <div className="flex items-center justify-between px-5 py-5 border-b border-slate-100">
+          <Link
+            href="/"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2"
+          >
+            <Image src={logo} alt="Logo" width={28} height={28} />
+            <span className="text-sm font-light text-primary tracking-tight">
+              i-Connectresources
+            </span>
+          </Link>
+          {/* Close button */}
+          <button
+            aria-label="Close navigation menu"
+            onClick={() => setMenuOpen(false)}
+            className="w-8 h-8 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M2 2l12 12M14 2L2 14"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <nav className="flex flex-col gap-1 px-4 py-6 flex-1 overflow-y-auto">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.url;
+            return (
               <Link
                 key={link.id}
                 href={link.url}
-                ref={el => (navRef.current[index] = el)}
-                className={`transition-colors duration-300 ${
-                  pathname === link.url ? "text-primary" : "text-slate-600 hover:text-primary"
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold uppercase tracking-widest transition-all duration-200 ${
+                  isActive
+                    ? "bg-primary/10 text-primary"
+                    : "text-slate-600 hover:bg-slate-50 hover:text-primary"
                 }`}
               >
+                {/* Active dot */}
+                <span
+                  className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all ${
+                    isActive ? "bg-primary" : "bg-slate-300"
+                  }`}
+                />
                 {link.title}
               </Link>
-            ))}
-          </ul>
+            );
+          })}
+        </nav>
 
-          {/* Underline */}
-          <span
-            ref={underlineRef}
-            style={{ width: underlineStyle.width, left: underlineStyle.left }}
-            className="absolute bottom-1 h-0.5 rounded-full bg-primary transition-all duration-300 ease-out"
-          />
-        </div>
-
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex">
-          <Link
-            href="/contact"
-            className="px-7 py-2.5 rounded-full bg-primary text-sm font-bold text-white opacity-95 transition-all hover:opacity-100 active:scale-95"
-          >
-            Contact
-          </Link>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMenuOpen(prev => !prev)}
-          className="lg:hidden flex h-8 w-8 flex-col items-end justify-center gap-1.5"
-        >
-          <span className={`h-0.5 rounded-full bg-slate-900 transition-all duration-300 ${menuOpen ? "-rotate-45 translate-y-2 w-7" : "w-6"}`} />
-          <span className={`h-0.5 rounded-full bg-slate-900 transition-all duration-300 ${menuOpen ? "opacity-0" : "w-4"}`} />
-          <span className={`h-0.5 rounded-full bg-slate-900 transition-all duration-300 ${menuOpen ? "rotate-45 -translate-y-2 w-7" : "w-5"}`} />
-        </button>
-
-        {/* Mobile Menu */}
-        <div
-          className={`absolute top-[72px] left-0 w-full rounded-3xl border border-white/20 bg-white backdrop-blur-2xl p-6 shadow-xl flex flex-col gap-4 text-center lg:hidden transition-all duration-300 ease-out ${
-            menuOpen
-              ? "pointer-events-auto scale-100 translate-y-0 opacity-100"
-              : "pointer-events-none scale-95 -translate-y-4 opacity-0"
-          }`}
-        >
-          {navLinks.map(link => (
-            <Link
-              key={link.id}
-              href={link.url}
-              onClick={() => setMenuOpen(false)}
-              className={`text-xl font-bold transition-colors ${
-                pathname === link.url ? "text-primary" : "text-slate-800 hover:text-primary"
-              }`}
-            >
-              {link.title}
-            </Link>
-          ))}
-
+        {/* Bottom CTA */}
+        <div className="px-5 py-6 border-t border-slate-100">
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 rounded-full bg-primary py-4 font-bold text-white transition-all hover:opacity-90"
+            className="block w-full text-center py-3.5 rounded-full bg-primary text-white text-sm font-bold uppercase tracking-widest transition-all hover:opacity-90 active:scale-95"
           >
             Contact Us
           </Link>
         </div>
-
-      </nav>
-    </div>
+      </aside>
+    </>
   );
 }

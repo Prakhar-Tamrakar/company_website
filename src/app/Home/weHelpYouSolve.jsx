@@ -36,7 +36,6 @@ export default function WeHelpYouSolve() {
   const [cardsPerPage, setCardsPerPage] = useState(2);
   const [index, setIndex] = useState(0);
   const [enableTransition, setEnableTransition] = useState(true);
-
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -46,41 +45,31 @@ export default function WeHelpYouSolve() {
   /* ---------------- Responsive cards-per-page ---------------- */
   useEffect(() => {
     const media = window.matchMedia("(max-width: 1023px)");
-
     const update = () => {
       setCardsPerPage(media.matches ? 1 : 2);
-      setIndex(0); // reset to avoid broken offsets
+      setIndex(0);
     };
-
     update();
     media.addEventListener("change", update);
-
     return () => media.removeEventListener("change", update);
   }, []);
 
   const totalPages = Math.ceil(cards.length / cardsPerPage);
 
-  /* ---------------- Navigation ---------------- */
   const next = () => setIndex((prev) => prev + 1);
+  const prev = () => setIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
 
-  const prev = () =>
-    setIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-
-  /* ---------------- Infinite loop reset ---------------- */
   useEffect(() => {
     if (index === totalPages) {
       const timer = setTimeout(() => {
         setEnableTransition(false);
         setIndex(0);
       }, 500);
-
       return () => clearTimeout(timer);
     }
-
     setEnableTransition(true);
   }, [index, totalPages]);
 
-  /* ---------------- Build pages (+ clone first) ---------------- */
   const pages = Array.from({ length: totalPages + 1 }).map((_, pageIndex) => {
     const start = (pageIndex % totalPages) * cardsPerPage;
     return cards.slice(start, start + cardsPerPage);
@@ -92,32 +81,26 @@ export default function WeHelpYouSolve() {
     <Section
       id="use-cases"
       size="xl"
-      background="relative bg-[#010518] overflow-hidden"
+      background="relative bg-zinc-100/70 overflow-hidden" // Light Background
     >
-      {/* <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:210px_100%]"></div> */}
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[210px_100%]"></div>
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[100%_210px]"></div>
+      {/* Subtle grid background for light theme */}
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:210px_100%]"></div>
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:100%_210px]"></div>
 
       <div className="container relative">
-        {/* Heading */}
         <Heading
           headline="We Help You Solve What Matters Most"
-          subHeadline="Real solutions for real business challenges — because your problems deserve outcomes, not excuses."
-          color="white"
+          subheadline="Real solutions for real business challenges — because your problems deserve outcomes, not excuses."
+          color="black" // Light theme heading
           className="mb-16"
         />
 
-        {/* Carousel */}
         <div className="relative overflow-hidden">
           <div
             className={`flex ${
-              enableTransition
-                ? "transition-transform duration-500 ease-out"
-                : ""
+              enableTransition ? "transition-transform duration-500 ease-out" : ""
             }`}
-            style={{
-              transform: `translateX(-${index * 100}%)`,
-            }}
+            style={{ transform: `translateX(-${index * 100}%)` }}
           >
             {pages.map((pageCards, pageIndex) => (
               <div
@@ -129,28 +112,28 @@ export default function WeHelpYouSolve() {
                 {pageCards.map((card, i) => (
                   <div
                     key={i}
-                    className="relative rounded-2xl border border-primary/30 bg-white/5 backdrop-blur-xl p-8 transition-all duration-300 hover:bg-white/10"
+                    className="relative rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-zinc-300"
                   >
-                    {/* soft glow */}
-                    <div className="absolute inset-0 rounded-2xl bg-primary/5 blur-xl opacity-40" />
+                    {/* Subtle internal glow for light theme */}
+                    <div className="absolute inset-0 rounded-2xl bg-blue-50/50 opacity-0 transition-opacity group-hover:opacity-100" />
 
                     <div className="relative z-10">
-                      <div className="flex items-center gap-2 text-sm text-blue-400 font-medium">
-                        <span className="w-2 h-2 rounded-full bg-blue-400" />
+                      <div className="flex items-center gap-2 text-sm text-primary font-bold tracking-wider">
+                        <span className="w-2 h-2 rounded-full bg-blue-600" />
                         {card.tag}
                       </div>
 
-                      <p className="mt-6 text-gray-300 leading-relaxed">
+                      <p className="mt-6 text-zinc-700 leading-relaxed text-base italic">
                         “{card.quote}”
                       </p>
 
-                      <div className="mt-6 border-t border-white/10 pt-4 text-sm text-gray-400 flex flex-col sm:flex-row">
+                      <div className="mt-6 border-t border-zinc-100 pt-4 text-sm text-zinc-500 flex flex-col sm:flex-row">
                         <div className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-blue-400" />
-                          <span>Solution:</span>
+                          <CheckCircle className="w-4 h-4 text-primary" />
+                          <span className="font-semibold">Solution:</span>
                         </div>
 
-                        <div className="mt-1 sm:mt-0 sm:ml-6 text-blue-400">
+                        <div className="mt-1 sm:mt-0 sm:ml-6 text-primary font-medium">
                           {card.solution}
                         </div>
                       </div>
@@ -162,19 +145,19 @@ export default function WeHelpYouSolve() {
           </div>
         </div>
 
-        {/* Navigation */}
+        {/* Navigation Buttons - Inverted to Dark */}
         <div className="mt-12 flex justify-center gap-4">
           <button
             onClick={prev}
-            className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition"
+            className="w-12 h-12 rounded-full bg-zinc-900 text-white flex items-center justify-center hover:bg-zinc-800 hover:scale-105 transition shadow-lg"
           >
-            <ChevronLeft />
+            <ChevronLeft size={24} />
           </button>
           <button
             onClick={next}
-            className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition"
+            className="w-12 h-12 rounded-full bg-zinc-900 text-white flex items-center justify-center hover:bg-zinc-800 hover:scale-105 transition shadow-lg"
           >
-            <ChevronRight />
+            <ChevronRight size={24} />
           </button>
         </div>
       </div>

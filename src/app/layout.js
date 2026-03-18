@@ -6,16 +6,19 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 const SmoothScroll = dynamic(() => import("./SmoothScroll"));
+
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "900"],
 });
+
 export const metadata = {
   title: {
     default:
@@ -89,7 +92,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${playfair.variable} ${roboto.variable} antialiased`}>
+      <body className={`${playfair.variable} font-satoshi antialiased`}>
         <SmoothScroll />
         <Navbar />
         {children}

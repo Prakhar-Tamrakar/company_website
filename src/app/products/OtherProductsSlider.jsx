@@ -25,7 +25,7 @@ const values = [
       outcome:
         "Provides real-time skills intelligence to guide workforce planning, hiring, and upskilling decisions.",
       image:
-        "/products/gapninjaNew.png",
+        "/products/gapNinjaNew.png",
     },
     {
       id: "03",

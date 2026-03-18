@@ -4,58 +4,37 @@ import Link from "next/link";
 import gsap from "gsap";
 import ModernCapsuleCTA from "./ModernCapsuleCTA";
 
-export default function HeroSection({
-  pageName,
+export default function CenteredHeroSection({
   headline,
-  subheadline,
+  subHeadline,
   primaryCta,
   secondaryCta,
-  maxWidth,
+  heroBgImage = "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 }) {
   const container = useRef(null);
-  const headlineRef = useRef(null);
-  const subheadlineRef = useRef(null);
-  const buttonsRef = useRef(null);
-  const pageNameRef = useRef(null);
+  const contentRef = useRef(null);
+  const bgImageRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { ease: "power4.out", duration: 1.2 },
+        defaults: { ease: "expo.out", duration: 1.4 },
       });
 
-      if (pageNameRef.current) {
-        tl.fromTo(
-          pageNameRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8 }
-        );
-      }
-
+      // Background fade and slight scale down for a "settling" feel
       tl.fromTo(
-        headlineRef.current,
-        { opacity: 0, y: 60 },
-        { opacity: 1, y: 0 },
-        "-=0.4"
+        bgImageRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 2 },
       );
 
-      if (subheadlineRef.current) {
-        tl.fromTo(
-          subheadlineRef.current,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0 },
-          "-=0.8"
-        );
-      }
-
-      if (buttonsRef.current?.children) {
-        tl.fromTo(
-          buttonsRef.current.children,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, stagger: 0.2 },
-          "-=0.6"
-        );
-      }
+      // Text elements reveal from bottom
+      tl.fromTo(
+        contentRef.current.children,
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, stagger: 0.15 },
+        "-=1.4",
+      );
     }, container);
 
     return () => ctx.revert();
@@ -64,73 +43,43 @@ export default function HeroSection({
   return (
     <section
       ref={container}
-      className={`relative ${
-        maxWidth ? maxWidth : "w-full"
-      } bg-[#fcfcfd] overflow-hidden
-      py-36 sm:py-40 md:py-48 lg:py-56`}
+      className="relative min-h-[65vh] lg:min-h-[80vh] flex items-center justify-center bg-white overflow-hidden px-6 py-20"
     >
-      {/* ===== BACKGROUND ===== */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-blue-100/50 blur-[120px]" />
-        <div className="absolute top-24 left-[12%] w-72 h-72 rounded-full bg-indigo-50/60 blur-3xl" />
-        <div className="absolute bottom-32 right-[10%] w-[420px] h-[420px] rounded-full bg-blue-50/50 blur-3xl" />
+      {/* 🖼️ BACKGROUND LAYER */}
+      <div ref={bgImageRef} className="absolute inset-0 z-0 opacity-0">
+        <img
+          src={heroBgImage}
+          alt="Centered Background"
+          className="w-full h-full object-cover"
+        />
 
-        <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)
-              `,
-              backgroundSize: "88px 88px",
-              maskImage:
-                "radial-gradient(circle at center, black 70%, transparent 95%)",
-              WebkitMaskImage:
-                "radial-gradient(circle at center, black 70%, transparent 95%)",
-            }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)
-              `,
-              backgroundSize: "22px 22px",
-              maskImage:
-                "radial-gradient(circle at center, black 75%, transparent 98%)",
-              WebkitMaskImage:
-                "radial-gradient(circle at center, black 75%, transparent 98%)",
-            }}
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/80" />
-        </div>
+        {/* CENTER-FOCUSED SCRIM: Lightest in the center for text clarity */}
+        <div className="absolute inset-0 bg-white/50" />
       </div>
 
-      {/* ===== CONTENT ===== */}
-      <div className="relative z-10 flex items-center">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1
-            ref={headlineRef}
-            className="text-4xl md:text-5xl lg:text-[64px] font-medium  font-playfair leading-tight bg-linear-to-br from-slate-800 via-slate-800 to-indigo-600 bg-clip-text text-transparent"
-          >
-            {headline}
+      {/* ✍️ CONTENT LAYER */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto  pt-10">
+        <div ref={contentRef} className="flex flex-col items-left">
+          <h1 className="text-4xl md:text-6xl font-regular heading-default text-slate-900 leading-[1.2] tracking-tight mb-8 max-w-5xl">
+            {headline && typeof headline === "string"
+              ? headline.split(" ").map((word, i) => (
+                  <span key={i} className="inline-block">
+                    {/* Highlighting the middle words for a premium balanced look */}
+                    {i >= 1 && i <= 2 ? (
+                      <span className="font-semibold">{word}</span>
+                    ) : (
+                      word
+                    )}{" "}
+                  </span>
+                ))
+              : headline}
           </h1>
 
-          {subheadline && (
-            <p
-              ref={subheadlineRef}
-              className="mt-6 max-w-4xl mx-auto text-slate-600 text-lg leading-relaxed"
-            >
-              {subheadline}
-            </p>
-          )}
+          <p className="text-lg md:text-xl  font-light text-slate-900 max-w-3xl mb-12 leading-relaxed">
+            {subHeadline}
+          </p>
 
-          <div
-            ref={buttonsRef}
-            className="mt-10 flex flex-wrap justify-center gap-4"
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-left gap-8">
             {primaryCta?.href && (
               <ModernCapsuleCTA
                 href={primaryCta.href}
@@ -139,16 +88,19 @@ export default function HeroSection({
             )}
 
             {secondaryCta?.href && (
-              <Link
+              <ModernCapsuleCTA
+                theme="light"
                 href={secondaryCta.href}
-                className="border border-slate-300 py-3 px-8 rounded-full text-slate-700 hover:bg-slate-50 transition-all duration-200"
-              >
-                {secondaryCta.label}
-              </Link>
+                text={secondaryCta.label}
+              />
             )}
           </div>
         </div>
       </div>
+
+      {/* Aesthetic Side Accents (Minimalist) */}
+      <div className="absolute left-10 top-1/2 -translate-y-1/2 h-32 w-px bg-slate-200 hidden xl:block" />
+      <div className="absolute right-10 top-1/2 -translate-y-1/2 h-32 w-px bg-slate-200 hidden xl:block" />
     </section>
   );
 }
