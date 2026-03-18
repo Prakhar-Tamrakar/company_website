@@ -93,10 +93,11 @@ export default function NewsletterSection() {
   };
 
   return (
-    <Section size="lg" className="relative w-full bg-white">
-      <div className="container mx-auto px-6">
+     <Section size="lg" className="relative w-full bg-white">
+      <div className="container  px-6">
         <div className="relative overflow-hidden rounded-3xl bg-white">
           <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center gap-12 p-4 sm:p-0">
+
             {/* RIGHT IMAGE — comes first on mobile */}
             <div className="relative flex justify-center order-1 lg:order-2">
               <div className="relative h-80 sm:h-96 w-full">
@@ -112,12 +113,12 @@ export default function NewsletterSection() {
 
             {/* LEFT CONTENT — comes second on mobile */}
             <div className="order-2 lg:order-1">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-regular font-playfair text-slate-900 leading-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-regular  heading-default leading-tight mb-6">
                 Stay ahead of <br className="hidden sm:block" />
                 digital trends.
               </h2>
 
-              <p className="text-slate-500 max-w-md mb-8">
+              <p className="content-default text-base leading-relaxed max-w-md mb-8">
                 Get the latest content in your inbox every week. No spam. Only
                 high-quality insights.
               </p>
@@ -131,8 +132,6 @@ export default function NewsletterSection() {
                     value={data.email}
                     onChange={handleChange}
                     disabled={submitted}
-                    maxLength={50}
-
                     className="
                       w-full
                       rounded-full
@@ -169,7 +168,11 @@ export default function NewsletterSection() {
                       ${loading || submitted ? "opacity-60" : ""}
                     `}
                   >
-                    {loading ? "Joining..." : submitted ? "Joined" : "Join Now"}
+                    {loading
+                      ? "Joining..."
+                      : submitted
+                      ? "Joined"
+                      : "Join Now"}
                     <Send size={16} />
                   </button>
                 </div>
@@ -179,6 +182,7 @@ export default function NewsletterSection() {
                 )}
               </form>
             </div>
+
           </div>
         </div>
       </div>

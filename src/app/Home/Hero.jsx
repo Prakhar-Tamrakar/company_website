@@ -1,10 +1,15 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 import ModernCapsuleCTA from "@/components/ModernCapsuleCTA";
+import backgroundImage01 from "../../../public/Home/HomeBg01.jpg" 
+import backgroundImage02 from "../../../public/Home/HomeBg02.jpg" 
+import backgroundImage03 from "../../../public/Home/HomeBg03.jpg" 
 
 const Hero = () => {
   const [index, setIndex] = useState(0);
+  const [curtainIndex, setCurtainIndex] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const containerRef = useRef(null);
@@ -13,23 +18,18 @@ const Hero = () => {
 
   const slides = [
     {
-      url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
+      src: backgroundImage01,
+      alt: "Hero Background 1",
     },
     {
-      url: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: backgroundImage02,
+      alt: "Hero Background 2",
     },
     {
-      url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070",
+      src: backgroundImage03,
+      alt: "Hero Background 3",
     },
   ];
-
-  /* ---------- Preload images ---------- */
-  useEffect(() => {
-    slides.forEach((s) => {
-      const img = new Image();
-      img.src = s.url;
-    });
-  }, []);
 
   /* ---------- Text entrance ---------- */
   useEffect(() => {
@@ -89,7 +89,6 @@ const Hero = () => {
         gsap.set(curtainRef.current, {
           yPercent: 100,
           display: "block",
-          backgroundImage: `url(${slides[nextIndex].url})`,
         });
 
         gsap.to(curtainRef.current, {
@@ -110,7 +109,8 @@ const Hero = () => {
                   opacity: 1,
                   display: "none",
                 });
-
+                
+                setCurtainIndex((nextIndex + 1) % slides.length);
                 setIsAnimating(false);
               },
             });
@@ -135,16 +135,31 @@ const Hero = () => {
         {/* Base Image */}
         <div
           ref={baseRef}
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${slides[index].url})` }}
-        />
+          className="absolute inset-0"
+        >
+          <Image
+            src={slides[index].src}
+            alt={slides[index].alt}
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
 
         {/* Curtain Layer */}
         <div
           ref={curtainRef}
-          className="absolute inset-0 bg-cover bg-center hidden"
+          className="absolute inset-0 hidden"
           style={{ zIndex: 1 }}
-        />
+        >
+          <Image
+            src={slides[curtainIndex].src}
+            alt={slides[curtainIndex].alt}
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
 
         {/* LIGHT Overlays */}
         <div className="absolute inset-0 bg-linear-to-r from-white/95 via-white/70 to-white/20 z-10" />

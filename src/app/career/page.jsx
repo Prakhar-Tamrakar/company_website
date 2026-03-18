@@ -1,12 +1,12 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import Diversity from "./Diversity";
-import HowWeWorkSection from "./HowWeWorkSection";
-import JobApplySection from "./JobApplySection";
 
 const HeroSection = dynamic(() => import("@/components/HeroSection"));
 const JourneySection = dynamic(() => import("./JourneySection"));
 const TestimonialsCarousel = dynamic(() => import("./TestimonialsCarousel"));
+const Diversity = dynamic(() => import("./Diversity"));
+const HowWeWorkSection = dynamic(() => import("./HowWeWorkSection"));
+const JobApplySection = dynamic(() => import("./JobApplySection"));
 
 export const metadata = {
   title: "Career",
