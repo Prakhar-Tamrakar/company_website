@@ -67,15 +67,13 @@ export default function WhyClientsChooseUs() {
 
         {/* heading */}
         {/* heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-12">
+        <div className="">
           <h2 className="heading-default text-4xl sm:text-5xl md:text-6xl text-left">
-            Why Clients <br className="hidden sm:block" /> Choose Us
+            Services We Deliver
           </h2>
           <p className="card-subtitle w-full md:max-w-md content-default text-left">
-            We're more than an IT partner — we're a trusted ally focused on
-            driving real outcomes. At i-Connectresources, we simplify
-            complexity, enhance efficiency, and infuse innovation into every
-            process we support.
+            We design, build, and scale enterprise-grade digital solutions that
+            help organizations innovate faster and strengthen security.
           </p>
         </div>
 

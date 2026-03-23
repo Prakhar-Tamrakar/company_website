@@ -8,6 +8,8 @@ const Frame = dynamic(() => import("./Home/UniqueDifferences"));
 const WhyClientsChooseUs = dynamic(() => import("./Home/whyClientChooseUs"));
 const WeHelpYouSolve = dynamic(() => import("./Home/weHelpYouSolve"));
 const NewsletterSection = dynamic(() => import("./Home/NewsletterSection"));
+const Services = dynamic(()=>import("../temp/services.jsx"));
+const BentoServices = dynamic(()=>import("../temp/BentoServices.jsx"));
 
 export default function Page() {
   return (
@@ -15,9 +17,11 @@ export default function Page() {
 
       <HeroNewSection/>
       <IntroSection/>
-      <ServicesSection/>
-      <SolutionsSection />
-      <Frame />
+      <Services/>
+      {/* <BentoServices/> */}
+      {/* <ServicesSection/> */}
+      {/* <SolutionsSection /> */}
+      {/* <Frame /> */}
       <WhyClientsChooseUs/>
       <WeHelpYouSolve/>
       <NewsletterSection/>

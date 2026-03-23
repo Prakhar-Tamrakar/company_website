@@ -62,16 +62,16 @@ export default function Navbar() {
         <div className="mx-auto flex h-18 w-full max-w-[1440px] items-center justify-between px-5 md:px-10">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0">
+          <Link href="/#index" className="flex items-center gap-3 shrink-0">
             <Image src={logo} alt="Logo" width={36} height={36} />
-            <span className="text-lg md:text-xl font-light tracking-tight text-primary">
+            <span className="text-lg md:text-2xl font-light tracking-tight text-primary">
               i-Connectresources
             </span>
           </Link>
 
           {/* Desktop Nav */}
           <nav className="relative hidden xl:block">
-            <ul className="flex gap-10 text-[13px] font-bold uppercase tracking-[0.15em]">
+            <ul className="flex gap-8 text-[13px] font-bold uppercase tracking-[0.15em]">
               {navLinks.map((link, i) => (
                 <Link
                   key={link.id}

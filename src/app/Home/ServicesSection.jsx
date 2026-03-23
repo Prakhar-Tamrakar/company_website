@@ -11,45 +11,45 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: 1,
-    title: "Strategic Consulting and Institutional Enablement",
+    title: "Data Intelligence",
     step: "01",
     description:
-      "We partner with institutions to strengthen governance frameworks, streamline decision-making processes, and improve operational efficiency. Our approach focuses on sustainable growth through structured planning, performance monitoring, and long-term institutional capability building.",
+      " Large-scale data processing and Data Readiness for AI as a Service (DRAaS)"
   },
   {
     id: 2,
     title: "Digital and AI Transformation",
     step: "02",
     description:
-      "We help organizations modernize legacy systems and embrace intelligent technologies that drive measurable outcomes. From automation and analytics to AI-powered solutions, we enable data-driven decision-making, improved productivity, and scalable digital ecosystems.",
+      "– Embedding digital platforms and AI into core workflows to enhance decision-making, efficiency, and customer experience. ",
   },
   {
     id: 3,
-    title: "Public Sector and Event Consulting",
+    title: "Business Transformation",
     step: "03",
     description:
-      "Our team supports government bodies and public institutions in planning and executing complex initiatives at scale. We combine technology, logistics expertise, and stakeholder coordination to ensure seamless delivery of high-impact programs and large-scale events.",
+      "Redesigning processes, operating models, and technology to unlock measurable business value and sustainable growth.",
   },
   {
     id: 4,
-    title: "Advanced Skill Development",
+    title: "IT Infrastructure & Operations",
     step: "04",
     description:
-      "We design and deliver future-ready training programs focused on emerging technologies such as AI, automation, and digital tools. Our initiatives aim to enhance workforce capabilities, bridge skill gaps, and empower individuals to thrive in rapidly evolving industries.",
+      "Designing, managing, and automating resilient ITfoundations that keep enterprises secure, stable, and scalable.",
   },
   {
     id: 5,
-    title: "IT Infrastructure and Operations",
+    title: "Cloud Services",
     step: "05",
     description:
-      "We architect secure, resilient, and scalable IT environments that support business continuity and compliance requirements. From infrastructure design to ongoing operations management, we ensure reliability, performance, and protection against evolving cyber threats.",
+      "Moving workloads to the right cloud platforms with minimal disruption,optimized cost, and improved performance.",
   },
   {
     id: 6,
-    title: "IT Staff Augmentation",
+    title: "Cyber Securities",
     step: "06",
     description:
-      "We provide flexible access to highly skilled professionals who integrate seamlessly with your teams. Whether for short-term projects or long-term engagements, our talent solutions help accelerate delivery, reduce hiring overhead, and ensure technical excellence.",
+      "Protecting critical assets with modern security architectures, continuous monitoring, and compliance-driven controls.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function ServicesSection() {
     >
       {/* ── Section heading ── */}
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 pb-10 lg:pb-14">
+        <div className="mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl lg:text-6xl heading-default">
               Services We Deliver
@@ -192,7 +192,7 @@ export default function ServicesSection() {
           DESKTOP  (≥ lg)
           GSAP pinned-image scroll effect
       ══════════════════════════════════════ */}
-      <div ref={sectionRef} className="hidden lg:block">
+      <div ref={sectionRef} className="hidden lg:block container">
         {/* Side progress indicator */}
         <div className="services-indicator fixed left-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6 opacity-0 pointer-events-none">
           {services.map((s) => (
