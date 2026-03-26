@@ -4,42 +4,42 @@ import Heading from "@/components/Heading";
 const services = [
   {
     title: "Digital & AI Transformation",
-    desc: "Embedding digital platforms and AI into core workflows to enhance decision-making and efficiency across the enterprise.",
+    desc: " Embedding digital platforms and AI into core workflows to enhance decision-making, efficiency, and customer experience",
     label: "Strategy",
     accent: "#3B82F6",
     accentLight: "#EFF6FF",
   },
   {
     title: "Data Intelligence",
-    desc: "Large-scale data processing and AI-ready pipelines to power next-gen analytics.",
+    desc: "Large-scale data processing and Data Readiness for AI as a Service (DRAaS).",
     label: "Analytics",
     accent: "#8B5CF6",
     accentLight: "#F5F3FF",
   },
   {
     title: "Business Transformation",
-    desc: "Redesigning processes and operating models to unlock measurable business value.",
+    desc: "Redesigning processes, operating models, and technology to unlock measurable business value and sustainable growth.",
     label: "Operations",
     accent: "#10B981",
     accentLight: "#ECFDF5",
   },
   {
     title: "IT Infrastructure",
-    desc: "Designing resilient IT systems that are secure, scalable, and automated.",
+    desc: "Designing, managing, and automating resilient IT foundations that keep enterprises secure, stable, and scalable. ",
     label: "Engineering",
     accent: "#F59E0B",
     accentLight: "#FFFBEB",
   },
   {
     title: "Cloud Services",
-    desc: "Seamless cloud migration with optimized cost and performance.",
+    desc: "Moving workloads to the right cloud platforms with minimal disruption, optimized cost, and improved performance. ",
     label: "Cloud",
     accent: "#06B6D4",
     accentLight: "#ECFEFF",
   },
   {
     title: "Cyber Security",
-    desc: "Protecting digital assets with modern security architectures and monitoring.",
+    desc: "Protecting critical assets with modern security architectures, continuous monitoring, and compliance-driven controls.",
     label: "Security",
     accent: "#EF4444",
     accentLight: "#FEF2F2",
@@ -152,7 +152,7 @@ function Illustration({ index, accent }) {
 function ServiceCard({ service, index }) {
   return (
     <div
-      className="rounded-2xl bg-white border border-slate-100 overflow-hidden flex flex-col"
+      className=" rounded-2xl bg-white border border-slate-100 overflow-hidden flex flex-col"
       style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.04)" }}
     >
       {/* Illustration */}
@@ -197,7 +197,7 @@ function ServiceCard({ service, index }) {
 export default function ServicesSection() {
   return (
     <section className="py-24 px-6 sm:px-12">
-      <div className="max-w-7xl mx-auto">
+      <div className="container">
         <Heading
           headline="Services We Deliver"
           subheadline="We design, build, and scale enterprise-grade digital solutions that help organizations innovate faster and strengthen security."
