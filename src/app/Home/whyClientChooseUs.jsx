@@ -12,46 +12,46 @@ import {
 const features = [
   {
     icon: Rocket,
-    title: "60% Faster IT Service Delivery",
+    title: "Transformation-First​",
     description:
-      "Accelerated service fulfilment through process automation, streamlined workflows, and proactive issue resolution.",
+      "We don’t just support IT — we modernize it.From workflow automation to AI-enabled operations, we turn legacy environments into intelligent digital ecosystems.​",
     border: "border-b md:border-r",
   },
   {
     icon: ShieldCheck,
-    title: "Enhanced Compliance & Governance",
+    title: "Secure & Compliant​",
     description:
-      "Strengthened enterprise-wide governance with audit-ready systems and intelligent policy enforcement.",
+      "Designed for Healthcare, Financial, IT, Government environments etc. resilience, governance, and security are non-negotiable.​",
     border: "border-b md:border-r",
   },
   {
     icon: BarChart3,
-    title: "Real-time Operational Visibility",
+    title: "Enterprise-Grade Expertise​",
     description:
-      "Enabled data-driven decision-making with automated dashboards and transparent cross-department insights.",
+      "Proven experience across platforms like ServiceNow, Microsoft 365, Atlassian Jira, and UiPath — integrated, optimized, and built to scale.​",
     border: "border-b",
   },
   {
     icon: CheckCircle2,
-    title: "End-to-End IT Expertise",
+    title: "Automation & Efficiency​",
     description:
-      "From implementation to management and troubleshooting, we ensure every solution runs efficiently, securely, and at scale.",
+      "​We eliminate inefficiencies, reduce manual effort, and accelerate decision-making through intelligent automation across your IT ecosystem​",
     border: "border-b md:border-b-0 md:border-r",
   },
   {
     icon: DollarSign,
-    title: "Reduced Operational Costs",
+    title: "Managed with Accountability​",
     description:
-      "Optimized software licensing, improved CMDB accuracy, and eliminated redundant workflows — boosting ROI and efficiency.",
+      "Proactive monitoring, defined SLAs, and continuous optimization — we manage what we build.​",
     border: "border-b md:border-b-0 border-r",
   },
-  {
-    icon: Link2,
-    title: "Seamless System Integrations",
-    description:
-      "Unified ecosystems — from Microsoft Teams, Cisco, and ServiceNow to custom-built solutions — for cohesive operations.",
-    border: "border-b md:border-b-0 ",
-  },
+  // {
+  //   icon: Link2,
+  //   title: "Cyber Security",
+  //   description:
+  //     "Protecting critical assets with modern security architectures, continuous monitoring, and compliance-driven controls.",
+  //   border: "border-b md:border-b-0 ",
+  // },
 ];
 
 export default function WhyClientsChooseUs() {
@@ -67,9 +67,9 @@ export default function WhyClientsChooseUs() {
 
         {/* heading */}
         {/* heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-12">
+        <div className="">
           <h2 className="heading-default text-4xl sm:text-5xl md:text-6xl text-left">
-            Why Clients <br className="hidden sm:block" /> Choose Us
+            Why Choose Us​ ​
           </h2>
           <p className="card-subtitle w-full md:max-w-md content-default text-left">
             We're more than an IT partner — we're a trusted ally focused on
@@ -80,7 +80,7 @@ export default function WhyClientsChooseUs() {
         </div>
 
         {/* Grid */}
-        <div className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((item, index) => {
             const Icon = item.icon;
             return (

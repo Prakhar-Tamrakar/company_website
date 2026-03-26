@@ -123,13 +123,13 @@ export default function HowWeWorkSection() {
     <Section id="how-we-work" size="lg">
       <Heading
         headline="How We Work"
-        subHeadline="At i-Connectresources, work isn’t just about delivering projects — it’s about growing together, innovating boldly, and creating real impact every day."
+        subheadline="At i-Connectresources, work isn’t just about delivering projects — it’s about growing together, innovating boldly, and creating real impact every day."
         maxWidth="4xl"
       />
 
       <div className="container mt-16 space-y-6">
         {/* ================= TOP GRID ================= */}
-        <div className="grid grid-cols-12 gap-6 px-5">
+        <div className="grid grid-cols-12 gap-6 ">
           {/* 3 cols */}
           <div className="relative col-span-12 md:col-span-4 h-[300px] rounded-2xl overflow-hidden">
             <div className="noisy absolute inset-0 z-10" />
@@ -178,9 +178,8 @@ export default function HowWeWorkSection() {
             </div>
           </div>
         </div>
-
         {/* ================= BOTTOM GRID ================= */}
-        <div className="grid grid-cols-12 gap-6 px-5">
+        <div className="grid grid-cols-12 gap-6">
           {/* 8 cols */}
           {/* 8 cols – Card 4 */}
           <div className="relative col-span-12 md:col-span-7 h-[300px] rounded-2xl overflow-hidden">

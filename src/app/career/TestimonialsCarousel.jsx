@@ -65,7 +65,7 @@ export default function TestimonialsCarousel() {
       <div className="container mx-auto px-6" ref={containerRef}>
         <Heading
           headline="What Our Team Says"
-          subHeadline="Real experiences from people building impactful solutions at i-Connectresources."
+          subheadline="Real experiences from people building impactful solutions at i-Connectresources."
         />
 
         {/* 1. FIXED HEIGHT PARENT: 
@@ -76,7 +76,7 @@ export default function TestimonialsCarousel() {
           {/* 2. IMAGE AS BACKGROUND-STYLE CONTAINER:
             h-80 for mobile, h-full for desktop to match the parent.
           */}
-          <div className="lg:col-span-4 relative h-80 lg:h-full bg-slate-100 overflow-hidden">
+          <div className="lg:col-span-4 relative h-80 lg:h-full bg-slate-400 overflow-hidden">
             <div ref={imageRef} className="h-full w-full relative">
               <Image
                 src={active.image}
@@ -87,7 +87,7 @@ export default function TestimonialsCarousel() {
                 sizes="(max-width: 1024px) 100vw, 33vw"
               />
               {/* Optional Gradient Overlay to blend with design */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-r from-black/10 to-transparent pointer-events-none" />
             </div>
           </div>
 

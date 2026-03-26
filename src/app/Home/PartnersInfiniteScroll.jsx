@@ -57,7 +57,7 @@ function PartnerItem({ name, logo }) {
       <Image
         src={logo}
         alt={`${name} logo`}
-        className="h-20 w-auto object-contain grayscale hover:grayscale-0 transition duration-300"
+        className="h-20 w-auto object-contain  hover:grayscale-0 transition duration-300"
         priority={false}
       />
     </div>

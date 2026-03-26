@@ -31,15 +31,10 @@ const navLinks = [
 	title: "Career",
 	url:"/career"
  },
- {
-	id: 7,
-	title: "Resources",
-	url:"/resources"
- }, 
+//  {
+// 	id: 7,
+// 	title: "Blogs",
+// 	url:"/resources"
+//  }, 
 ];
-
-
-
-
-
 export default navLinks;

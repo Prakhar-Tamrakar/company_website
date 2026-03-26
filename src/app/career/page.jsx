@@ -32,7 +32,6 @@ export const metadata = {
     "Returnship programs",
   ],
 };
-
 const page = () => {
   return (
     <div>
@@ -48,8 +47,8 @@ const page = () => {
         primaryCta={{ label: "Contact Us", href: "/contact" }}
       />
       <HowWeWorkSection />
-      <JourneySection />
-      <Diversity />
+      {/* <JourneySection /> */}
+      {/* <Diversity /> */}
       <JobApplySection />
       <TestimonialsCarousel />
     </div>

@@ -1,5 +1,3 @@
-
-
 "use client";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -8,7 +6,7 @@ import Section from "@/components/layouts/Section";
 import Heading from "@/components/Heading";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import card1 from "../../../public/Resources/card2.png"
+import card1 from "../../../public/Resources/card2.png";
 export default function BlogSection() {
   const rootRef = useRef(null);
   const headerRef = useRef(null);
@@ -101,26 +99,26 @@ export default function BlogSection() {
             {[
               {
                 id: 2,
-                img: "/Resources/card2.png", 
-                shorttitle:"Beyond-Repetition",
+                img: "/Resources/card2.png",
+                shorttitle: "Beyond-Repetition",
                 title: "Beyond Repetition: How Automation Frees Your IT Teams",
               },
               {
                 id: 3,
                 img: "/Services/aiml.png",
-                shorttitle:"Ai-In-IT-Operations",
+                shorttitle: "Ai-In-IT-Operations",
                 title: "AI + GenAI in IT Operations: What’s Real Today.",
               },
               {
                 id: 4,
                 img: "/Resources/card4.png",
-                shorttitle:"Automation-Use-Cases",
+                shorttitle: "Automation-Use-Cases",
                 title: "Automation Use Cases That Improved Patient Care",
               },
               {
                 id: 5,
                 img: "/Resources/card5.jpg",
-                shorttitle:"Healthcare-Provider",
+                shorttitle: "Healthcare-Provider",
                 title: "How We Helped a Healthcare Provider Save on SaaS",
               },
             ].map((item, i) => (
@@ -151,12 +149,10 @@ export default function BlogSection() {
                     Published by i-Connectresources
                   </p>
                   <Link
-                  href={`resources/${item.shorttitle}`}
-                  className="mt-3 w-fit inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:text-blue-500 transition pointer-cursor "
-                >
-                  
+                    href={`resources/${item.shorttitle}`}
+                    className="mt-3 w-fit inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:text-blue-500 transition pointer-cursor "
+                  >
                     Read full article <ArrowRight className="w-4 h-4" />
-               
                   </Link>
                 </div>
               </div>
