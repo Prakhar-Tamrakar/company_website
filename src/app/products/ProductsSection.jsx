@@ -177,20 +177,20 @@ const ProductsSection = () => {
                   {process.title}
                 </h3>
 
-                <p className="text-xs font-bold tracking-widest text-gray-800 uppercase mb-8">
+                <p className="text-base font-bold tracking-widest heading-default uppercase mb-8">
                   {process.subtitle}
                 </p>
               </div>
 
-              <p className="text-gray-600 leading-relaxed text-sm max-w-3xl mb-12">
+              <p className="content-default leading-relaxed text-base  max-w-3xl mb-12">
                 {process.description}
               </p>
 
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 max-w-xl">
-                <p className="text-[10px] font-bold tracking-widest uppercase text-gray-800 mb-2">
+                <p className="text-[14px] font-bold tracking-widest uppercase text-gray-800 mb-2">
                   Outcome
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {process.outcome}
                 </p>
               </div>

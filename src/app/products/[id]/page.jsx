@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { Sparkles } from "lucide-react";
 import { products } from "../productData";
+import Image from "next/image";
+
 import Section from "@/components/layouts/Section";
 import ProductEnquiryForm from "../ProductEnquiryForm";
 import OtherProductsSlider from "../OtherProductsSlider";
@@ -14,12 +16,18 @@ export default async function ProductDetail(props) {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <Section size="hero" className="relative h-[60vh] min-h-[500px] w-full overflow-hidden !py-0">
-        <img
+      <Section
+        size="hero"
+        className="relative h-[60vh] min-h-[500px] w-full overflow-hidden py-0!"
+      >
+        <Image
           src={data.image}
           alt={data.name}
-          className="absolute inset-0 h-full w-full object-cover "
+          fill
+          priority
+          className="object-cover"
         />
+
         <div className="absolute inset-0 bg-black/40" />
 
         {/* Hero Content */}
@@ -47,7 +55,9 @@ export default async function ProductDetail(props) {
 
           {/* Description */}
           <div className="mb-20">
-            <h2 className="mb-6 text-3xl font-semibold font-playfair">What We Offer</h2>
+            <h2 className="mb-6 text-3xl font-semibold font-playfair">
+              What We Offer
+            </h2>
             <p className="text-lg leading-relaxed text-gray-700">
               {data.description}
             </p>
@@ -55,7 +65,9 @@ export default async function ProductDetail(props) {
 
           {/* Features */}
           <div className="mb-20">
-            <h2 className="mb-8 text-3xl font-semibold font-playfair">Key Features</h2>
+            <h2 className="mb-8 text-3xl font-semibold font-playfair">
+              Key Features
+            </h2>
             <div className="grid gap-4 sm:grid-cols-2">
               {data.features.map((feature, index) => (
                 <div
@@ -71,18 +83,20 @@ export default async function ProductDetail(props) {
           {/* Outcome */}
           <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-linear-to-br from-primary/5 to-primary/10 p-8 md:p-12 mb-8">
             <div className="absolute -right-8 -top-8 opacity-60">
-             <div className="bg-primary w-100 h-100 rounded-full flex items-center justify-center">
-              <div className=" bg-blue-400 w-80 h-80 rounded-full"></div>
-             </div>
+              <div className="bg-primary w-100 h-100 rounded-full flex items-center justify-center">
+                <div className=" bg-blue-400 w-80 h-80 rounded-full"></div>
+              </div>
             </div>
-            <h2 className="mb-4 text-2xl font-semibold font-playfair"> Outcome</h2>
+            <h2 className="mb-4 text-2xl font-semibold font-playfair">
+              {" "}
+              Outcome
+            </h2>
             <p className="relative z-10 text-lg leading-relaxed text-gray-700">
               {data.outcome}
             </p>
           </div>
-          <OtherProductsSlider/>
-          <ProductEnquiryForm name={data.name}/>
-
+          <OtherProductsSlider />
+          <ProductEnquiryForm name={data.name} />
         </div>
       </Section>
     </main>

@@ -14,7 +14,6 @@ export default function CenteredHeroSection({
   const container = useRef(null);
   const contentRef = useRef(null);
   const bgImageRef = useRef(null);
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -58,7 +57,7 @@ export default function CenteredHeroSection({
       </div>
 
       {/* ✍️ CONTENT LAYER */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto  pt-10">
+      <div className="container relative z-10 w-full max-w-7xl mx-auto  pt-10">
         <div ref={contentRef} className="flex flex-col items-left">
           <h1 className="text-4xl md:text-6xl font-regular heading-default text-slate-900 leading-[1.2] tracking-tight mb-8 max-w-5xl">
             {headline && typeof headline === "string"

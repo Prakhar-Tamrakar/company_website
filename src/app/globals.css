@@ -2,8 +2,6 @@
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,300,400&display=swap');
 @import "tailwindcss";
 
-
-
 /* ---------------- ROOT VARIABLES ---------------- */
 :root {
   --background: hsl(0 0% 100%);
@@ -17,7 +15,6 @@
   /* Card heading color */
   --card-heading: hsl(222.2 47.4% 11.2%);
 }
-
 /* ---------------- THEME TOKENS ---------------- */
 @theme {
   --color-background: var(--background);
@@ -38,13 +35,11 @@
 
   --max-w-text: 70ch;
 }
-
 /* ---------------- SCROLLBAR ---------------- */
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-
 /* ---------------- UTILITIES ---------------- */
 @layer utilities {
   .container {
@@ -85,9 +80,6 @@
     padding-block: var(--spacing-section-2xl);
   }
 }
-
-
-
 h1,
 h2,
 h3,
@@ -99,33 +91,25 @@ h6 {
   line-height: 1.15;
   /* compact but readable */
   /* font-weight: 600; */
-
 }
-
 h1 {
   letter-spacing: -0.025em;
   /* tighter for large display */
   line-height: 1.05;
-
 }
-
 h2 {
   line-height: 1.3;
   letter-spacing: 0;
-
 }
-
 h3 {
   line-height: 1.15;
 }
-
 h4,
 h5,
 h6 {
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
-
 .heading-default {
   color: #505153;
 }
