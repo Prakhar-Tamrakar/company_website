@@ -15,6 +15,12 @@
   /* Card heading color */
   --card-heading: hsl(222.2 47.4% 11.2%);
 }
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* ---------------- THEME TOKENS ---------------- */
 @theme {
   --color-background: var(--background);
@@ -45,18 +51,18 @@
   .container {
     margin-inline: auto;
     max-width: 1280px;
-    padding-inline: 1rem;
+    padding-inline: 1.25rem;
   }
 
   @media (min-width: 768px) {
     .container {
-      padding-inline: 1.5rem;
+      padding-inline: 2rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-inline: 2rem;
+      padding-inline: 3rem;
     }
   }
 

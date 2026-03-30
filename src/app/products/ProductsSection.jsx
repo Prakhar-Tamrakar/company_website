@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Section from "@/components/layouts/Section";
+import myPleaderlogo from "../../../public/products/logos/mtPleaderLogo.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,17 +42,18 @@ const ProductsSection = () => {
   const processes = [
     {
       id: "01",
-      title: "My Pleader",
+      logo: "/products/logos/mtPleaderLogo.png",
+      title: "MyPleader",
       subtitle: "Digital legal practice management",
       description:
         "A comprehensive digital legal practice management platform designed for law firms and legal professionals to streamline case management, documentation, billing, and client communication. ",
       outcome:
         "Digitizes legal case and document management to improve efficiency, accuracy, and service delivery.",
-      image: "/products/myPleaderNew.png",
+      image: "/products/myPleader.png",
     },
     {
       id: "02",
-      title: "Gap Ninja",
+      title: "GapNinja",
       subtitle: "Skills and capability intelligence",
       description:
         "A next-generation skills inventory and capability intelligence platform that enables organizations to map capabilities, close talent gaps, and optimize employee development.",
@@ -71,13 +73,14 @@ const ProductsSection = () => {
     },
     {
       id: "04",
+      logo: "/products/logos/oncologyLogo.png",
       title: "Luxon",
       subtitle: "Preventive oncology screening platform",
       description:
         "A preventive oncology screening and healthcare analytics platform focused on early detection, risk assessment, and patient outcome optimization. ",
       outcome:
         "Standardizes and scales cervical screening workflows for early detection and reliable clinical follow-up.",
-      image: "/products/oncologyNew.png",
+      image: "/products/onco.png",
     },
     {
       id: "05",
@@ -91,7 +94,7 @@ const ProductsSection = () => {
     },
     {
       id: "06",
-      title: "MDU.ai",
+      title: "Multiple Document Understanding (MDU.ai)",
       subtitle: "Multiple document understanding",
       description:
         "Multiple Document Understanding (MDU.ai) is an AI-powered document intelligence platform that analyzes multiple documents simultaneously to extract insights and convert unstructured content into structured data. It understands complex layouts, visuals, and multilingual content, unifying OCR, language detection, translation, and semantic interpretation into a single, scalable AI system.",
@@ -101,7 +104,7 @@ const ProductsSection = () => {
     },
     {
       id: "07",
-      title: "SAT ChangeDetect",
+      title: "Sat Change Detect (SAT)",
       subtitle: "Satellite imagery change detection",
       description:
         "Daily satellite imagery enables continuous monitoring, but large data volumes require AI/ML-based automated change detection to efficiently identify new man-made developments with reduced false alarms. ",
@@ -113,99 +116,106 @@ const ProductsSection = () => {
 
   return (
     <Section id="Products" size="xl" className="bg-white ">
-      <Heading
-        maxWidth="2xl"
-        headline="Where Ideas Become Production-Ready Products"
-        subHeadline="Carefully designed solutions that balance usability, scalability, and long-term business value."
-      />
+      <div className="mx-4 sm:mx-10">
+        <Heading
+          maxWidth="2xl"
+          headline="Where Ideas Become Production-Ready Products"
+          subheadline="Carefully designed solutions that balance usability, scalability, and long-term business value."
+        />
 
-      <div className="mt-16" />
+        <div className="mt-16" />
 
-      {processes.map((process, index) => {
-        const isEven = index % 2 === 0;
+        <div className="flex flex-col gap-2">
+          {processes.map((process, index) => {
+            const isEven = index % 2 === 0;
 
-        return (
-          <div
-            key={process.id}
-            className={`grid grid-cols-1 ${
-              isEven ? "md:grid-cols-[40%_60%]" : "md:grid-cols-[60%_40%]"
-            } border-t border-gray-300`}
-          >
-            {/* IMAGE */}
-            <div
-              ref={(el) => (containerRefs.current[index] = el)}
-              className={`relative h-full min-h-[420px] overflow-hidden ${
-                isEven ? "" : "md:col-start-2"
-              } `}
-            >
-              {/* Moving inner image */}
+            return (
               <div
-                ref={(el) => (imageRefs.current[index] = el)}
-                className="absolute inset-0 top-0 h-[130%] w-full overflow-hidden"
+                key={process.id}
+                className={`grid grid-cols-1 ${
+                  isEven ? "md:grid-cols-[40%_60%]" : "md:grid-cols-[60%_40%]"
+                } gap-2`}
               >
-                <Image
-                  src={process.image}
-                  alt={process.title || "process image"}
-                  fill
-                  priority={index === 0} // only first image
-                  className="object-cover object-center grayscale"
-                  sizes="100vw"
-                />
+                {/* IMAGE */}
+                <div
+                  ref={(el) => (containerRefs.current[index] = el)}
+                  className={`relative h-full min-h-[420px] overflow-hidden rounded-2xl ${
+                    isEven ? "" : "md:col-start-2"
+                  } `}
+                >
+                  {/* Moving inner image */}
+                  <div
+                    ref={(el) => (imageRefs.current[index] = el)}
+                    className="absolute inset-0 top-0 h-[130%] w-full overflow-hidden"
+                  >
+                    <Image
+                      src={process.image}
+                      alt={process.title || "process image"}
+                      fill
+                      priority={index === 0} // only first image
+                      className="object-cover object-center "
+                      sizes="100vw"
+                    />
+                  </div>
+
+                  {/* subtle contrast */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/30 via-black/10 to-transparent" />
+                </div>
+
+                {/* CONTENT */}
+                <div
+                  className={`bg-gray-50/50 rounded-2xl px-10 sm:px-14 md:px-16 lg:px-24 py-16 flex flex-col justify-center ${
+                    isEven ? "" : "md:col-start-1 md:row-start-1"
+                  }`}
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-4 mb-2">
+                      <h3 className="text-3xl md:text-4xl font-medium text-primary max-w-2xl">
+                        {process.title}
+                      </h3>
+                      {process.logo && (
+                        <div className="relative w-20 h-20 md:w-32 md:h-16 shrink-0">
+                          <Image
+                            src={process.logo}
+                            alt={`${process.title} logo`}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      )}
+                    </div>
+
+                    <p className="text-sm font-bold tracking-widest heading-default uppercase mb-4">
+                      {process.subtitle}
+                    </p>
+                  </div>
+
+                  <p className="content-default leading-relaxed text-sm md:text-base max-w-3xl mb-8">
+                    {process.description}
+                  </p>
+
+                  <div className="bg-white border border-gray-100 rounded-xl p-5 max-w-xl">
+                    <p className="text-[12px] font-bold tracking-widest uppercase text-gray-800 mb-1">
+                      Outcome
+                    </p>
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                      {process.outcome}
+                    </p>
+                  </div>
+
+                  <Link
+                    href={`/products/${process.id}`}
+                    className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 mt-8 text-sm font-semibold text-white transition-all hover:translate-x-1"
+                  >
+                    Learn more
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
               </div>
-
-              {/* Bottom → top blur */}
-              {/* <div
-                className="pointer-events-none absolute inset-0 backdrop-blur-xl [mask-image:linear-gradient(to_top,black_25%,transparent_75%)]"
-              /> */}
-
-              {/* subtle contrast */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/30 via-black/10 to-transparent" />
-            </div>
-
-            {/* CONTENT */}
-            <div
-              className={`bg-white px-10 sm:px-14 md:px-section-2xl lg:px-40 py-20 flex flex-col justify-center ${
-                isEven ? "" : "md:col-start-1 md:row-start-1"
-              }`}
-            >
-              <span className="text-5xl font-light text-gray-300 mb-10 block">
-                {process.id}
-              </span>
-
-              <div className="flex flex-col gap-6">
-                <h3 className="text-4xl font-medium text-primary max-w-2xl">
-                  {process.title}
-                </h3>
-
-                <p className="text-base font-bold tracking-widest heading-default uppercase mb-8">
-                  {process.subtitle}
-                </p>
-              </div>
-
-              <p className="content-default leading-relaxed text-base  max-w-3xl mb-12">
-                {process.description}
-              </p>
-
-              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 max-w-xl">
-                <p className="text-[14px] font-bold tracking-widest uppercase text-gray-800 mb-2">
-                  Outcome
-                </p>
-                <p className="text-base text-gray-600 leading-relaxed">
-                  {process.outcome}
-                </p>
-              </div>
-
-              <Link
-                href={`/products/${process.id}`}
-                className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 mt-6 text-sm font-semibold text-white transition-all hover:translate-x-1"
-              >
-                Learn more
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })}
+        </div>
+      </div>
     </Section>
   );
 };

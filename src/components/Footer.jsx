@@ -24,8 +24,7 @@ export default function Footer() {
               />
             </Link>
             <p className="content-default text-base sm:text-base leading-relaxed max-w-sm lg:max-w-xs">
-              Delivering innovative IT solutions and ServiceNow expertise to
-              drive business growth in the digital era.
+              Digital Transformation with Intelligent IT Solutions.
             </p>
             <div className="flex items-center gap-4">
               <SocialLink

@@ -1,7 +1,13 @@
+"use client";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import Heading from "@/components/Heading";
 import Section from "@/components/layouts/Section";
 import Image from "next/image";
-import React from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 import power from "../../../public/Home/power.png";
 import itBg from "../../../public/dashboard011.jpg";
@@ -14,6 +20,41 @@ import Link from "next/link";
 import ModernCapsuleCTA from "@/components/ModernCapsuleCTA";
 
 const SolutionsSection = () => {
+  const containerRef = useRef(null);
+  const textRef = useRef(null);
+  const cardsRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.from(textRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      }).from(
+        cardsRef.current.children,
+        {
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+        },
+        "-=0.5"
+      );
+    },
+    { scope: containerRef }
+  );
+
   return (
     <Section
       id="solution"
@@ -21,15 +62,17 @@ const SolutionsSection = () => {
       size="xl"
       className="relative z-20"
     >
-      <div className="container max-w-[1300px] mx-auto px-6 relative z-20">
+      <div className="container max-w-[1300px] mx-auto relative z-20" ref={containerRef}>
         {/* Heading */}
-        <Heading
-          headline="Solutions We Deliver"
-          subheadline="Transforming enterprises with automation, AI, cloud, and modern engineering."
-        />
+        <div ref={textRef}>
+          <Heading
+            headline="Solutions We Deliver"
+            subheadline="Transforming enterprises with automation, AI, cloud, and modern engineering."
+          />
+        </div>
 
         {/* GRID */}
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 mt-16">
+        <div ref={cardsRef} className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 mt-16">
           {/* --- Card 1 --- */}
           <div className=" solution-card lg:col-span-7 group bg-white rounded-2xl border border-[#E5E7EB] shadow-sm hover:shadow-xl hover:border-blue-400/50 transition-all duration-300 overflow-hidden">
             <div className="p-6 sm:p-8 flex flex-col gap-4">

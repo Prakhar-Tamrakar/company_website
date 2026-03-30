@@ -37,6 +37,7 @@ export default function Page() {
         subHeadline="At i-Connectresources, we don't just build solutions — we build expertise. This is your hub for thought leadership, client success, and the latest in enterprise automation, platform innovation, and IT service transformation. The mentorship to turn your potential into real-world impact."
         primaryCta={{ label: "Explore Insights", href: "/contact" }}
         secondaryCta={{ label: "Schedule a Call" }}
+        heroBgImage="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
 
       {/* <ImpactStats /> */}

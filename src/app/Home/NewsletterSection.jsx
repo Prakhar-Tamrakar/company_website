@@ -1,13 +1,50 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Send } from "lucide-react";
 import Section from "@/components/layouts/Section";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function NewsletterSection() {
+  const containerRef = useRef(null);
+  const textRef = useRef(null);
+  const imageRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+        },
+      });
+
+      tl.from(imageRef.current, {
+        scale: 0.95,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      }).from(
+        textRef.current,
+        {
+          x: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.6"
+      );
+    },
+    { scope: containerRef }
+  );
+
   const [data, setData] = useState({
     email: "",
     recaptchaToken: "",
@@ -96,12 +133,12 @@ export default function NewsletterSection() {
 
   return (
      <Section size="lg" className="relative w-full bg-white">
-      <div className="container  px-6">
+      <div className="container" ref={containerRef}>
         <div className="relative overflow-hidden rounded-3xl bg-white">
           <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center gap-12 p-4 sm:p-0">
 
             {/* RIGHT IMAGE — comes first on mobile */}
-            <div className="relative flex justify-center order-1 lg:order-2">
+            <div className="relative flex justify-center order-1 lg:order-2" ref={imageRef}>
               <div className="relative h-80 sm:h-96 w-full">
                 <Image
                   src="/Home/newsletter.jpg"
@@ -114,7 +151,7 @@ export default function NewsletterSection() {
             </div>
 
             {/* LEFT CONTENT — comes second on mobile */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1" ref={textRef}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-regular  heading-default leading-tight mb-6">
                 Stay ahead of <br className="hidden sm:block" />
                 digital trends.

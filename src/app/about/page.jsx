@@ -1,9 +1,11 @@
 import dynamic from "next/dynamic";
+import HeroBg from "../../../public/About/aboutHome.jpg"
 const HeroSection = dynamic(() => import("@/components/HeroSection"));
 const JourneySection = dynamic(() => import("./JourneySection"));
 const Introduction = dynamic(() => import("./Introduction"));
 const WhatWeStandFor = dynamic(() => import("./WhatWeStandFor"));
 const WhyChooseUs = dynamic(() => import("./whyChooseUs"));
+
 export const metadata = {
   title: "About Us",
   description: "Learn more about our company, vision, and expertise.",
@@ -44,6 +46,7 @@ export default function Page() {
         }
         subHeadline="Together, we transform challenges into opportunities — designing digital solutions that power industries, empower people, and shape the future."
         primaryCta={{ label: "Let's Get Started", href: "/contact" }}
+        heroBgImage={HeroBg}
       />
       <Introduction />
       <JourneySection />

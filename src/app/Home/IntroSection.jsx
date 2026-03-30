@@ -70,7 +70,7 @@ const IntroSection = () => {
     <Section id="intro" size="xl">
       <div className="container" ref={containerRef}>
         {/* ===== TWO COLUMN GRID ===== */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* ---------- LEFT: Content + Metrics ---------- */}
           <div className="space-y-10">
             {/* Intro Text */}

@@ -4,24 +4,24 @@ import { Phone, Compass, CheckCircle2 } from 'lucide-react';
 import Section from '@/components/layouts/Section';
 
 export const metadata = {
-  title: "Contact Us",
-  description:
-    "Contact our team for inquiries, support, or partnership opportunities.",
- keywords:[
-    'Schedule a demo',
-	'IT consultation',
-	'Request a proposal',
-	'Automation consulting',
-	'Partner program',
-    'Technology alliances',
-    'Technology partners',
-	'Staffing partners',
-	'Delivery partners',
-	'Reseller partners',
- ]
+    title: "Contact Us",
+    description:
+        "Contact our team for inquiries, support, or partnership opportunities.",
+    keywords: [
+        'Schedule a demo',
+        'IT consultation',
+        'Request a proposal',
+        'Automation consulting',
+        'Partner program',
+        'Technology alliances',
+        'Technology partners',
+        'Staffing partners',
+        'Delivery partners',
+        'Reseller partners',
+    ]
 }
 const page = () => {
-  const helpItems = [
+    const helpItems = [
         "Understanding our Services or Solutions",
         "Scheduling a Demo or Consultation",
         "Requesting a Proposal or Quote",
@@ -29,49 +29,61 @@ const page = () => {
         "Career & Talent Inquiries"
     ];
     return (
-        <Section className="relative h-full w-full bg-slate-950 overflow-hidden" background='bg-center flex items-center'>
-            <div className='container mx-auto px-6  py-10'>
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
-                    
-                    {/* Left Content */}
-                    <div className='text-white'>
-                        {/* Badge */}
-                        <div className='inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-900/20 text-blue-200 text-sm font-medium mb-6'>
-                            <Phone className='h-4 w-4' /> 
-                            <span>Contact Us</span>
-                        </div>
+        <Section className="relative min-h-[65vh] lg:min-h-[80vh] w-full overflow-hidden flex items-center" background='bg-white'>
+            {/* Hero background layer (light mode) */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="https://images.pexels.com/photos/7709288/pexels-photo-7709288.jpeg"
+                    alt="Contact hero background"
+                    className="w-full h-full object-cover opacity-40"
+                />
+                {/* <div className="absolute inset-0 bg-linear-to-r from-white via-white/60 to-transparent" /> */}
+                <div className="absolute inset-0 bg-linear-to-r from-white via-white/50 to-white/0" />
 
+            </div>
+
+            <div className='container relative z-10 mx-auto px-6 py-10'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
+
+                    {/* Left Content */}
+                    <div className='text-slate-900'>
+                        {/* Badge */}
+                 
                         {/* Main Heading */}
-                        <h1 className='text-xl md:text-xl font-semibold mb-6 tracking-normal'>
-                            Let&apos;s Make IT Work for You
+                        <h1 className='text-4xl  font-regular mb-6 tracking-tight text-slate-900 leading-tight heading-default'>
+                            Let&apos;s Make IT Work <br /> for You
                         </h1>
 
                         {/* Quote */}
-                        <p className='text-xl md:text-xl italic font-light text-white/90 mb-6'>
+                        <p className='text-xl italic font-serif text-slate-700 mb-8 border-l-4 border-primary pl-6 py-2'>
                             “Every great solution starts with a conversation.”
                         </p>
 
                         {/* Description */}
-                        <p className='text-gray-400 text-lg leading-relaxed max-w-xl'>
+                        <p className='content-default text-base leading-relaxed max-w-xl text-slate-600 font-medium'>
                             Whether you&apos;re exploring intelligent automation, looking to optimize your IT infrastructure, or just want to understand what&apos;s possible — our team is ready to help.
                         </p>
                     </div>
 
                     {/* Right Card */}
-                    <div className='w-full grid justify-end mt-4'>
-                        <div className='bg-[#131C35] border border-blue-900/30 rounded-xl p-8 md:p-10 shadow-2xl'>
-                            
+                    <div className='w-full flex justify-end mt-4'>
+                        <div className='bg-primary/30 border  border-slate-100 rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] max-w-lg'>
+
                             {/* Card Header */}
-                            <div className='flex items-center gap-3 mb-4 text-gray-200'>
-                                <Compass className='h-6 w-6 text-gray-400' />
-                                <h3 className='text-lg font-regular'>We&apos;re Here to Help With...</h3>
+                            <div className='flex items-center gap-4 mb-8'>
+                                <div className='size-12 rounded-2xl bg-primary/5 flex items-center justify-center'>
+                                    <Compass className='h-6 w-6 text-primary' />
+                                </div>
+                                <h3 className='text-xl font-bold text-slate-900 uppercase tracking-tight'>We&apos;re Here to Help With...</h3>
                             </div>
                             {/* List */}
-                            <ul className='space-y-3'>
+                            <ul className='space-y-4'>
                                 {helpItems.map((item, index) => (
-                                    <li key={index} className='flex items-start gap-4'>
-                                        <CheckCircle2 className='h-5 w-5 text-emerald-500 shrink-0 mt-0.5' />
-                                        <span className='text-gray-300 text-base md:text-base font-light'>
+                                    <li key={index} className='flex items-start gap-4 group'>
+                                        <div className='mt-1 bg-emerald-50 rounded-full p-1 group-hover:bg-emerald-100 transition-colors'>
+                                            <CheckCircle2 className='h-4 w-4 text-emerald-600 shrink-0' />
+                                        </div>
+                                        <span className='text-slate-600 text-base md:text-lg font-medium leading-tight group-hover:text-slate-900 transition-colors'>
                                             {item}
                                         </span>
                                     </li>
@@ -86,5 +98,4 @@ const page = () => {
         </Section>
     );
 }
-
 export default page

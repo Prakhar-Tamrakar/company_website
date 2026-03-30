@@ -60,6 +60,7 @@ const page = () => {
         subHeadline=" Our focus goes beyond building tools, we build solutions that support your growth. By understanding your operations and priorities, we tailor our services to strengthen efficiency, enhance performance, and create real, long-term benefits."
         primaryCta={{ label: "Get Started", href: "/contact" }}
         secondaryCta={{ label: "Explore Our Services", href: "#OldServices" }}
+        heroBgImage="https://images.pexels.com/photos/7658380/pexels-photo-7658380.jpeg"
       />
     </>
   );

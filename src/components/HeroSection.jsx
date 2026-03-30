@@ -3,13 +3,12 @@ import React, { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import ModernCapsuleCTA from "./ModernCapsuleCTA";
-
 export default function CenteredHeroSection({
   headline,
   subHeadline,
   primaryCta,
   secondaryCta,
-  heroBgImage = "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  heroBgImage,
 }) {
   const container = useRef(null);
   const contentRef = useRef(null);
@@ -47,19 +46,19 @@ export default function CenteredHeroSection({
       {/* 🖼️ BACKGROUND LAYER */}
       <div ref={bgImageRef} className="absolute inset-0 z-0 opacity-0">
         <img
-          src={heroBgImage}
+          src={heroBgImage?.src || heroBgImage}
           alt="Centered Background"
           className="w-full h-full object-cover"
         />
 
         {/* CENTER-FOCUSED SCRIM: Lightest in the center for text clarity */}
-        <div className="absolute inset-0 bg-white/50" />
+        <div className="absolute inset-0 bg-linear-to-r from-white via-white/80 to-white/0" />
       </div>
 
       {/* ✍️ CONTENT LAYER */}
-      <div className="container relative z-10 w-full max-w-7xl mx-auto  pt-10">
-        <div ref={contentRef} className="flex flex-col items-left">
-          <h1 className="text-4xl md:text-6xl font-regular heading-default text-slate-900 leading-[1.2] tracking-tight mb-8 max-w-5xl">
+      <div className="container relative z-10 w-full max-w-7xl mx-auto  pt-10 ">
+        <div ref={contentRef} className="flex flex-col items-left ">
+          <h1 className="text-4xl md:text-6xl font-regular heading-default leading-[1.2] tracking-tight mb-8 max-w-5xl">
             {headline && typeof headline === "string"
               ? headline.split(" ").map((word, i) => (
                   <span key={i} className="inline-block">
@@ -74,7 +73,7 @@ export default function CenteredHeroSection({
               : headline}
           </h1>
 
-          <p className="text-lg md:text-xl  font-light text-slate-900 max-w-3xl mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl  font-light content-default max-w-3xl mb-12 leading-relaxed">
             {subHeadline}
           </p>
 

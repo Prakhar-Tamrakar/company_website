@@ -1,158 +1,93 @@
-import Heading from "@/components/Heading";
+"use client";
+
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import Section from "@/components/layouts/Section";
-import {
-  Rocket,
-  ShieldCheck,
-  BarChart3,
-  CheckCircle2,
-  DollarSign,
-  Link2,
-} from "lucide-react";
+import { Zap, Shield, Award, Cpu, Target } from 'lucide-react';
 
 const features = [
-  {
-    icon: Rocket,
-    title: "Transformation-First​",
-    description:
-      "We don’t just support IT — we modernize it.From workflow automation to AI-enabled operations, we turn legacy environments into intelligent digital ecosystems.​",
-    border: "border-b md:border-r",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Secure & Compliant​",
-    description:
-      "Designed for Healthcare, Financial, IT, Government environments etc. resilience, governance, and security are non-negotiable.​",
-    border: "border-b md:border-r",
-  },
-  {
-    icon: BarChart3,
-    title: "Enterprise-Grade Expertise​",
-    description:
-      "Proven experience across platforms like ServiceNow, Microsoft 365, Atlassian Jira, and UiPath — integrated, optimized, and built to scale.​",
-    border: "border-b",
-  },
-  {
-    icon: CheckCircle2,
-    title: "Automation & Efficiency​",
-    description:
-      "​We eliminate inefficiencies, reduce manual effort, and accelerate decision-making through intelligent automation across your IT ecosystem​",
-    border: "border-b md:border-b-0 md:border-r",
-  },
-  {
-    icon: DollarSign,
-    title: "Managed with Accountability​",
-    description:
-      "Proactive monitoring, defined SLAs, and continuous optimization — we manage what we build.​",
-    border: "border-b md:border-b-0 border-r",
-  },
-  // {
-  //   icon: Link2,
-  //   title: "Cyber Security",
-  //   description:
-  //     "Protecting critical assets with modern security architectures, continuous monitoring, and compliance-driven controls.",
-  //   border: "border-b md:border-b-0 ",
-  // },
+  { number: '01', icon: Zap, title: 'Transformation-First', description: "Modernizing legacy environments into intelligent digital ecosystems via AI-enabled operations." },
+  { number: '02', icon: Shield, title: 'Secure & Compliant', description: "Designed for high-stakes environments where resilience and security are non-negotiable." },
+  { number: '03', icon: Award, title: 'Enterprise Expertise', description: "Proven experience across ServiceNow, Microsoft 365, and UiPath — built to scale." },
+  { number: '04', icon: Cpu, title: 'Automation & Efficiency', description: "Eliminating inefficiencies and accelerating decision-making through intelligent automation." },
+  { number: '05', icon: Target, title: 'Managed Accountability', description: "Proactive monitoring and defined SLAs — we manage and optimize what we build." },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function WhyClientsChooseUs() {
+  const sectionRef = useRef(null);
+  const leftColRef = useRef(null);
+
+  useGSAP(() => {
+    // Only pin on desktop (lg breakpoint is 1024px)
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1024px)", () => {
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top 20%", // Pin when the top of the section hits the top of the viewport
+        end: "bottom bottom", // Unpin when the bottom of the section hits the bottom of the viewport
+        pin: leftColRef.current,
+        pinSpacing: false, // Prevents GSAP from adding extra padding to the container
+        scrub: true,
+      });
+    });
+
+    return () => mm.revert(); // Cleanup
+  }, { scope: sectionRef });
+
   return (
     <Section id="why-choose-us" size="xl" background="bg-white">
-      <div className="container">
-        {/* Header */}
-        {/* <Heading
-            headline="Why Clients Choose Us"
-            subheadline="We're more than an IT partner — we're a trusted ally focused on driving real outcomes. At i-Connectresources, we simplify complexity, enhance efficiency, and infuse innovation into every process we support."
-            maxWidth="6xl"
-          /> */}
-
-        {/* heading */}
-        {/* heading */}
-        <div className="">
-          <h2 className="heading-default text-4xl sm:text-5xl md:text-6xl text-left">
-            Why Choose Us​ ​
+      <div ref={sectionRef} className="container grid lg:grid-cols-12 gap-12 items-start relative min-h-screen">
+        
+        {/* --- Left Column: GSAP Pinned Heading --- */}
+        <div ref={leftColRef} className="lg:col-span-5 ">
+          <div className="">
+            
+          </div>
+          <h2 className="text-5xl  font-regular heading-default mb-8 ">
+            WHY <br /> CHOOSE US
           </h2>
-          <p className="card-subtitle w-full md:max-w-md content-default text-left">
-            We're more than an IT partner — we're a trusted ally focused on
-            driving real outcomes. At i-Connectresources, we simplify
-            complexity, enhance efficiency, and infuse innovation into every
-            process we support.
+          <p className="text-lg content-default mb-10 max-w-sm font-medium leading-relaxed">
+            We deliver enterprise-grade IT solutions backed by decades of expertise and an unwavering commitment to excellence.
           </p>
+          <div className="h-1.5 w-24 bg-primary rounded-full"></div>
         </div>
 
-        {/* Grid */}
-        <div className="mt-12 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={index}
-                className={`
-                  group relative overflow-hidden
-                  p-8 sm:p-10 flex flex-col items-start
-                  border-gray-300 ${item.border}
+        {/* --- Right Column: Scrolling Content --- */}
+        <div className="lg:col-span-7 space-y-8 ">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="group relative bg-slate-50 border border-slate-100 p-10 lg:p-14 rounded-[2.5rem] transition-all duration-500 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50"
+            >
+              <div className="absolute right-10 top-1/2 -translate-y-1/2 text-[120px] font-bold opacity-[0.03] text-primary pointer-events-none select-none">
+                {feature.number}
+              </div>
 
-                  transition-all duration-300 ease-out
-                  hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]
-                  hover:-translate-y-0.5 rounded-lg
-                `}
-              >
-                {/* ---------- Concentric Quadrant Background ---------- */}
-                <div
-                  className="
-                    pointer-events-none
-                    absolute -top-34 -right-34
-                    w-[320px] h-80
-
-                    opacity-0 scale-75
-                    transition-all duration-500 ease-out
-                    group-hover:opacity-100
-                    group-hover:scale-100
-                  "
-                >
-                  {/* outer */}
-                  <div className="absolute inset-0 rounded-full bg-primary/10" />
-                  {/* middle */}
-                  <div className="absolute inset-[45px] rounded-full bg-primary/20" />
-                  {/* center */}
-                  <div className="absolute inset-[90px] rounded-full bg-primary" />
+              <div className="relative z-10 flex flex-col sm:flex-row items-start gap-8">
+                <div className="size-14 lg:size-16 flex-shrink-0 flex items-center justify-center bg-white rounded-2xl shadow-sm border border-slate-100  transition-transform duration-500">
+                  <feature.icon className="size-8 lg:size-10 text-primary" strokeWidth={1.5} />
                 </div>
 
-                {/* ---------- Content ---------- */}
-                <div className="relative z-10 ">
-                  {/* Icon */}
-                  <div
-                    className="
-                      w-14 h-14 flex items-center justify-center rounded-full
-                      bg-white mb-6
-
-                      shadow-[0px_4px_6px_rgba(0,0,0,0.12)]
-                      transition-all duration-300 ease-out
-
-                      group-hover:shadow-[0px_10px_18px_rgba(0,0,0,0.22)]
-                      group-hover:-translate-y-1
-                      group-hover:scale-105
-                      
-                    "
-                  >
-                    <Icon className="w-6 h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
+                <div className="flex-1">
+                  <div className="flex items-center gap-4 mb-4">
+                    <span className="text-[12px] font-mono font-bold tracking-[0.3em] text-primary">{feature.number}</span>
+                    <div className="h-px flex-1 bg-slate-200/50" />
                   </div>
-
-                  {/* Title */}
-                  <div className="card-heading mb-4">
-                    <h3 className="text-base lg:text-lg font-normal  heading-default  ">
-                      {item.title}
-                    </h3>
-                    <span className="card-heading-underline " />
-                  </div>
-
-                  {/* Description */}
-                  <p className="card-subtitle  content-default">
-                    {item.description}
+                  <h3 className="text-lg  font-regular heading-default mb-4 tracking-tight uppercase">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-500 text-base lg:text-base leading-relaxed max-w-md">
+                    {feature.description}
                   </p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </Section>

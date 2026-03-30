@@ -1,7 +1,12 @@
-
-
+"use client";
+import React, { useRef } from "react";
 import Section from "@/components/layouts/Section";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 import microsoftLogo from "../../../public/logos/MicrosoftLogo.png";
 import appianLogo from "../../../public/logos/appianLogo.png";
@@ -26,9 +31,28 @@ const partners = [
 ];
 
 export default function PartnersInfiniteScroll() {
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(containerRef.current, {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
     <Section id="partners" size="sm" background="bg-white">
-      <div className="container relative overflow-hidden">
+      <div className="container relative overflow-hidden" ref={containerRef}>
         {/* -------- Fade overlays -------- */}
         <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-linear-to-r from-white to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-linear-to-l from-white to-transparent z-10" />

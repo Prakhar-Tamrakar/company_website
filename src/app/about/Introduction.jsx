@@ -1,7 +1,7 @@
 import Section from "@/components/layouts/Section";
 import ourMissionGray from "../../../public/About/ourMission.png";
 import ourMissionColor from "../../../public/About/ourMissionColor.png";
-import ourVision from "../../../public/About/ourVision.png";
+import ourVision from "../../../public/About/vision.png";
 import ourVisionColor from "../../../public/About/ourVisionColor.png";
 import whoWeAre from "../../../public/About/whoWeAre.jpg";
 import whoWeAreColor from "../../../public/About/whoWeAreColor.jpg";
@@ -149,7 +149,7 @@ export default function Introduction() {
                 "
             >
               <Image
-                src={ourVisionColor}
+                src={ourVision}
                 alt="Our Mission"
                 fill
                 className="object-cover"
@@ -254,7 +254,7 @@ export default function Introduction() {
             "
             >
               <Image
-                src={ourMissionColor}
+                src={ourMissionGray}
                 alt="Our Mission"
                 fill
                 className="object-cover"

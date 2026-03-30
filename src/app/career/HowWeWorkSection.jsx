@@ -1,215 +1,118 @@
-// "use client";
-
-// import Image from "next/image";
-// import Section from "@/components/layouts/Section";
-// import Heading from "@/components/Heading";
-// import img from '../../../public/About/certified_Experts.png'
-
-// const workItems = [
-//   {
-//     title: "Guided by Mentors, Driven by You",
-//     description:
-//       "We combine agility and innovation to move fast and deliver smarter, ensuring every solution we build creates measurable value.",
-//   },
-//   {
-//     title: "Collaboration Without Borders",
-//     description:
-//       "Our teams across India and the U.S. collaborate seamlessly, sharing knowledge, ideas, and expertise to deliver world-class solutions.",
-//   },
-//   {
-//     title: "Continuous Learning Culture",
-//     description:
-//       "From industry-recognized certifications to workshops and global conferences, we invest in your growth — so you can keep learning, evolving, and leading.",
-//   },
-//   {
-//     title: "Agile + DevOps in Action",
-//     description:
-//       "We combine agility and innovation to move fast and deliver smarter, ensuring every solution we build creates measurable value.",
-//   },
-//   {
-//     title: "Flexible Work, Real Balance",
-//     description:
-//       "We offer hybrid and remote opportunities that let you work where you’re most productive — because great ideas don’t depend on location.",
-//   },
-// ];
-
-// export default function HowWeWorkSection() {
-//   return (
-//     <Section id="how-we-work" size="lg">
-//       {/* Heading */}
-//       <Heading
-//         headline="How We Work"
-//         subHeadline="At i-Connectresources, work isn’t just about delivering projects — it’s about growing together, innovating boldly, and creating real impact every day."
-//         maxWidth="4xl"
-//       />
-
-//       {/* Cards */}
-//       <div className="container mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-//         {workItems.map((item, index) => (
-//           <div
-//             key={index}
-//             className="group relative h-[240px] rounded-2xl overflow-hidden shadow-lg"
-//           >
-//             {/* Image */}
-//             <Image
-//               src={img}
-//               alt={item.title}
-//               fill
-//               className="object-cover transition-transform duration-700 group-hover:scale-105"
-//             />
-
-//             {/* Dark overlay */}
-//             <div className="absolute inset-0 bg-black/55" />
-
-//             {/* Content */}
-//             <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-//               <h4 className="text-lg font-semibold mb-2 leading-snug">
-//                 {item.title}
-//               </h4>
-//               <p className="text-sm text-white/90 leading-relaxed">
-//                 {item.description}
-//               </p>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </Section>
-//   );
-// }
-
 "use client";
 
 import Image from "next/image";
 import Section from "@/components/layouts/Section";
 import Heading from "@/components/Heading";
-import img from "../../../public/About/ourMission.png";
 import mentor from "../../../public/career/mentor.png";
 import agile from "../../../public/career/agile.png";
-
 import colab from "../../../public/career/Global_Clients.jpg";
 import learning from "../../../public/career/learning.jpg";
 import workLife from "../../../public/career/worklife.png";
+import diversity from "../../../public/career/diversity.jpg";
 
 const workItems = [
   {
     title: "Guided by Mentors, Driven by You",
     description:
       "We combine agility and innovation to move fast and deliver smarter, ensuring every solution we build creates measurable value.",
+    image: mentor,
+    size: "md:col-span-6",
   },
   {
     title: "Collaboration Without Borders",
     description:
       "Our teams across India and the U.S. collaborate seamlessly, sharing knowledge, ideas, and expertise to deliver world-class solutions.",
+    image: colab,
+    size: "md:col-span-6",
   },
   {
     title: "Continuous Learning Culture",
     description:
       "From industry-recognized certifications to workshops and global conferences, we invest in your growth — so you can keep learning, evolving, and leading.",
+    image: learning,
+    size: "md:col-span-5",
   },
   {
     title: "Agile + DevOps in Action",
     description:
       "We combine agility and innovation to move fast and deliver smarter, ensuring every solution we build creates measurable value.",
+    image: agile,
+    size: "md:col-span-7",
   },
   {
     title: "Flexible Work, Real Balance",
     description:
       "We offer hybrid and remote opportunities that let you work where you’re most productive — because great ideas don’t depend on location.",
+    image: workLife,
+    size: "md:col-span-6",
+  },
+  {
+    title: "Diversity as Our Strength",
+    description:
+      "We thrive on diverse perspectives. By fostering an inclusive environment where every voice is heard, we build more empathetic products and a stronger, more creative team.",
+    image: diversity, // Reusing learning as in original, but could vary if more assets existed
+    size: "md:col-span-6",
   },
 ];
 
 export default function HowWeWorkSection() {
   return (
-    <Section id="how-we-work" size="lg">
-      <Heading
-        headline="How We Work"
-        subheadline="At i-Connectresources, work isn’t just about delivering projects — it’s about growing together, innovating boldly, and creating real impact every day."
-        maxWidth="4xl"
-      />
+    <Section id="how-we-work" size="lg" className="bg-slate-50/30">
+      <div className="container mx-auto">
+        <Heading
+          headline="How We Work"
+          subheadline="At i-Connectresources, work isn’t just about delivering projects — it’s about growing together, innovating boldly, and creating real impact every day."
+          maxWidth="4xl"
+        />
 
-      <div className="container mt-16 space-y-6">
-        {/* ================= TOP GRID ================= */}
-        <div className="grid grid-cols-12 gap-6 ">
-          {/* 3 cols */}
-          <div className="relative col-span-12 md:col-span-4 h-[300px] rounded-2xl overflow-hidden">
-            <div className="noisy absolute inset-0 z-10" />
-            <Image src={mentor} alt="" fill className="object-cover" />
-
-            {/* Card Content */}
-            <div className="absolute inset-0 z-20 p-5 flex flex-col justify-end text-white bg-linear-to-t from-black/80 via-black/40 to-transparent">
-              <h4 className="text-lg font-semibold mb-1">
-                {workItems[0].title}
-              </h4>
-              <p className="text-sm text-white/90 leading-relaxed">
-                {workItems[0].description}
-              </p>
-            </div>
-          </div>
-
-          {/* 6 cols */}
-          <div className="relative col-span-12 md:col-span-4 h-[300px] rounded-2xl overflow-hidden">
-            <div className="noisy absolute inset-0 z-10" />
-            <Image src={colab} alt="" fill className="object-cover" />
-
+        <div className="grid grid-cols-12 gap-6 mt-20">
+          {workItems.map((item, index) => (
             <div
-              className="absolute inset-0 z-20 p-6 flex flex-col justify-end text-white bg-linear-to-t from-black/80 via-black/40 to-transparent"
+              key={index}
+              className={`relative col-span-12 ${item.size} h-[350px] md:h-[400px] rounded-[2rem] overflow-hidden group transition-all duration-500 shadow-md hover:shadow-xl`}
             >
-              <h4 className="text-xl font-semibold mb-2">
-                {workItems[1].title}
-              </h4>
-              <p className="text-sm text-white/90 leading-relaxed max-w-[90%]">
-                {workItems[1].description}
-              </p>
+              {/* Noisy Texture Overlay */}
+              <div className="noisy absolute inset-0 z-10 opacity-20 pointer-events-none" />
+
+              {/* Background Image with Hover Scale */}
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-700 "
+              />
+
+              {/* Dynamic Gradient Overlay */}
+              <div className="absolute inset-0 z-20 bg-linear-to-t from-slate-900/90 via-slate-900/40 to-transparent transition-opacity duration-500 group-hover:from-slate-900/95" />
+
+              {/* Card Content with Improved Alignment and Spacing */}
+              <div className="absolute inset-0 z-30 p-8 md:p-10 flex flex-col justify-end text-white transform transition-transform duration-500">
+                <h4 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">
+                  {item.title}
+                </h4>
+                <p className="text-sm md:text-base text-slate-200 leading-relaxed font-light max-w-[90%]  ">
+                  {item.description}
+                </p>
+              </div>
+
+              {/* Decorative Element on Corner */}
+              {/* <div className="absolute top-6 right-6 z-30 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <svg
+                  className="w-5 h-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </div> */}
             </div>
-          </div>
-
-          {/* 3 cols */}
-          <div className="relative col-span-12 md:col-span-4 h-[300px] rounded-2xl overflow-hidden">
-            <div className="noisy absolute inset-0 z-10" />
-            <Image src={learning} alt="" fill className="object-cover" />
-
-            <div className="absolute inset-0 z-20 p-5 flex flex-col justify-end text-white bg-linear-to-t from-black/80 via-black/40 to-transparent">
-              <h4 className="text-lg font-semibold mb-1">
-                {workItems[2].title}
-              </h4>
-              <p className="text-sm text-white/90 leading-relaxed">
-                {workItems[2].description}
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* ================= BOTTOM GRID ================= */}
-        <div className="grid grid-cols-12 gap-6">
-          {/* 8 cols */}
-          {/* 8 cols – Card 4 */}
-          <div className="relative col-span-12 md:col-span-7 h-[300px] rounded-2xl overflow-hidden">
-            <div className="noisy absolute inset-0 z-10" />
-            <Image src={agile} alt="" fill className="object-cover" />
-
-            <div className="absolute inset-0 z-20 p-6 flex flex-col justify-end text-white bg-linear-to-t from-black/80 via-black/40 to-transparent">
-              <h4 className="text-xl font-semibold mb-2">
-                {workItems[3].title}
-              </h4>
-              <p className="text-sm text-white/90 leading-relaxed max-w-[80%]">
-                {workItems[3].description}
-              </p>
-            </div>
-          </div>
-
-          {/* 4 cols – Card 5 */}
-          <div className="relative col-span-12 md:col-span-5 h-[300px] rounded-2xl overflow-hidden">
-            <div className="noisy absolute inset-0 z-10" />
-            <Image src={workLife} alt="" fill className="object-cover" />
-
-            <div className="absolute inset-0 z-20 p-6 flex flex-col justify-end text-white bg-linear-to-t from-black/80 via-black/40 to-transparent">
-              <h4 className="text-lg font-semibold mb-2">
-                {workItems[4].title}
-              </h4>
-              <p className="text-sm text-white/90 leading-relaxed">
-                {workItems[4].description}
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </Section>

@@ -50,6 +50,7 @@ const page = () => {
              subHeadline="Purpose-driven platforms designed to solve complex operational challenges and scale with your organization."
              primaryCta={{ label: "Explore the Product", href: "/products#Products" }}
              secondaryCta={{label:"Request a Walkthrough" , href:"/contact"}}
+             heroBgImage="https://images.pexels.com/photos/7653780/pexels-photo-7653780.jpeg"
            />
       <ProductsSection  />
 
