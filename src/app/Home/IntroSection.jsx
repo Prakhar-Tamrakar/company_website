@@ -67,7 +67,7 @@ const IntroSection = () => {
   );
 
   return (
-    <Section id="intro" size="xl">
+    <Section id="intro" size="xl" background="bg-slate-200/20">
       <div className="container" ref={containerRef}>
         {/* ===== TWO COLUMN GRID ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -77,7 +77,7 @@ const IntroSection = () => {
             <div className="space-y-4 sm:space-y-6">
               <h2
                 ref={textRef}
-                className="heading-default text-3xl md:text-4xl lg:text-5xl font-regular leading-tight text-slate-900"
+                className="heading-default text-3xl sm:text-4xl lg:text-5xl font-regular leading-tight text-slate-900"
               >
                 Enabling Scalable Excellence for a{" "}
                 <br className="hidden sm:block" />
@@ -86,7 +86,7 @@ const IntroSection = () => {
 
               <p
                 ref={paragraphRef}
-                className="content-default text-base sm:text-base leading-relaxed text-slate-600"
+                className="content-default text-base sm:text-lg leading-relaxed text-slate-600"
               >
                 At i-Connectresources, we support institutions, enterprises and
                 governments across the globe in achieving scale and operational
@@ -126,7 +126,7 @@ const IntroSection = () => {
                 <p className="text-xs font-semibold uppercase text-blue-700 mt-1">
                   Professionals
                 </p>
-                <p className="text-base text-slate-500 mt-2 leading-relaxed">
+                <p className="text-sm text-slate-500 mt-2 leading-relaxed">
                   Expert minds driving tech innovation.
                 </p>
               </div>

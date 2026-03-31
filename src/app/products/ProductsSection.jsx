@@ -53,6 +53,8 @@ const ProductsSection = () => {
     },
     {
       id: "02",
+      logo: "/products/logos/gapNinja.png",
+
       title: "GapNinja",
       subtitle: "Skills and capability intelligence",
       description:
@@ -132,16 +134,14 @@ const ProductsSection = () => {
             return (
               <div
                 key={process.id}
-                className={`grid grid-cols-1 ${
-                  isEven ? "md:grid-cols-[40%_60%]" : "md:grid-cols-[60%_40%]"
-                } gap-2`}
+                className={`grid grid-cols-1 ${isEven ? "md:grid-cols-[40%_60%]" : "md:grid-cols-[60%_40%]"
+                  } gap-2`}
               >
                 {/* IMAGE */}
                 <div
                   ref={(el) => (containerRefs.current[index] = el)}
-                  className={`relative h-full min-h-[420px] overflow-hidden rounded-2xl ${
-                    isEven ? "" : "md:col-start-2"
-                  } `}
+                  className={`relative h-full min-h-[420px] overflow-hidden rounded-2xl ${isEven ? "" : "md:col-start-2"
+                    } `}
                 >
                   {/* Moving inner image */}
                   <div
@@ -164,9 +164,8 @@ const ProductsSection = () => {
 
                 {/* CONTENT */}
                 <div
-                  className={`bg-gray-50/50 rounded-2xl px-10 sm:px-14 md:px-16 lg:px-24 py-16 flex flex-col justify-center ${
-                    isEven ? "" : "md:col-start-1 md:row-start-1"
-                  }`}
+                  className={`bg-gray-50/50 rounded-2xl px-10 sm:px-14 md:px-16 lg:px-24 py-16 flex flex-col justify-center ${isEven ? "" : "md:col-start-1 md:row-start-1"
+                    }`}
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4 mb-2">

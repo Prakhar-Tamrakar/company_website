@@ -77,7 +77,7 @@ export default function CenteredHeroSection({
             {subHeadline}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-left gap-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-8">
             {primaryCta?.href && (
               <ModernCapsuleCTA
                 href={primaryCta.href}

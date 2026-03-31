@@ -1,5 +1,6 @@
 "use client";
 import Heading from "@/components/Heading";
+import Section from "@/components/layouts/Section";
 
 const services = [
   {
@@ -171,16 +172,16 @@ function ServiceCard({ service, index }) {
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-6 gap-3">
-        <span
+        {/* <span
           className="inline-block w-fit text-[10px] font-semibold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
           style={{ color: service.accent, backgroundColor: service.accentLight }}
         >
           {service.label}
-        </span>
-        <h3 className="text-base font-semibold text-slate-900 leading-snug">
+        </span> */}
+        <h3 className="text-lg sm:text-xl md:text-2xl font-regular heading-default leading-snug">
           {service.title}
         </h3>
-        <p className="text-slate-400 text-sm leading-relaxed flex-1">
+        <p className="content-default text-sm md:text-base leading-relaxed flex-1">
           {service.desc}
         </p>
         <div className="pt-4 border-t border-slate-100 flex items-center gap-1.5">
@@ -196,8 +197,8 @@ function ServiceCard({ service, index }) {
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 px-6 sm:px-12">
-      <div className="max-w-7xl mx-auto">
+    <Section size="lg" >
+      <div className="container">
         <Heading
           headline="Services We Deliver"
           subheadline="We design, build, and scale enterprise-grade digital solutions that help organizations innovate faster and strengthen security."
@@ -209,6 +210,6 @@ export default function ServicesSection() {
           ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

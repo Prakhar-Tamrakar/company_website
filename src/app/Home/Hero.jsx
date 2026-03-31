@@ -146,7 +146,7 @@ const Hero = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[100svh] w-full overflow-hidden bg-white flex items-center"
+      className="relative min-h-[70svh] lg:min-h-[100vh] w-full overflow-hidden bg-white flex items-center md:mt-10"
     >
       {/* ---------- Background Layers ---------- */}
       <div className="absolute inset-0 z-0">
@@ -173,7 +173,7 @@ const Hero = () => {
           />
         </div>
         {/* Mobile: full white overlay so text is readable without glass card */}
-        <div className="absolute inset-0 bg-white/85 md:bg-transparent z-10" />
+        <div className="absolute inset-0 bg-white/90 md:bg-transparent z-10" />
         {/* Desktop: directional gradient — left stays opaque, right fades to transparent */}
         <div className="absolute inset-0 hidden md:block bg-linear-to-r from-white/95 via-white/80 to-white/10 z-10" />
       </div>
@@ -181,8 +181,8 @@ const Hero = () => {
       {/* ---------- Main Content Grid ---------- */}
       <main className="container relative z-30 grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-12 lg:gap-20 w-full items-center pt-28 pb-16 md:pt-0 md:pb-0 md:min-h-screen">
         {/* Left Side Container */}
-        <div className="flex flex-col justify-center">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-left font-regular heading-default leading-tight mb-4 md:mb-6">
+        <div className="flex flex-col justify-center px-4 md:px-0">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-left font-regular heading-default leading-[1.1] mb-6 md:mb-8">
             <span className="hero-line-1 block overflow-hidden pb-1">
               <span className="reveal-inner block">Transform IT</span>
             </span>
@@ -190,15 +190,15 @@ const Hero = () => {
               <span className="reveal-inner block">Intelligently</span>
             </span>
           </h1>
-          <div className="hero-sub-text text-base sm:text-lg text-left leading-relaxed mb-6 md:mb-8 max-w-md text-slate-500">
-            <p>Turning IT into a future-ready, intelligent digital engine.</p>
-            <p>AI-driven automation that modernizes systems and workflows.</p>
+          <div className="hero-sub-text text-sm sm:text-base md:text-lg text-left leading-relaxed mb-8 md:mb-10 max-w-md text-slate-600">
+            <p>Turning IT into a future-ready, intelligent digital engine. AI-driven automation that modernizes systems and workflows.</p>
           </div>
-          <div className="w-fit hero-cta mb-8 md:mb-12">
+          <div className="flex flex-col items-start w-fit hero-cta mb-10 md:mb-14">
             <ModernCapsuleCTA href="/contact" text="Schedule a Consultation" />
           </div>
+
           {/* --- PARTNERS INFINITE SCROLL --- */}
-          <div className="partners-marquee w-full max-w-sm md:max-w-lg relative overflow-hidden">
+          <div className="partners-marquee w-full md:max-w-lg relative overflow-hidden mx-auto md:mx-0">
             <div className="flex w-max animate-marquee gap-8 md:gap-10 items-center">
               {partners.map((partner, i) => (
                 <div

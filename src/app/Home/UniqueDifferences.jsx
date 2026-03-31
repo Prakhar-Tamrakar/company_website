@@ -1,6 +1,7 @@
 import React from "react";
 import Heading from "@/components/Heading";
 import Section from "@/components/layouts/Section";
+import Image from "next/image";
 import image1 from "../../../public/Home/unique_differences/automation_efficiency.png";
 
 export function cn(...classes) {
@@ -48,7 +49,7 @@ export default function Frame() {
     <Section
       id="whyChooseUs"
       size="xl"
-      background="bg-slate-200/10"
+      background="bg-slate-200/20"
       className="px-4"
     >
       <div className="container">
@@ -60,28 +61,30 @@ export default function Frame() {
         />
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
           {differentiators.map((item, index) => (
             <div
               key={index}
-              className="group rounded-md  overflow-hidden bg-white "
+              className="group rounded-md  overflow-hidden bg-transparent "
             >
               {/* Image */}
               <div className="h-48 overflow-hidden">
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
+                  width={500}
+                  height={500}
                   className="w-full h-full object-cover "
                 />
               </div>
 
               {/* Content */}
               <div className=" pt-4 flex flex-col ">
-                <h3 className="heading-default text-base lg:text-lg font-normal mb-1">
+                <h3 className="heading-default text-lg sm:text-xl font-regular mb-1 leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="card-subtitle content-default">
+                <p className="card-subtitle text-sm sm:text-base content-default">
                   {item.description}
                 </p>
               </div>
