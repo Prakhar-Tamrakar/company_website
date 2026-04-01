@@ -178,7 +178,7 @@ function ServiceCard({ service, index }) {
         >
           {service.label}
         </span> */}
-        <h3 className="text-lg sm:text-xl md:text-2xl font-regular heading-default leading-snug">
+        <h3 className="text-base  font-regular heading-default leading-snug">
           {service.title}
         </h3>
         <p className="content-default text-sm md:text-base leading-relaxed flex-1">

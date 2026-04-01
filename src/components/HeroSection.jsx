@@ -45,6 +45,7 @@ export default function CenteredHeroSection({
     >
       {/* 🖼️ BACKGROUND LAYER */}
       <div ref={bgImageRef} className="absolute inset-0 z-0 opacity-0">
+
         <img
           src={heroBgImage?.src || heroBgImage}
           alt="Centered Background"
@@ -53,6 +54,8 @@ export default function CenteredHeroSection({
 
         {/* CENTER-FOCUSED SCRIM: Lightest in the center for text clarity */}
         <div className="absolute inset-0 bg-linear-to-r from-white via-white/80 to-white/0" />
+        <div className="absolute inset-0 bg-white/60 md:bg-transparent z-10" />
+
       </div>
 
       {/* ✍️ CONTENT LAYER */}

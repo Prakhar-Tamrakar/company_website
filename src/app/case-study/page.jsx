@@ -51,14 +51,14 @@ export default function CaseStudyPage() {
           {/* Heading */}
           <Heading
             headline="Case Studies"
-            subHeadline="Real-world transformations driven by automation, integration, and intelligent workflows."
+            subheadline="Real-world transformations driven by automation, integration, and intelligent workflows."
           />   
 
- <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
+ <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative mt-16">
           {/* Featured Blog */}
           <div ref={featuredRef} className="group lg:col-span-7 mt-5 ">
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-              <div className="relative  h-60 sm:h-70 md:h-120">
+            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition ">
+              <div className="relative  h-60 sm:h-70 md:h-130">
                 <Image
                   src={first.img}// replace with your image
                   alt={first.title}
@@ -69,18 +69,18 @@ export default function CaseStudyPage() {
 
               <div className="p-6 flex flex-col gap-6">
                 <div className="title-container">
-                  <div className="card-heading">
+                  <div className="card-heading mt-6">
                     {first.domain && (
                     <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-4xl mb-4">
                       {first.domain}
                     </span>
                   )}
-                    <h3 className="card-heading-blog transition-colors duration-300 group-hover:text-white">
+                    <h3 className="card-heading-blog transition-colors duration-300 group-hover:text-white mt-2">
                      {first.title}
                     </h3>
                     <span className="card-heading-underline" />
                   </div>
-                  <p className="card-subtitle mt-2 mb-2 transition-colors duration-300">
+                  <p className="card-subtitle mt-4 mb-2 transition-colors duration-300 ">
                    {first.summary}
                   </p>
                 </div>
@@ -102,7 +102,7 @@ export default function CaseStudyPage() {
                 className="group flex flex-col sm:flex-row gap-4 bg-white border border-gray-200 p-4 hover:shadow-sm transition rounded-lg overflow-hidden"
               >
                 {/* LEFT: Image */}
-                <div className="relative w-full sm:w-40 h-[140px] shrink-0 overflow-hidden rounded-md">
+                <div className="relative w-full sm:w-40  shrink-0 overflow-hidden rounded-md">
                   <Image
                     src={item.img}
                     alt={item.title}
@@ -128,7 +128,7 @@ export default function CaseStudyPage() {
                     href={`/case-study/${item.id}`}
                     className="mt-3 w-fit inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white hover:text-blue-500 transition pointer-cursor "
                   >
-                    Read More <ArrowRight className="w-4 h-4" />
+                    Read More <ArrowRight className="w-4 h-4"/>
                   </Link>
                 </div>
               </div>

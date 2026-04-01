@@ -10,21 +10,21 @@ const Newservice = () => {
     <Section id="NewServices" className="w-full bg-white overflow-hidden py-12 lg:py-20">
         <div className="container text-primary  mx-auto text-center px-4 mb-12 md:mb-16">
                 <Heading
-                 className='text-lg'
+                 className='text-base'
                  maxWidth='max-w-[800px]'
                   headline="Service Offerings"
                 />
               </div>
         <Leftside
             title='Scale with Confidence'
-            heading=' Strategic Consulting & Institutional Enablement'
-            subheading='We help organizations identify and address structural, operational and technological gaps to scale sustainably at national or global levels.'
+            heading=' Strategic Consulting'
+            subheading='We identify structural, operational, and technological gaps and deliver tailored strategies that enable organizations to scale sustainably — whether at national or global levels.'
             items={content1}
         />
         <Rightside
          title='Intelligent Innovation'
             heading='Digital & AI Transformation'
-            subheading='We modernize organizations through intelligent, data-driven solutions.'
+            subheading='We modernize businesses with intelligent, data-driven solutions.'
             items={content2}
         />
         <Leftside

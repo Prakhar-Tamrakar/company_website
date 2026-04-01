@@ -5,6 +5,7 @@ import Image from "next/image";
 import journey from '@/constants/constJourney';
 import { FileText } from "lucide-react";
 import Heading from '@/components/Heading';
+import Link from 'next/link';
 export default function YourJourney() {
   return (
     <Section className='w-full bg-white overflow-hidden py-12'>
@@ -44,13 +45,15 @@ export default function YourJourney() {
               {/* Content Wrapper */}
               <div className=" flex flex-col flex-grow px-5 py-6 sm:px-6">
                 <div className="card-heading relative w-fit pb-1 ">
-                    <h2 className='card-heading-title font-bold text-xl mb-3 text-left'>{item.heading}</h2> 
+                    <h2 className='card-heading-title font-bold heading-default text-xl mb-3 text-left'>{item.heading}</h2> 
                     <span className='card-heading-underline'></span>
                 </div>
                 {/* flex-grow pushes the button to the bottom */}
-                <p className="card-subtitle  text-left flex-grow ">
+                <p className="card-subtitle content-default text-base text-left flex-grow ">
                   {item.subHeading}
                 </p>
+            <Link href="\contact">    <button className='bg-primary text-white rounded-lg h-[30px] w-full mt-2 cursor-pointer'>
+                  {item.buttonText}  </button> </Link>
               </div>
             </div>
           ))}

@@ -7,7 +7,7 @@ export default function ContactRootLayout({ children }) {
     <>
    {children}
    <ContactForm/>
-    <Contactpage/>
+    {/* <Contactpage/> */}
    <Getintouch/>
    <Bookconsaltant/>
     </>

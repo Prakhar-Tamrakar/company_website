@@ -146,7 +146,7 @@ const Hero = () => {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[70svh] lg:min-h-[100vh] w-full overflow-hidden bg-white flex items-center md:mt-10"
+      className="relative min-h-[70svh] lg:min-h-screen w-full overflow-hidden bg-white flex items-center"
     >
       {/* ---------- Background Layers ---------- */}
       <div className="absolute inset-0 z-0">
@@ -179,10 +179,10 @@ const Hero = () => {
       </div>
 
       {/* ---------- Main Content Grid ---------- */}
-      <main className="container relative z-30 grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-12 lg:gap-20 w-full items-center pt-28 pb-16 md:pt-0 md:pb-0 md:min-h-screen">
+      <main className="container relative z-30 grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-12 lg:gap-20 w-full items-center pt-28 pb-16 md:pt-24 md:pb-16 lg:pt-0 lg:pb-0 lg:min-h-screen lg:mt-20 xl:mt-10">
         {/* Left Side Container */}
-        <div className="flex flex-col justify-center px-4 md:px-0">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-left font-regular heading-default leading-[1.1] mb-6 md:mb-8">
+        <div className="flex flex-col justify-center px-4 md:px-0 ">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl text-left font-regular heading-default leading-[1.1] mb-6 md:mb-8">
             <span className="hero-line-1 block overflow-hidden pb-1">
               <span className="reveal-inner block">Transform IT</span>
             </span>
@@ -218,9 +218,9 @@ const Hero = () => {
         </div>
 
         {/* Right Side: Glass Card Panel — hidden on mobile */}
-        <div className="right-content-box hidden md:flex justify-end items-center">
+        <div className="right-content-box hidden md:flex justify-end  items-center">
           <div
-            className="relative w-full max-w-[360px] lg:max-w-[400px] min-h-[420px] flex flex-col justify-between rounded-[40px] p-10 overflow-hidden"
+            className="relative w-full max-w-[300px] lg:max-w-[340px] min-h-[360px] flex flex-col justify-between rounded-[32px] p-8 overflow-hidden"
             style={{
               background: "rgba(9, 33, 90, 0.65)",
               backdropFilter: "blur(24px)",
@@ -229,19 +229,19 @@ const Hero = () => {
             }}
           >
             <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-[2px] bg-blue-500" />
                 <span className="text-[10px] uppercase tracking-widest font-bold text-white">Capabilities</span>
               </div>
 
               <div className="feature-text">
-                <div className="font-bold text-6xl text-white/10 ">{String(index + 1).padStart(2, "0")}</div>
-                <h2 className="text-3xl font-bold text-white leading-tight mb-4">{slideFeatures[index].title}</h2>
-                <p className="text-white/60 text-base leading-relaxed">{slideFeatures[index].desc}</p>
+                <div className="font-bold text-5xl text-white/10 ">{String(index + 1).padStart(2, "0")}</div>
+                <h2 className="text-2xl font-bold text-white leading-tight mb-4">{slideFeatures[index].title}</h2>
+                <p className="text-white/60 text-sm leading-relaxed">{slideFeatures[index].desc}</p>
               </div>
             </div>
 
-            <div className="relative z-10 flex items-center justify-between mt-12">
+            <div className="relative z-10 flex items-center justify-between mt-8">
               <div className="flex gap-2">
                 {slideFeatures.map((_, i) => (
                   <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === index ? "w-12 bg-white" : "w-6 bg-white/20"}`} />

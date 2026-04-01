@@ -50,8 +50,8 @@ html, body {
 @layer utilities {
   .container {
     margin-inline: auto;
-    max-width: 1380px;
-    padding-inline: 1.25rem;
+    max-width: 1280px;
+    padding-inline:1.25rem;
   }
 
   @media (min-width: 768px) {

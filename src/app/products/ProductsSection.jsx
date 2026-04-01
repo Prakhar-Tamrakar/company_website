@@ -65,7 +65,7 @@ const ProductsSection = () => {
     },
     {
       id: "03",
-      title: "LineupLynx.ai",
+      title: "LineupLynx",
       subtitle: "AI-powered cricket auction intelligence",
       description:
         "An AI-powered sports player auction and analytics platform that enhances decision making, performance insights, and team strategy. ",
@@ -76,7 +76,7 @@ const ProductsSection = () => {
     {
       id: "04",
       logo: "/products/logos/oncologyLogo.png",
-      title: "Luxon",
+      title: "LuxOn",
       subtitle: "Preventive oncology screening platform",
       description:
         "A preventive oncology screening and healthcare analytics platform focused on early detection, risk assessment, and patient outcome optimization. ",
@@ -86,7 +86,7 @@ const ProductsSection = () => {
     },
     {
       id: "05",
-      title: "Secure Code Intelligence (SCI.ai)",
+      title: "Secure Code Intelligence",
       subtitle: "AI-driven code security intelligence",
       description:
         "An advanced AI-driven code security platform built with LLM (StarCoder-1B) for automated vulnerability detection, risk assessment, and secure software development. ",
@@ -96,17 +96,17 @@ const ProductsSection = () => {
     },
     {
       id: "06",
-      title: "Multiple Document Understanding (MDU.ai)",
+      title: "Multiple Document Understanding",
       subtitle: "Multiple document understanding",
       description:
-        "Multiple Document Understanding (MDU.ai) is an AI-powered document intelligence platform that analyzes multiple documents simultaneously to extract insights and convert unstructured content into structured data. It understands complex layouts, visuals, and multilingual content, unifying OCR, language detection, translation, and semantic interpretation into a single, scalable AI system.",
+        "Multiple Document Understanding is an AI-powered document intelligence platform that analyzes multiple documents simultaneously to extract insights and convert unstructured content into structured data. It understands complex layouts, visuals, and multilingual content, unifying OCR, language detection, translation, and semantic interpretation into a single, scalable AI system.",
       outcome:
         "A powerful AI document intelligence platform for interpreting, classifying, and extracting insights from complex multilingual documents and layouts.",
       image: "/products/docNew.png",
     },
     {
       id: "07",
-      title: "Sat Change Detect (SAT)",
+      title: "Sat Change Detect",
       subtitle: "Satellite imagery change detection",
       description:
         "Daily satellite imagery enables continuous monitoring, but large data volumes require AI/ML-based automated change detection to efficiently identify new man-made developments with reduced false alarms. ",
@@ -184,7 +184,7 @@ const ProductsSection = () => {
                       )}
                     </div>
 
-                    <p className="text-sm font-bold tracking-widest heading-default uppercase mb-4">
+                    <p className="text-base font-bold tracking-widest heading-default uppercase mb-4">
                       {process.subtitle}
                     </p>
                   </div>
@@ -193,10 +193,8 @@ const ProductsSection = () => {
                     {process.description}
                   </p>
 
-                  <div className="bg-white border border-gray-100 rounded-xl p-5 max-w-xl">
-                    <p className="text-[12px] font-bold tracking-widest uppercase text-gray-800 mb-1">
-                      Outcome
-                    </p>
+                  <div className="bg-white border border-gray-100 rounded-xl p-5 max-w-xl shadow-lg">
+                    
                     <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       {process.outcome}
                     </p>

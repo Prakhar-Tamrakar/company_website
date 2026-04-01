@@ -61,32 +61,33 @@ export default function Frame() {
         />
 
         {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mt-16">
           {differentiators.map((item, index) => (
             <div
               key={index}
-              className="group rounded-md  overflow-hidden bg-transparent "
+              className="group flex flex-col items-start"
             >
-              {/* Image */}
-              <div className="h-48 overflow-hidden">
+              {/* Image Container */}
+              <div className="relative w-full h-[220px] rounded-2xl overflow-hidden mb-6 shadow-sm border border-slate-200/50">
                 <Image
                   src={item.image}
                   alt={item.title}
                   width={500}
                   height={500}
-                  className="w-full h-full object-cover "
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Content */}
-              <div className=" pt-4 flex flex-col ">
-                <h3 className="heading-default text-lg sm:text-xl font-regular mb-1 leading-snug">
+              <div className="flex flex-col space-y-3">
+                <h3 className="text-lg md:text-xl font-bold text-slate-900 heading-default tracking-tight">
                   {item.title}
                 </h3>
-
-                <p className="card-subtitle text-sm sm:text-base content-default">
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed content-default">
                   {item.description}
                 </p>
+                {/* Visual accent line */}
+                <div className="h-1 w-12 bg-primary/20 rounded-full" title="accent" />
               </div>
             </div>
           ))}

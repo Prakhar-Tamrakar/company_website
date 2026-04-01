@@ -1,10 +1,9 @@
 import { BarChart3, Shield, Bot ,Rocket     ,Target ,BrainCircuit, GitBranch, Zap,Users, RefreshCcw,UserPlus ,Server,SlidersHorizontal ,RotateCcw ,Share2 ,ArrowLeftRight   } from "lucide-react";
-export const content1 = [{ id:1, icon:BarChart3, heading:'Scalability Assessments:', subhead:' Tailored for schools, Education Boards and Higher Education Institutions (HEIs).' },
+export const content1 = [{ id:1, icon:BarChart3, heading:'Scalability Assessments:', subhead:'Tailored strategies for all domains including financial, IT, HR, Legal, Educational and Federal. ' },
          { id:2, icon:Shield, heading:'Readiness Evaluation:', subhead:'Comprehensive reviews of governance, process maturity and technology.' }, 
-         { id:3, icon:ArrowLeftRight   , heading:'Flexible Models:', subhead:'Available as consulting only reports, full implementation or advisory handover models.' }]
-
+         { id:3, icon:ArrowLeftRight   , heading:'Flexible Engagement Models::', subhead:'Consulting, full implementation, or advisory-led execution.' }]
 export const content2 = [{ id:1, icon:BrainCircuit, heading:'AI-Enabled Development: ', subhead:'Custom web, mobile and Generative AI applications.' },
-         { id:2, icon:GitBranch, heading:'Data Intelligence:', subhead:'Large-scale data processing and "Data Readiness for AI" (DRAaS).' }, 
+         { id:2, icon:GitBranch, heading:'Data Intelligence:', subhead:'Enable Large-scale data processing and "Data Readiness for AI" (DRAaS).' }, 
          { id:3, icon:Zap, heading:'Operational & Business Transformation:', subhead:'Aligning people and processes through automation and re-engineering.' }]
 
 export const content3 = [{ id:1, icon:Users, heading:'Large-scale public events', subhead:'Planning for religious, cultural and civic events.' },
