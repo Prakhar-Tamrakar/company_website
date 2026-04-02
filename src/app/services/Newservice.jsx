@@ -23,18 +23,21 @@ const Newservice = () => {
           className="text-base"
           maxWidth="max-w-[800px]"
           headline="Service Offerings"
+          subheadline="End-to-end services that drive scalability, efficiency, and digital transformation. "
         />
       </div>
       <Leftside
+        id="strategic-consulting"
         title="Scale with Confidence"
         heading=" Strategic Consulting"
         subheading="We identify structural, operational, and technological gaps and deliver tailored strategies that enable organizations to scale sustainably — whether at national or global levels."
         items={content1}
       />
       <Rightside
+        id="digital-ai-transformation"
         title="Intelligent Innovation"
         heading="Digital & AI Transformation"
-        subheading="We modernize businesses with intelligent, data-driven solutions."
+        subheading="We modernize our customers’ operations through intelligent, data-driven solutions that enable innovation and long-term value. "
         items={content2}
       />
       {/* <Leftside
@@ -50,17 +53,19 @@ const Newservice = () => {
         items={content4}
       /> */}
       <Leftside
+        id="it-infrastructure"
         title="Reliable Foundation"
         heading=" IT Infrastructure & Operations"
-        subheading="We design, build, and stabilize core IT environments to ensure reliability, security, and scalability for our customers."
+        subheading="We design, build, and manage secure IT environments that ensure reliability, scalability, and operational continuity. "
         items={content5}
       />
-      {/* <Rightside
-        title="Intelligent Innovation"
-        heading="IT Staff Augmentation"
-        subheading="We provide on-demand access to specialized IT talent."
+      <Rightside
+        id="operational-excellence"
+        title="Operational Excellence "
+        heading="IT Service Management & Workflow Automation "
+        subheading="We streamline IT operations through intelligent workflows, improving service delivery, visibility, and efficiency. "
         items={content6}
-      /> */}
+      />
     </Section>
   );
 };

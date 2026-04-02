@@ -2,8 +2,8 @@ const cards = [
     {
         id:1,
         img:'/Services/yourjourney1.jpg',
-        heading:'Submit Your Use Case',
-        subHeading:'Share your business challenge or idea, and our experts will explore the best solutions for you.',
+        heading:'Contact Us',
+        subHeading:'Contact our team to discuss your requirements and get started with the right solutions.',
         buttonText:'Contact Us',
     },
     {

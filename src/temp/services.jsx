@@ -1,6 +1,7 @@
 "use client";
 import Heading from "@/components/Heading";
 import Section from "@/components/layouts/Section";
+import Link from "next/link";
 
 const services = [
   {
@@ -9,6 +10,7 @@ const services = [
     label: "Strategy",
     accent: "#3B82F6",
     accentLight: "#EFF6FF",
+    link: "/services#digital-ai-transformation"
   },
   {
     title: "Data Intelligence",
@@ -16,6 +18,7 @@ const services = [
     label: "Analytics",
     accent: "#8B5CF6",
     accentLight: "#F5F3FF",
+    link: "/services#digital-ai-transformation"
   },
   {
     title: "Business Transformation",
@@ -23,6 +26,7 @@ const services = [
     label: "Operations",
     accent: "#10B981",
     accentLight: "#ECFDF5",
+    link: "/services#strategic-consulting"
   },
   {
     title: "IT Infrastructure",
@@ -30,6 +34,7 @@ const services = [
     label: "Engineering",
     accent: "#F59E0B",
     accentLight: "#FFFBEB",
+    link: "/services#it-infrastructure"
   },
   {
     title: "Cloud Services",
@@ -37,6 +42,7 @@ const services = [
     label: "Cloud",
     accent: "#06B6D4",
     accentLight: "#ECFEFF",
+    link: "/services#it-infrastructure"
   },
   {
     title: "Cyber Security",
@@ -44,6 +50,7 @@ const services = [
     label: "Security",
     accent: "#EF4444",
     accentLight: "#FEF2F2",
+    link: "/services#it-infrastructure"
   },
 ];
 
@@ -186,7 +193,9 @@ function ServiceCard({ service, index }) {
         </p>
         <div className="pt-4 border-t border-slate-100 flex items-center gap-1.5">
           <span className="text-xs font-semibold tracking-wide" style={{ color: service.accent }}>
+            <Link href={service.link}>
             Learn more
+            </Link>
           </span>
           <span className="text-xs" style={{ color: service.accent }}>→</span>
         </div>

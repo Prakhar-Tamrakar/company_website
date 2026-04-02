@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 
-export default function ServiceGrid({ title, heading, subheading, items = [] }) {
+export default function ServiceGrid({ id, title, heading, subheading, items = [] }) {
   return (
-    <div className="mt-10">
+    <div id={id} className="mt-10 scroll-mt-20">
       {/* GRID CONTAINER */}
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-12 items-center gap-4 md:gap-0">
 

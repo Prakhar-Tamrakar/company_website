@@ -15,6 +15,9 @@ import {
   RotateCcw,
   Share2,
   ArrowLeftRight,
+  Settings2,
+  Workflow,
+  Activity
 } from "lucide-react";
 export const content1 = [
   {
@@ -22,7 +25,7 @@ export const content1 = [
     icon: BarChart3,
     heading: "Scalability Assessments:",
     subhead:
-      "Tailored strategies for all domains including financial, IT, HR, Legal, Educational and Federal. ",
+      "Tailored strategies for customers across education, public sector, and enterprise domains. ",
   },
   {
     id: 2,
@@ -35,7 +38,7 @@ export const content1 = [
     id: 3,
     icon: ArrowLeftRight,
     heading: "Flexible Engagement Models::",
-    subhead: "Consulting, full implementation, or advisory-led execution.",
+    subhead: "Available as consulting, full implementation, or advisory-led execution. ",
   },
 ];
 export const content2 = [
@@ -57,7 +60,7 @@ export const content2 = [
     icon: Zap,
     heading: "Operational & Business Transformation:",
     subhead:
-      "Aligning people and processes through automation and re-engineering.",
+      "Align people, processes, and technology through automation and process re-engineering. ",
   },
 ];
 
@@ -113,16 +116,23 @@ export const content5 = [
 export const content6 = [
   {
     id: 1,
-    icon: UserPlus,
-    heading: "Scale Teams Quickly: ",
+    icon: Settings2,
+    heading: "ITSM Implementation: ",
     subhead:
-      "Enabling organizations to quickly scale teams, fill critical skill gaps, and accelerate delivery. ",
+      "Incident, problem, and change management using platforms like ServiceNow.",
   },
   {
     id: 2,
-    icon: SlidersHorizontal,
-    heading: "Flexible Engagement: ",
+    icon: Workflow,
+    heading: "Workflow Automation: ",
     subhead:
-      "flexible engagement models aligned to delivery needs, to ensure the right expertise at the right time.",
+      "Automate repetitive tasks and improve response times across IT and business functions. ",
+  },
+  {
+    id: 3,
+    icon: Activity,
+    heading: "Monitoring & Reporting",
+    subhead:
+      "Real-time dashboards and SLA tracking for better decision-making.",
   },
 ];
