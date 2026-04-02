@@ -61,7 +61,7 @@ export default function Frame() {
         />
 
         {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8  mt-16">
           {differentiators.map((item, index) => (
             <div
               key={index}
@@ -80,14 +80,14 @@ export default function Frame() {
 
               {/* Content */}
               <div className="flex flex-col space-y-3">
-                <h3 className="text-lg md:text-xl font-bold text-slate-900 heading-default tracking-tight">
+                <h3 className="text-base md:text-lg  font-regular heading-default tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed content-default">
+                <p className=" text-sm md:text-base leading-relaxed content-default">
                   {item.description}
                 </p>
                 {/* Visual accent line */}
-                <div className="h-1 w-12 bg-primary/20 rounded-full" title="accent" />
+                <div className="h-1 w-12 bg-primary rounded-full" title="accent" />
               </div>
             </div>
           ))}

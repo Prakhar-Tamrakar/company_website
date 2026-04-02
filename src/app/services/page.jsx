@@ -1,7 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Newservice from "./Newservice";
-import ServiceCatagories from "./ServiceCatagories"
+import ServiceCatagories from "./ServiceCatagories";
 import DrivingOutcomes from "./DrivingOutcomes";
 import Journey from "./Journey";
 import OurCapabilities from "./OurCapabilities";
@@ -61,18 +61,18 @@ const page = () => {
       <HeroSection
         headline={
           <>
-            We Focus on Business Outcomes <br />
+            We Focus on Business Outcomes <br /> — Not Just Tools or Features.
           </>
         }
-        subHeadline=" Trusted by enterprises, government bodies, and global teams to deliver scalable IT transformation. We go beyond building IT solutions, we build solutions that support your growth. By understanding your operations and priorities, we tailor our services to strengthen efficiency, enhance performance, and create real, long-term benefits."
+        subHeadline="We go beyond building IT solutions -- we build solutions that support your growth. By understanding your operations and priorities, we tailor our services to strengthen efficiency, enhance performance, and create real, long-term benefits. "
         primaryCta={{ label: "Get Started", href: "/contact" }}
         secondaryCta={{ label: "Explore Our Services", href: "#OldServices" }}
         heroBgImage="https://images.pexels.com/photos/7658380/pexels-photo-7658380.jpeg"
       />
       {/* <OurCapabilities /> */}
       {/* <DrivingOutcomes /> */}
-      <Newservice/>
-      <ServiceCatagories />
+      <Newservice />
+      {/* <ServiceCatagories /> */}
       {/* <WhyClientstay /> */}
       <Journey />
     </>

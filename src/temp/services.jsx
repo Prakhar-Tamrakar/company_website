@@ -153,8 +153,8 @@ function Illustration({ index, accent }) {
 function ServiceCard({ service, index }) {
   return (
     <div
-      className="rounded-2xl bg-white border border-slate-100 overflow-hidden flex flex-col"
-      style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.04)" }}
+      className="rounded-2xl bg-white border border-slate-100 shadow-sm overflow-hidden flex flex-col"
+      // style={{ boxShadow: "0 1px 4px 0 rgb(0 0 0 / 0.09)" }}
     >
       {/* Illustration */}
       <div
@@ -171,14 +171,14 @@ function ServiceCard({ service, index }) {
       <div className="h-px bg-slate-100 mx-6" />
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-6 gap-3">
+      <div className="flex flex-col flex-1 p-6 gap-4 ">
         {/* <span
           className="inline-block w-fit text-[10px] font-semibold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full"
           style={{ color: service.accent, backgroundColor: service.accentLight }}
         >
           {service.label}
         </span> */}
-        <h3 className="text-base  font-regular heading-default leading-snug">
+        <h3 className="text-lg  font-regular heading-default leading-snug">
           {service.title}
         </h3>
         <p className="content-default text-sm md:text-base leading-relaxed flex-1">
@@ -204,7 +204,7 @@ export default function ServicesSection() {
           subheadline="We design, build, and scale enterprise-grade digital solutions that help organizations innovate faster and strengthen security."
         />
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ServiceCard key={index} service={service} index={index} />
           ))}
