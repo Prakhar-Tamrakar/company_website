@@ -75,7 +75,7 @@ const ProductsSection = () => {
     },
     {
       id: "04",
-      logo: "/products/logos/oncologyLogo.png",
+      logo: "/products/logos/oncologyNewLogo.png",
       title: "LuxOn",
       subtitle: "Preventive oncology screening platform",
       description:
@@ -125,7 +125,7 @@ const ProductsSection = () => {
           subheadline="Carefully designed solutions that balance usability, scalability, and long-term business value."
         />
 
-        <div className="mt-16" />
+        <div className=" mt-16" />
 
         <div className="flex flex-col gap-2">
           {processes.map((process, index) => {

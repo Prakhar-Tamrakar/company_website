@@ -104,7 +104,7 @@ const IntroSection = () => {
               <div className="border-l-4 border-slate-200 pl-5">
                 <div className="text-3xl font-semibold text-slate-900">20+</div>
                 <p className="text-xs font-semibold uppercase text-blue-700 mt-1">
-                  Experience
+                  Years of Experience
                 </p>
                 <p className="text-base text-slate-500 mt-2 leading-relaxed">
                   A legacy of trust and global excellence.

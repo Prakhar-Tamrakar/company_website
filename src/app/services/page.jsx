@@ -64,7 +64,7 @@ const page = () => {
             We Focus on Business Outcomes <br /> — Not Just Tools or Features.
           </>
         }
-        subHeadline="We go beyond building IT solutions -- we build solutions that support your growth. By understanding your operations and priorities, we tailor our services to strengthen efficiency, enhance performance, and create real, long-term benefits. "
+        subHeadline="Beyond building IT solutions, our focus is on delivering measurable impact. Through a deep understanding of your operations and priorities, services are designed to improve efficiency, enhance performance, and drive sustainable growth."
         primaryCta={{ label: "Get Started", href: "/contact" }}
         secondaryCta={{ label: "Explore Our Services", href: "#OldServices" }}
         heroBgImage="https://images.pexels.com/photos/7658380/pexels-photo-7658380.jpeg"
