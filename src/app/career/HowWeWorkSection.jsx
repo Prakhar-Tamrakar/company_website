@@ -44,7 +44,7 @@ const workItems = [
     image: workLife,
   },
   {
-    title: "Diversity as Our Strength",
+    title: "Diversity is Our Strength",
     description:
       "We thrive on diverse perspectives. By fostering an inclusive environment where every voice is heard, we build more empathetic products and a stronger, more creative team.",
     image: diversity,

@@ -309,7 +309,7 @@ export default function GeneralEnquiry() {
               {/* File Upload */}
               <div>
                 <label className="block mb-2 text-base font-medium text-gray-700">
-                  Upload RFP / Document{" "}
+                  Upload Document{" "}
                 </label>
                 <input
                   type="file"

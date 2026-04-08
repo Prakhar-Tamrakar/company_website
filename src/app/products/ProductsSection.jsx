@@ -44,7 +44,7 @@ const ProductsSection = () => {
       id: "01",
       logo: "/products/logos/mtPleaderLogo.png",
       title: "MyPleader",
-      Link:"https://www.mypleader.com/",
+      Link: "https://www.mypleader.com/",
       subtitle: "Digital legal practice management",
       description:
         "A comprehensive digital legal practice management platform designed for law firms and legal professionals to streamline case management, documentation, billing, and client communication. ",
@@ -57,7 +57,7 @@ const ProductsSection = () => {
       logo: "/products/logos/gapNinja.png",
 
       title: "GapNinja",
-      Link:"https://forecasthr-hzapd9e2hjaaatbc.eastus2-01.azurewebsites.net/",
+      Link: "https://forecasthr-hzapd9e2hjaaatbc.eastus2-01.azurewebsites.net/",
       subtitle: "Skills and capability intelligence",
       description:
         "A next-generation skills inventory and capability intelligence platform that enables organizations to map capabilities, close talent gaps, and optimize employee development.",
@@ -79,7 +79,7 @@ const ProductsSection = () => {
       id: "04",
       logo: "/products/logos/oncologyNewLogo.png",
       title: "icrono",
-      Link:"https://oncointel.dev.i-connectresources.com/",
+      Link: "https://oncointel.dev.i-connectresources.com/",
       subtitle: "Preventive oncology screening platform",
       description:
         "A preventive oncology screening and healthcare analytics platform focused on early detection, risk assessment, and patient outcome optimization. ",
@@ -137,14 +137,16 @@ const ProductsSection = () => {
             return (
               <div
                 key={process.id}
-                className={`grid grid-cols-1 ${isEven ? "md:grid-cols-[40%_60%]" : "md:grid-cols-[60%_40%]"
-                  } gap-2`}
+                className={`grid grid-cols-1 ${
+                  isEven ? "md:grid-cols-[40%_60%]" : "md:grid-cols-[60%_40%]"
+                } gap-2`}
               >
                 {/* IMAGE */}
                 <div
                   ref={(el) => (containerRefs.current[index] = el)}
-                  className={`relative h-full min-h-[420px] overflow-hidden rounded-2xl ${isEven ? "" : "md:col-start-2"
-                    } `}
+                  className={`relative h-full min-h-[420px] overflow-hidden rounded-2xl ${
+                    isEven ? "" : "md:col-start-2"
+                  } `}
                 >
                   {/* Moving inner image */}
                   <div
@@ -167,8 +169,9 @@ const ProductsSection = () => {
 
                 {/* CONTENT */}
                 <div
-                  className={`bg-gray-50/50 rounded-2xl px-10 sm:px-14 md:px-16 lg:px-24 py-16 flex flex-col justify-center ${isEven ? "" : "md:col-start-1 md:row-start-1"
-                    }`}
+                  className={`bg-gray-50/50 rounded-2xl px-10 sm:px-14 md:px-16 lg:px-24 py-16 flex flex-col justify-center ${
+                    isEven ? "" : "md:col-start-1 md:row-start-1"
+                  }`}
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-4 mb-2">
@@ -197,29 +200,29 @@ const ProductsSection = () => {
                   </p>
 
                   <div className="bg-white border border-gray-100 rounded-xl p-5 max-w-xl shadow-lg">
-                    
                     <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       {process.outcome}
                     </p>
                   </div>
 
                   <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <Link
+                    {/* <Link
                       href={`/products/${process.id}`}
                       className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90"
                     >
                       Learn more
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                    </Link> */}
 
                     {process.Link && (
                       <a
                         href={process.Link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 w-fit rounded-full border border-primary px-6 py-2.5 text-sm font-semibold text-primary transition-all hover:bg-primary/5"
+                        className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90"
                       >
-                        Visit Website
+                        Learn more
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </a>
                     )}
                   </div>

@@ -39,10 +39,10 @@ export default function NewsletterSection() {
           duration: 0.8,
           ease: "power3.out",
         },
-        "-=0.6"
+        "-=0.6",
       );
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   const [data, setData] = useState({
@@ -95,7 +95,7 @@ export default function NewsletterSection() {
         process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
         { action: "newsletter" },
       );
-      console.log(token)
+      console.log(token);
 
       // ✅ Update state (source of truth)
       setData((prev) => ({
@@ -132,13 +132,15 @@ export default function NewsletterSection() {
   };
 
   return (
-     <Section size="lg" className="relative w-full bg-white">
+    <Section size="lg" className="relative w-full bg-white">
       <div className="container" ref={containerRef}>
         <div className="relative overflow-hidden rounded-3xl bg-white">
           <div className="relative grid grid-cols-1 lg:grid-cols-2 items-center gap-12 p-4 sm:p-0">
-
             {/* RIGHT IMAGE — comes first on mobile */}
-            <div className="relative flex justify-center order-1 lg:order-2" ref={imageRef}>
+            <div
+              className="relative flex justify-center order-1 lg:order-2"
+              ref={imageRef}
+            >
               <div className="relative h-80 sm:h-96 w-full">
                 <Image
                   src="/Home/newsletter.jpg"
@@ -153,8 +155,8 @@ export default function NewsletterSection() {
             {/* LEFT CONTENT — comes second on mobile */}
             <div className="order-2 lg:order-1" ref={textRef}>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-regular  heading-default leading-tight mb-6">
-                Stay ahead of <br className="hidden sm:block" />
-                digital trends.
+                Stay Ahead of <br className="hidden sm:block" />
+                Digital Trends.
               </h2>
 
               <p className="content-default text-base leading-relaxed max-w-md mb-8">
@@ -207,11 +209,7 @@ export default function NewsletterSection() {
                       ${loading || submitted ? "opacity-60" : ""}
                     `}
                   >
-                    {loading
-                      ? "Joining..."
-                      : submitted
-                      ? "Joined"
-                      : "Join Now"}
+                    {loading ? "Joining..." : submitted ? "Joined" : "Join Now"}
                     <Send size={16} />
                   </button>
                 </div>
@@ -221,7 +219,6 @@ export default function NewsletterSection() {
                 )}
               </form>
             </div>
-
           </div>
         </div>
       </div>
