@@ -33,7 +33,7 @@ const Newservice = () => {
         subheading="We identify structural, operational, and technological gaps and deliver tailored strategies that enable organizations to scale sustainably — whether at national or global levels."
         items={content1}
       />
-      <Rightside
+      <Leftside
         id="digital-ai-transformation"
         title="Intelligent Innovation"
         heading="Digital & AI Transformation"
@@ -59,7 +59,7 @@ const Newservice = () => {
         subheading="We design, build, and manage secure IT environments that ensure reliability, scalability, and operational continuity. "
         items={content5}
       />
-      <Rightside
+      <Leftside
         id="operational-excellence"
         title="Operational Excellence "
         heading="IT Service Management & Workflow Automation "

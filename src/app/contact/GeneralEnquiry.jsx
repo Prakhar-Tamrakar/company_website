@@ -133,7 +133,7 @@ export default function GeneralEnquiry() {
           <div ref={formRef} className="">
             <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-8 space-y-6">
               <h2 className="text-xl font-semibold text-gray-900">
-                Let’s Start the Conversation
+                Connect with us
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

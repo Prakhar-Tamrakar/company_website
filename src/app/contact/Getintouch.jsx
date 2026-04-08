@@ -11,8 +11,8 @@ export default function GetinTouch() {
                 {/* Header Section */}
                 <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
                   <Heading
-                  headline="Get in Touch"
-                  subHeadline='Choose how you’d like to reach us — connecting with us is easy.'
+                  headline="Our Offices"
+                  subheadline='Choose how you’d like to reach us — connecting with us is easy.'
                   maxWidth='max-w-[700]'
               
                 />

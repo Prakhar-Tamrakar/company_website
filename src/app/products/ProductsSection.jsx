@@ -44,6 +44,7 @@ const ProductsSection = () => {
       id: "01",
       logo: "/products/logos/mtPleaderLogo.png",
       title: "MyPleader",
+      Link:"https://www.mypleader.com/",
       subtitle: "Digital legal practice management",
       description:
         "A comprehensive digital legal practice management platform designed for law firms and legal professionals to streamline case management, documentation, billing, and client communication. ",
@@ -56,6 +57,7 @@ const ProductsSection = () => {
       logo: "/products/logos/gapNinja.png",
 
       title: "GapNinja",
+      Link:"https://forecasthr-hzapd9e2hjaaatbc.eastus2-01.azurewebsites.net/",
       subtitle: "Skills and capability intelligence",
       description:
         "A next-generation skills inventory and capability intelligence platform that enables organizations to map capabilities, close talent gaps, and optimize employee development.",
@@ -66,17 +68,18 @@ const ProductsSection = () => {
     {
       id: "03",
       title: "LineupLynx",
-      subtitle: "AI-powered cricket auction intelligence",
+      subtitle: "AI-powered sports auction intelligence",
       description:
         "An AI-powered sports player auction and analytics platform that enhances decision making, performance insights, and team strategy. ",
       outcome:
-        "Enables AI-driven cricket auction decisions using player performance predictions and budget optimization.",
+        "Enables AI-driven sports decisions using player performance predictions and budget optimization for leagues like IPL, PKL etc",
       image: "/products/cricketNew.png",
     },
     {
       id: "04",
       logo: "/products/logos/oncologyNewLogo.png",
-      title: "LuxOn",
+      title: "icrono",
+      Link:"https://oncointel.dev.i-connectresources.com/",
       subtitle: "Preventive oncology screening platform",
       description:
         "A preventive oncology screening and healthcare analytics platform focused on early detection, risk assessment, and patient outcome optimization. ",
@@ -84,36 +87,36 @@ const ProductsSection = () => {
         "Standardizes and scales cervical screening workflows for early detection and reliable clinical follow-up.",
       image: "/products/onco.png",
     },
-    {
-      id: "05",
-      title: "Secure Code Intelligence",
-      subtitle: "AI-driven code security intelligence",
-      description:
-        "An advanced AI-driven code security platform built with LLM (StarCoder-1B) for automated vulnerability detection, risk assessment, and secure software development. ",
-      outcome:
-        "Detects software vulnerabilities and compliance risks using LLM-based security intelligence and exportable reports.",
-      image: "/products/secureCodeNew.png",
-    },
-    {
-      id: "06",
-      title: "Multiple Document Understanding",
-      subtitle: "Multiple document understanding",
-      description:
-        "Multiple Document Understanding is an AI-powered document intelligence platform that analyzes multiple documents simultaneously to extract insights and convert unstructured content into structured data. It understands complex layouts, visuals, and multilingual content, unifying OCR, language detection, translation, and semantic interpretation into a single, scalable AI system.",
-      outcome:
-        "A powerful AI document intelligence platform for interpreting, classifying, and extracting insights from complex multilingual documents and layouts.",
-      image: "/products/docNew.png",
-    },
-    {
-      id: "07",
-      title: "Sat Change Detect",
-      subtitle: "Satellite imagery change detection",
-      description:
-        "Daily satellite imagery enables continuous monitoring, but large data volumes require AI/ML-based automated change detection to efficiently identify new man-made developments with reduced false alarms. ",
-      outcome:
-        "Detects and measures satellite-based change with high accuracy and GIS-ready deliverables.",
-      image: "/products/satelliteNew.png",
-    },
+    // {
+    //   id: "05",
+    //   title: "Secure Code Intelligence",
+    //   subtitle: "AI-driven code security intelligence",
+    //   description:
+    //     "An advanced AI-driven code security platform built with LLM (StarCoder-1B) for automated vulnerability detection, risk assessment, and secure software development. ",
+    //   outcome:
+    //     "Detects software vulnerabilities and compliance risks using LLM-based security intelligence and exportable reports.",
+    //   image: "/products/secureCodeNew.png",
+    // },
+    // {
+    //   id: "06",
+    //   title: "Multiple Document Understanding",
+    //   subtitle: "Multiple document understanding",
+    //   description:
+    //     "Multiple Document Understanding is an AI-powered document intelligence platform that analyzes multiple documents simultaneously to extract insights and convert unstructured content into structured data. It understands complex layouts, visuals, and multilingual content, unifying OCR, language detection, translation, and semantic interpretation into a single, scalable AI system.",
+    //   outcome:
+    //     "A powerful AI document intelligence platform for interpreting, classifying, and extracting insights from complex multilingual documents and layouts.",
+    //   image: "/products/docNew.png",
+    // },
+    // {
+    //   id: "07",
+    //   title: "Sat Change Detect",
+    //   subtitle: "Satellite imagery change detection",
+    //   description:
+    //     "Daily satellite imagery enables continuous monitoring, but large data volumes require AI/ML-based automated change detection to efficiently identify new man-made developments with reduced false alarms. ",
+    //   outcome:
+    //     "Detects and measures satellite-based change with high accuracy and GIS-ready deliverables.",
+    //   image: "/products/satelliteNew.png",
+    // },
   ];
 
   return (
@@ -200,13 +203,26 @@ const ProductsSection = () => {
                     </p>
                   </div>
 
-                  <Link
-                    href={`/products/${process.id}`}
-                    className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 mt-8 text-sm font-semibold text-white transition-all hover:translate-x-1"
-                  >
-                    Learn more
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                  <div className="mt-8 flex flex-wrap items-center gap-4">
+                    <Link
+                      href={`/products/${process.id}`}
+                      className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90"
+                    >
+                      Learn more
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+
+                    {process.Link && (
+                      <a
+                        href={process.Link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 w-fit rounded-full border border-primary px-6 py-2.5 text-sm font-semibold text-primary transition-all hover:bg-primary/5"
+                      >
+                        Visit Website
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             );

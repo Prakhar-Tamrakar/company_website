@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,13 +9,10 @@ import navLinks from "../constants/constants";
 
 export default function Navbar() {
   const pathname = usePathname();
-
   const navRef = useRef([]);
   const underlineRef = useRef(null);
-
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const [menuOpen, setMenuOpen] = useState(false);
-
   /* ---------------- Body scroll lock ---------------- */
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -24,7 +20,6 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
-
   /* ---------------- Close on ESC / resize ---------------- */
   useEffect(() => {
     const handleEsc = (e) => {

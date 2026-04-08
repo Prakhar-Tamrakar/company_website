@@ -48,9 +48,9 @@ export const products = [
     },
     {
       "id": "04",
-      "name": "Luxon",
+      "name": "icrono",
       "category": "Preventive Oncology & Healthcare Analytics",
-      "overview": "Luxon is a preventive oncology screening platform that digitizes cervical cancer screening workflows to enable early detection, accurate risk assessment, and consistent follow-up at scale.",
+      "overview": "icrono is a preventive oncology screening platform that digitizes cervical cancer screening workflows to enable early detection, accurate risk assessment, and consistent follow-up at scale.",
       "description": "A preventive oncology screening and healthcare analytics platform focused on early detection, risk assessment, and patient outcome optimization.",
       "features": [
         "Digitized cervical cancer screening from patient registration to follow-ups",

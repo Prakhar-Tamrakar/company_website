@@ -95,7 +95,7 @@ export default async function ProductDetail(props) {
               {data.outcome}
             </p>
           </div>
-          <OtherProductsSlider />
+          <OtherProductsSlider excludeId={id} />
           <ProductEnquiryForm name={data.name} />
         </div>
       </Section>

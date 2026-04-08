@@ -18,7 +18,7 @@ const cards = [
         id: 2,
         headIcon: MapPin,
         heading: '  India Delivery Center',
-        subHeading: 'i-Connectresources International Private Limited, STPI Nehru Nagar (East), Bhilai-490020, Chhattisgarh',
+        subHeading: ' STPI Nehru Nagar (East), Bhilai-490020, Chhattisgarh',
         details: [
             { icon: Mail, 
                 text: 'info@i-connectresources.com',

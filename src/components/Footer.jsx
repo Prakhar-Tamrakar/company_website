@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Linkedin, ChevronRight, Send } from "lucide-react";
 
-import logoWithName from "../../public/Footer/Logo with Name.png";
+import logo from "../../public/navbar/logo.png";
 
 export default function Footer() {
   return (
@@ -13,13 +13,13 @@ export default function Footer() {
       <div className="container max-w-7xl mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-4 space-y-6 lg:space-y-8">
+          <div className="sm:col-span-2 lg:col-span-4 space-y-4 lg:space-y-6">
             <Link href="/" className="inline-block rounded-md focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 outline-hidden">
               <Image
-                src={logoWithName}
+                src={logo}
                 alt="i-Connectresources Logo"
-                width={180}
-                height={40}
+                width={175}
+                height={30}
                 className="opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
@@ -34,7 +34,6 @@ export default function Footer() {
               />
             </div>
           </div>
-
           <div className="lg:col-span-4 grid grid-cols-2 gap-8">
             {/* Company */}
             <nav aria-label="Company Links">
@@ -69,14 +68,14 @@ export default function Footer() {
             <div className="space-y-5">
               <ContactBlock
                 icon={<MapPin size={18} aria-hidden="true" />}
-                title="Princeton, USA"
-                text="103 Carnegie Center, Suite #300, NJ-08540"
+                title="USA"
+                text="103 Carnegie Center, Suite #300, Princeton, NJ-08540"
                 href="https://www.google.com/maps/search/?api=1&query=103+Carnegie+Center,+Suite+%23300,+Princeton,+NJ+08540"
               />
               <ContactBlock
                 icon={<MapPin size={18} aria-hidden="true" />}
-                title="Bhilai, India"
-                text="STPI Nehru Nagar (East), Chhattisgarh-490020"
+                title="India"
+                text="STPI Nehru Nagar (East), Bhilai, Chhattisgarh-490020"
                 href="https://www.google.com/maps/search/?api=1&query=STPI+Nehru+Nagar+(East),+Bhilai,+Chhattisgarh+490020"
               />
               <ContactBlock

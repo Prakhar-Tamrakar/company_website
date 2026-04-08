@@ -417,7 +417,6 @@ export default function JobApplySection() {
               required
               className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
             />
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
@@ -432,7 +431,7 @@ export default function JobApplySection() {
               <input
                 type="text"
                 name="position"
-                placeholder="Position of Interest"
+                placeholder="Aria of Interest"
                 value={formData.position}
                 onChange={handleChange}
                 maxLength={255}
