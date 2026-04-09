@@ -68,6 +68,7 @@ const ProductsSection = () => {
     {
       id: "03",
       title: "LineupLynx",
+      logo: "/products/logos/LineupLynx.png",
       subtitle: "AI-powered sports auction intelligence",
       description:
         "An AI-powered sports player auction and analytics platform that enhances decision making, performance insights, and team strategy. ",
@@ -78,7 +79,7 @@ const ProductsSection = () => {
     {
       id: "04",
       logo: "/products/logos/oncologyNewLogo.png",
-      title: "icrono",
+      title: "icronco ",
       Link: "https://oncointel.dev.i-connectresources.com/",
       subtitle: "Preventive oncology screening platform",
       description:
@@ -179,7 +180,7 @@ const ProductsSection = () => {
                         {process.title}
                       </h3>
                       {process.logo && (
-                        <div className="relative w-20 h-20 md:w-32 md:h-16 shrink-0">
+                        <div className="relative w-20 h-20 md:w-32 md:h-16 shrink-0 ">
                           <Image
                             src={process.logo}
                             alt={`${process.title} logo`}
@@ -221,7 +222,18 @@ const ProductsSection = () => {
                         rel="noopener noreferrer"
                         className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90"
                       >
-                        Learn more
+                        Visit Website
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    )}
+                    {!process.Link && (
+                      <a
+                        // href={process.Link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 w-fit rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all "
+                      >
+                        Coming Soon..
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </a>
                     )}

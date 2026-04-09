@@ -9,7 +9,7 @@ export default function ContactRootLayout({ children }) {
    <ContactForm/>
     {/* <Contactpage/> */}
    <Getintouch/>
-   <Bookconsaltant/>
+   {/* <Bookconsaltant/> */}
     </>
   );
 }

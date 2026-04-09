@@ -389,8 +389,7 @@ export default function JobApplySection() {
         <div className="flex-1 w-full">
           <h2 className="text-3xl heading-default mb-2">Share Your Resume</h2>
           <p className="content-default mb-6">
-            We don’t have any openings right now, but you’re welcome to share your
-            resume for future opportunities.
+            Share your resume for future opportunities.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">

@@ -67,19 +67,19 @@ const page = () => {
 
                     {/* Right Card */}
                     <div className='w-full flex justify-end mt-4'>
-                        <div className='bg-primary/30 border  border-slate-100 rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] max-w-lg'>
+                        <div className='bg-primary/30 border-2  border-slate-100 rounded-3xl p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.2)] max-w-lg'>
 
                             {/* Card Header */}
                             <div className='flex items-center gap-4 mb-8'>
-                                <div className='size-12 rounded-2xl bg-primary/5 flex items-center justify-center'>
-                                    <Compass className='h-6 w-6 text-primary' />
+                                <div className='size-12 rounded-2xl bg-primary flex items-center justify-center'>
+                                    <Compass className='h-6 w-6 text-white' />
                                 </div>
-                                <h3 className='text-xl font-bold text-slate-900 uppercase tracking-tight'>We&apos;re Here to Help With...</h3>
+                                <h3 className='text-xl  text-slate-900 uppercase tracking-tight'>We&apos;re Here to Help With...</h3>
                             </div>
                             {/* List */}
                             <ul className='space-y-4'>
                                 {helpItems.map((item, index) => (
-                                    <li key={index} className='flex items-start gap-4 group'>
+                                    <li key={index} className='flex items-end gap-4 group'>
                                         <div className='mt-1 bg-emerald-50 rounded-full p-1 group-hover:bg-emerald-100 transition-colors'>
                                             <CheckCircle2 className='h-4 w-4 text-emerald-600 shrink-0' />
                                         </div>

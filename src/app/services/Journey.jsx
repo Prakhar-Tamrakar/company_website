@@ -15,16 +15,16 @@ export default function YourJourney() {
         <div className="max-w-3xl mx-auto mb-12 sm:mb-16">
           <Heading
           headline="Your Journey Begins Here"
-          subHeadline="Whether you&apos;re in the exploration phase or need a full-scale delivery partner — we&lsquo;re ready."
+          subheadline="Whether you&apos;re in the exploration phase or need a full-scale delivery partner — we&lsquo;re ready."
           maxWidth='2xl'
         />
         </div> 
         {/* Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center">
+        <div className="flex  gap-8 items-top justify-center">
           {journey.map((item) => (
             <div
               key={item.id}
-              className="group w-full max-w-sm bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md  hover:border-blue-100/50 transition-all duration-300 flex flex-col h-full"
+              className="group w-full max-w-sm bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md  hover:border-blue-100/50 transition-all duration-300 flex flex-col h-inherit"
             >
               {/* Image Wrapper */}
               <div className="relative h-48 sm:h-56 w-full shrink-0">

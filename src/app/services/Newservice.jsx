@@ -28,42 +28,42 @@ const Newservice = () => {
       </div>
       <Leftside
         id="strategic-consulting"
-        title="Scale with Confidence"
-        heading=" Strategic Consulting"
-        subheading="We identify structural, operational, and technological gaps and deliver tailored strategies that enable organizations to scale sustainably — whether at national or global levels."
+        title="Intelligent Innovation"
+        heading="  AI Transformation"
+        subheading="We modernize our customer’s operations through AI-driven solutions that enhance efficiency and innovation. "
         items={content1}
       />
       <Leftside
         id="digital-ai-transformation"
-        title="Intelligent Innovation"
-        heading="Digital & AI Transformation"
-        subheading="We modernize our customers’ operations through intelligent, data-driven solutions that enable innovation and long-term value. "
+        title="Data-Driven Intelligence"
+        heading="Data Intelligence"
+        subheading="We transform data into actionable insights through scalable and AI-ready data ecosystems. "
         items={content2}
       />
-      {/* <Leftside
-        title="Government Excellence"
-        heading="Public Sector & Event Consulting"
-        subheading="We specialize in supporting State & Central Govt. bodies with large-scale public initiatives."
+      <Leftside
+        title="Reliable Foundation "
+        heading=" IT Infrastructure"
+        subheading="We design and manage secure IT environments that ensure performance, scalability, and reliability."
         items={content3}
-      /> */}
-      {/* <Rightside
-        title="Expert Talent On-Demand"
-        heading="Advanced Skill Development"
-        subheading="We bridge the talent gap by delivering structured innovation programs focused on emerging technologies."
+      />
+      <Leftside
+        title="Secure & Resilient "
+        heading="Cyber Security"
+        subheading="We protect digital assets through modern security frameworks and proactive risk management."
         items={content4}
-      /> */}
+      />
       <Leftside
         id="it-infrastructure"
-        title="Reliable Foundation"
-        heading=" IT Infrastructure & Operations"
-        subheading="We design, build, and manage secure IT environments that ensure reliability, scalability, and operational continuity. "
+        title="Scale with Confidence "
+        heading="Strategic Consulting"
+        subheading="We identify structural, operational, and technological gaps and deliver tailored strategies that enable organizations to scale sustainably."
         items={content5}
       />
       <Leftside
         id="operational-excellence"
-        title="Operational Excellence "
-        heading="IT Service Management & Workflow Automation "
-        subheading="We streamline IT operations through intelligent workflows, improving service delivery, visibility, and efficiency. "
+        title="Operational Excellence"
+        heading="Service Delivery & Automation"
+        subheading="Streamline operations with intelligent workflows, automation, and real-time service visibility."
         items={content6}
       />
     </Section>

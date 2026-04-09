@@ -6,13 +6,13 @@ const cards = [
         subHeading:'Contact our team to discuss your requirements and get started with the right solutions.',
         buttonText:'Contact Us',
     },
-    {
-        id:2,
-        img:'/Services/journey2.jpg',
-        heading:'Book a Free Consultation',
-        subHeading:'Schedule a no-obligation consultation to discuss your goals and discover tailored solutions.',
-        buttonText:'Book Now',
-    },
+        // {
+        //     id:2,
+        //     img:'/Services/journey2.jpg',
+        //     heading:'Book a Free Consultation',
+        //     subHeading:'Schedule a no-obligation consultation to discuss your goals and discover tailored solutions.',
+        //     buttonText:'Book Now',
+        // },
     {
         id:3,
         img:'/Services/journey3.jpeg',

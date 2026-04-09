@@ -18,7 +18,7 @@ export default function Footer() {
               <Image
                 src={logo}
                 alt="i-Connectresources Logo"
-                width={175}
+                width={135}
                 height={30}
                 className="opacity-90 hover:opacity-100 transition-opacity"
               />
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6 text-sm content-default">
+        <div className="mt-8 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6 text-sm content-default">
           <p className="text-center md:text-left">
             © 2026 i-Connectresources Inc. All rights reserved.
           </p>

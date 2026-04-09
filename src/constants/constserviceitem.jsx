@@ -23,44 +23,44 @@ export const content1 = [
   {
     id: 1,
     icon: BarChart3,
-    heading: "Scalability Assessments:",
+    heading: "AI-Enabled Development:",
     subhead:
-      "Tailored strategies for customers across education, public sector, and enterprise domains. ",
+      "Custom web, mobile, and Generative AI applications ",
   },
   {
     id: 2,
     icon: Shield,
-    heading: "Readiness Evaluation:",
+    heading: "Intelligent Automation: ",
     subhead:
-      "Comprehensive reviews of governance, process maturity and technology.",
+      "AI-powered workflows, chatbots, and predictive capabilities",
   },
   {
     id: 3,
     icon: ArrowLeftRight,
-    heading: "Flexible Engagement Models::",
-    subhead: "Available as consulting, full implementation, or advisory-led execution. ",
+    heading: "Operational Transformation:",
+    subhead: "Process re-engineering using automation and AI ",
   },
 ];
 export const content2 = [
   {
     id: 1,
     icon: BrainCircuit,
-    heading: "AI-Enabled Development: ",
-    subhead: "Custom web, mobile and Generative AI applications.",
+    heading: "Data Engineering & Pipelines: ",
+    subhead: "Build scalable pipelines for data processing and integration .",
   },
   {
     id: 2,
     icon: GitBranch,
-    heading: "Data Intelligence:",
+    heading: "AI-Ready Data (DRAaS):",
     subhead:
-      "Enable large-scale data processing and deliver AI-ready data ecosystems through our Data Readiness for AI (DRAaS) framework. ",
+      "Prepare structured, high-quality datasets for AI and analytics  .",
   },
   {
     id: 3,
     icon: Zap,
-    heading: "Operational & Business Transformation:",
+    heading: "Analytics & Insights:",
     subhead:
-      "Align people, processes, and technology through automation and process re-engineering. ",
+      "Real-time dashboards and reporting for decision-making.",
   },
 ];
 
@@ -68,32 +68,46 @@ export const content3 = [
   {
     id: 1,
     icon: Users,
-    heading: "Large-scale public events",
-    subhead: "Planning for religious, cultural and civic events.",
+    heading: "Cloud Infrastructure & Provisioning:",
+    subhead: "Server, storage, and cloud environment management.",
   },
   {
     id: 2,
     icon: Shield,
-    heading: "Safety & Logistics:",
+    heading: "System Integration & Management:",
     subhead:
-      "Delivering IT-enabled crowd management and risk mitigation strategies",
+      " Seamless integration across infrastructure and platforms.",
   },
+  {
+     id: 3,
+    icon: Shield,
+    heading: "Performance & Reliability:",
+    subhead:
+      "Monitoring, optimization, and uptime assurance .",
+  }
 ];
 
 export const content4 = [
   {
     id: 1,
     icon: Bot,
-    heading: "AI & Digital Upskilling: ",
+    heading: "Security Assessments & Audits:",
     subhead:
-      "Training youth and professionals in advanced automation and digital tools.",
+      "Identify vulnerabilities and ensure compliance.",
   },
   {
     id: 2,
     icon: Rocket,
-    heading: "Innovation Incubator:",
+    heading: "Threat Monitoring & Response:",
     subhead:
-      "A production-grade environment where participants build practical, commercial-ready solutions.",
+      "Real-time monitoring and incident response.",
+  },
+  {
+    id: 3,
+    icon: Rocket,
+    heading: "Governance & Compliance:",
+    subhead:
+      "Security policies aligned with industry standards.",
   },
 ];
 
@@ -101,38 +115,44 @@ export const content5 = [
   {
     id: 1,
     icon: Server,
-    heading: "Cloud Infrastructure & Provisioning: ",
-    subhead: " Server, storage, and cloud management.",
+    heading: "Scalability Assessments:",
+    subhead: "Tailored strategies to address diverse business needs across industries.",
   },
   {
     id: 2,
     icon: RefreshCcw,
-    heading: "Cybersecurity:",
+    heading: "Readiness Evaluation:",
     subhead:
-      "Assessments, audits, and compliance support to ensure operational continuity.",
+      "Comprehensive reviews of governance, process maturity, and technology.",
+  },
+  {
+    id: 3,
+    icon: RefreshCcw,
+    heading: "Flexible Engagement Models:",
+    subhead:
+      "Available as consulting, full implementation, or advisory-led execution.",
   },
 ];
-
 export const content6 = [
   {
     id: 1,
     icon: Settings2,
-    heading: "ITSM Implementation: ",
+    heading: "Service Management:",
     subhead:
-      "Incident, problem, and change management using platforms like ServiceNow.",
+      "Manage service requests and workflows to ensure smooth operations.",
   },
   {
     id: 2,
     icon: Workflow,
-    heading: "Workflow Automation: ",
+    heading: "Workflow Automation:",
     subhead:
-      "Automate repetitive tasks and improve response times across IT and business functions. ",
+      "Automate repetitive tasks and improve response times across IT and business functions.",
   },
   {
     id: 3,
     icon: Activity,
-    heading: "Monitoring & Reporting",
+    heading: "Monitoring & Reporting:",
     subhead:
-      "Real-time dashboards and SLA tracking for better decision-making.",
+      "Real-time dashboards and performance tracking for better decision-making.",
   },
 ];

@@ -29,7 +29,7 @@ export default function Introduction() {
             </h2>
 
             {/* Highlight block */}
-            <div className="relative max-w-full md:max-w-[90%] flex items-start gap-4 rounded-xl  mb-3 md:mb-4">
+            <div className="relative max-w-full md:max-w-[90%] flex items-start gap-4 rounded-xl bg-linear-to-r from-primary/9 via-primary/5 to-transparent  mb-3 md:mb-4">
               <div className="w-1 rounded-full bg-primary self-stretch" />
               <p className="text-primary text-base leading-relaxed py-2">
                 To empower organizations to innovate, automate, and thrive

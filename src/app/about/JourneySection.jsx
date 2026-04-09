@@ -42,7 +42,7 @@ export default function JourneySection() {
             duration: 0.4,
             ease: "power3.out",
           },
-          "-=0.3"
+          "-=0.3",
         )
         .to(
           subtitleRef.current,
@@ -52,14 +52,14 @@ export default function JourneySection() {
             duration: 0.6,
             ease: "power3.out",
           },
-          "-=0.3"
+          "-=0.3",
         );
 
       /* ===============================
        2️⃣ TIMELINE SCROLL (PIN + SCRUB)
        =============================== */
       gsap.to(trackRef.current, {
-        xPercent: -75,
+        xPercent: -83,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -150,6 +150,12 @@ export default function JourneySection() {
               title="Scaling Impact"
               description="What started as a bold idea to bridge critical gaps in IT service delivery soon became a mission to empower businesses through smarter technology."
             />
+
+            <TimelineCard
+              year="Current"
+              title="AI-Driven Innovation"
+              description="Continuing to grow, innovate, and deliver impactful technology solutions powered by AI and Automation for our clients across the globe."
+            />
           </div>
         </div>
       </div>
@@ -160,7 +166,7 @@ export default function JourneySection() {
 function TimelineCard({ year, title, description }) {
   return (
     <div className="min-w-[320px] max-w-[360px]">
-      <span className="text-8xl font-playfair text-primary block mb-6">
+      <span className="text-4xl md:text-7xl   text-primary block mb-6">
         {year}
       </span>
       <h3 className="card-white-heading-title">{title}</h3>

@@ -46,10 +46,10 @@ const services = [
   },
   {
     id: 6,
-    title: "Cyber Securities",
+    title: "Service Delivery & Automation",
     step: "06",
     description:
-      "Protecting critical assets with modern security architectures, continuous monitoring, and compliance-driven controls.",
+      "Streamline operations with intelligent workflows, automation, and real-time service visibility.",
   },
 ];
 
