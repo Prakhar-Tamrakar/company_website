@@ -43,11 +43,9 @@ export default function GetinTouch() {
                                     </div>
 
                                     {/* Description */}
-                                    {/* FIX 1: Removed 'flex-grow'. Now text sits naturally at the top. */}
-                                    <p className=" card-subtitle text-left mb-6 mt-2 transition-colors duration-300 group-hover:text-white">
+                                    <p className=" card-subtitle text-left mb-6 mt-2 transition-colors duration-300">
                                         {item.subHeading}
                                     </p>
-
                                     {/* Footer Info / Buttons */}
                                    <div className="w-full mt-1 space-y-3">
                                     {item.details.map((item, index) => (

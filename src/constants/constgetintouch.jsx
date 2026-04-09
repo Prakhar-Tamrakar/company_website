@@ -20,6 +20,7 @@ const cards = [
         heading: '  India Delivery Center',
         subHeading: ' STPI Nehru Nagar (East), Bhilai-490020, Chhattisgarh',
         details: [
+             { icon: Phone, text: '+91 9893079653'},
             { icon: Mail, 
                 text: 'info@i-connectresources.com',
                 reflink :'mailto:info@i-connectresources.com'
