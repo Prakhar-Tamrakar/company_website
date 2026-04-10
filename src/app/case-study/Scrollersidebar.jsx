@@ -67,10 +67,10 @@ export default function Scrollersidebar({ data }) {
       </nav>
 
       <Section id="case-study-detail" background="bg-transparent" size="xl">
-        <div className="max-w-5xl mx-auto px-6 py-2">
+        <div className="container">
 
           {/* Header */}
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 gap-8">
             <header className="mb-16">
               {data.domain && (
                 <span className="inline-block px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider mb-4">

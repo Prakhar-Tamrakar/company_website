@@ -1,123 +1,107 @@
 export const caseStudies = [
+  // ─── AIO Use Cases ────────────────────────────────────────────────────────
   {
-    id: "UC-01",
-    // img:'/Casestudy/mordanize_hospital.png',
-    img:'/Casestudy/case-study-doctors.png',
-
-    title:
-      "Modernizing Clinical Communication & Device Ecosystem in a Healthcare Institution",
+    id: "use-case-v",
+    img: "/Casestudy/case-study-doctors.png",
+    title: "Turning Microsoft Teams into a Clinical Communication Platform",
     domain: "Healthcare",
     location: { state: "Ohio", country: "USA" },
     summary:
-      "Replaced legacy Cisco infrastructure with a unified Microsoft-based solution, achieving operational savings of $1.25M/month with ROI in under 3 months.",
+      "Our AIO solution transforms Microsoft Teams into a unified clinical platform, consolidating fragmented legacy systems to deliver a $15.17M annual benefit and a 279% Year 1 ROI through improved workflow efficiency.",
 
     background: {
       overview:
-        "A top-ranked medical institution faced operational inefficiencies due to an outdated and fragmented communication infrastructure relying heavily on legacy Cisco devices.",
-      keyChallenges: [
-        "Outdated Cisco communication infrastructure",
-        "Frequent system breakdowns",
-        "High operational and maintenance costs",
-        "Multiple devices per clinician (phones, pagers, tablets, walkie-talkies)",
-        "Limited collaboration and messaging capabilities",
-      ],
+        "Major Healthcare CIOs in past couple years are facing a 'margin emergency' characterized by rising labor costs and fragmented digital assets. A top-ranked academic medical center in Ohio partnered with i-Connectresources to execute an All-in-One (AIO) strategy. The goal was to operationalize Gartner's 'Intelligent Health' imperatives—precision, equity, ethics, and interoperability—by leveraging their existing Microsoft 365 and Teams infrastructure.",
     },
 
     problemStatement: {
-      averageProcessingTimeDays: null,
+      summary:
+        "Clinicians were forced to juggle between desk phones, pagers, walkie-talkies, and iPads.",
       issues: [
-        "Clinicians carrying multiple devices",
-        "Disrupted patient care due to device fragmentation",
-        "High dependency on legacy Cisco systems",
-        "Poor collaboration and messaging stability",
-        "Increased IT support and maintenance overhead",
+        "Communication Gaps: Fragmented workflows and frequent system outages.",
+        "High Operational Costs: Overlapping licensing fees and complex support requirements.",
+        "Clinician Burnout: Increased 'toil' due to inefficient tools and low staff morale.",
+        "Support Fatigue: A heavy IT load managing a diverse and aging hardware fleet.",
+        "Manual work: Clinicians had to carry paper for Emergency/Important phone numbers.",
       ],
     },
 
     solution: {
-      platform: "Microsoft 365 + Microsoft Teams",
+      platform: "Microsoft 365 + Microsoft Teams (AIO Strategy)",
       implementedChanges: [
         {
-          type: "Device Consolidation",
+          type: "Voice Migration",
           description:
-            "Migrated from over 12,000 Cisco devices to 4,000 iOS devices, enabling clinicians to work with a single unified device",
+            "Transitioned from Cisco to Microsoft 365 with a standardized 10-digit numbering plan.",
         },
         {
-          type: "Communication Modernization",
+          type: "Centralized Directory",
           description:
-            "Replaced Cisco phone services with Microsoft Teams for calling, messaging, and collaboration",
+            "Built unit-specific contact lists in SharePoint for instant peer-to-peer reach.",
         },
         {
-          type: "Messaging & Collaboration Upgrade",
+          type: "Clinical Integration",
           description:
-            "Modernized messaging platforms to improve stability, reduce downtime, and enhance real-time collaboration",
+            "Integrated the Rover bedside alarm application to flow critical alerts directly to the iPhones.",
         },
         {
-          type: "Contact Center Enhancement",
+          type: "Unified Access",
           description:
-            "Extended contact center functionalities to support healthcare operations more efficiently",
+            "Created a 'front door' for clinicians providing one-tap access to browser-based clinical resources and bookmarked high-value applications.",
         },
         {
-          type: "Conference & Workspace Overhaul",
+          type: "Software Consolidation",
           description:
-            "Centralized conference services and modernized physical spaces for seamless collaboration",
+            "Related applications were migrated to iPhone, so clinicians/staff can access from one device.",
         },
-      ],
-    },
-
-    outcomes: {
-      processingTimeReductionDays: null,
-      benefits: [
-        "Single-device experience for clinicians",
-        "Improved collaboration and communication",
-        "Reduced operational and support costs",
-        "Enhanced clinician productivity",
-        "Uninterrupted patient care",
       ],
     },
 
     impactMeasurement: {
       reports: [
-        "Operational Cost Savings Report",
-        "Device Consolidation & Adoption Metrics",
-        "Collaboration Efficiency Report",
+        "Cisco Licensing Elimination: $2.70M annual savings",
+        "Device Maintenance Savings: $1.00M annual savings",
+        "Voice Infrastructure Reduction: $1.87M annual savings",
+        "Clinical Time Efficiency (240,000 hours): $9.60M annual savings",
+        "Total Annual Benefit: $15.17M | Year 1 ROI: 279%",
       ],
     },
 
-    nextSteps: [
-      "Enhance Microsoft Teams integrations with clinical applications",
-      "Introduce advanced analytics for usage and performance tracking",
-      "Scale the solution for future digital healthcare initiatives",
-    ],
+    outcomes: {
+      benefits: [
+        "Financial Efficiency: Achieved a 279% ROI in Year 1 with a payback period of less than three months.",
+        "Operational Reliability: Reduced communication downtime to near-zero, reclaiming 50+ hours of productive time per month.",
+        "Clinical Safety: Accelerated critical response times by 40–60% through integrated alerting.",
+        "Staff Experience: Improved clinician satisfaction scores by 20–30% and reduced onboarding time by 60%.",
+        "IT Optimization: Realized a 40–50% reduction in device-related support tickets.",
+      ],
+    },
   },
+  // ─── ServiceNow Use Cases ─────────────────────────────────────────────────
   {
-    id: "UC-02",
+    id: "use-case-i",
+    img: "/Casestudy/health_onboard.png",
     title:
       "Streamlining Onboarding Process in Healthcare Center using ServiceNow",
-      img:'/Casestudy/health_onboard.png',
     domain: "Healthcare",
     location: { state: "Ohio", country: "USA" },
     summary:
-      "Reduced onboarding time from 26 days to 3 days (88% improvement).",
+      "Reduced employee onboarding time from 26 days to 3 days — an 88% improvement — by consolidating templates, automating background checks, and eliminating unnecessary approvals via ServiceNow.",
 
     background: {
       overview:
-        "A renowned healthcare center faced inefficiencies in its employee onboarding process due to excessive templates, approvals, and manual dependencies.",
-      keyChallenges: [
-        "Multiple onboarding templates",
-        "Unnecessary approvals",
-        "Manual background verification",
-        "Inter-team dependencies causing delays",
-      ],
+        "A renowned healthcare Center in the state of Ohio, USA, faced significant challenges with its onboarding process, which was lengthy and inefficient. The process involved multiple templates, unnecessary approvals, and dependencies that hindered the onboarding of new employees.",
     },
 
     problemStatement: {
-      averageProcessingTimeDays: 26,
+      summary:
+        "The onboarding process took around 26 days to complete, causing delays in getting new employees up to speed. The process was plagued by unnecessary approvals and dependencies, including background checks that added to the complexity.",
       issues: [
-        "Delayed employee onboarding",
-        "Complex approval chains",
-        "Manual background checks",
-        "Dependency on e-Services and ID Processing teams",
+        "Multiple redundant onboarding templates causing confusion and inconsistency.",
+        "Background check processes added delays and required manual reviews.",
+        "Unnecessary approvals from stakeholders who were not required in the workflow.",
+        "Dependencies on the e-Services team for ID Processing team updates.",
+        "24-hour wait timers for background check revalidation.",
       ],
     },
 
@@ -125,131 +109,76 @@ export const caseStudies = [
       platform: "ServiceNow",
       implementedChanges: [
         {
-          type: "Template Optimization",
+          type: "Consolidated templates",
           description:
-            "Consolidated 25–26 onboarding templates into a single unified template",
+            "Reduced 25-26 templates to a single template, eliminating unnecessary complexity and approvals.",
         },
         {
-          type: "Background Check Integration",
+          type: "Streamlined background check process",
           description:
-            "Integrated background check validation directly into the onboarding form",
+            "Integrated background checks into the onboarding process, allowing users to submit requests only after the background check is complete. Exceptions are now handled within the form, reducing manual reviews and unnecessary routing.",
         },
         {
-          type: "Dependency Removal",
+          type: "Removed dependencies",
           description:
-            "Removed dependencies on e-Services team and eliminated 24-hour wait timers",
+            "Eliminated the dependency on the e-Services team for ID Processing team updates and removed the 24-hour wait timer for background check revalidation.",
         },
         {
-          type: "Workflow Optimization",
+          type: "Optimized Approvals & Workflow",
           description:
-            "Removed unnecessary approvals and streamlined workflows",
+            "Identified and removed unnecessary approvals, ensuring that only required stakeholders are involved in the process.",
         },
         {
-          type: "UI & Backend Redesign",
-          description: "Redesigned form UI and rebuilt backend workflows",
+          type: "Implemented ServiceNow",
+          description:
+            "Utilized ServiceNow as a tool to automate and streamline the onboarding process.",
         },
-      ],
-    },
-
-    outcomes: {
-      processingTimeReductionDays: {
-        before: 26,
-        after: 3,
-        improvementPercentage: 88,
-      },
-      benefits: [
-        "Faster onboarding",
-        "Improved productivity",
-        "Reduced manual intervention",
-        "Enhanced user experience",
+        {
+          type: "UI and workflow redesign",
+          description:
+            "Simplified the form UI and rebuilt the backend workflow to eliminate unnecessary complexity.",
+        },
       ],
     },
 
     impactMeasurement: {
       reports: [
-        "New Onboarding – Average Lifetime Report",
-        "Old Onboarding – Average Lifetime Report",
-      ],
-    },
-
-    nextSteps: [
-      "Monitor onboarding metrics for 3 months",
-      "Identify further optimization opportunities",
-    ],
-  },
-
-  {
-    id: "UC-03",
-    img:'/Casestudy/multiple_tools.png',
-    title: "Integrating Multiple Tools for Enhanced Visibility and Efficiency",
-    location: { state: "", country: "" },
-    domain: "Enterprise Operations",
-    summary: "Integrated SharePoint, Teams, and SolarWinds into ServiceNow.",
-
-    background: {
-      overview:
-        "The organization aimed to centralize inventory, incident, and request management by integrating multiple tools into ServiceNow.",
-      keyChallenges: [
-        "No centralized inventory system",
-        "Email-based request handling",
-        "Disconnected tools causing duplication",
-      ],
-    },
-    problemStatement: {
-      issues: [
-        "Lack of real-time inventory visibility",
-        "Manual and error-prone processes",
-        "Operational inefficiencies",
-      ],
-    },
-    solution: {
-      platform: "ServiceNow",
-      implementedChanges: [
-        {
-          type: "Tool Integration",
-          description:
-            "Integrated SharePoint, Teams, SolarWinds, Cisco, Aria, and Dell",
-        },
-        {
-          type: "Inventory Centralization",
-          description: "Created a centralized inventory management system",
-        },
-        {
-          type: "Workflow Automation",
-          description: "Replaced email-based requests with ServiceNow forms",
-        },
+        "New Onboarding – Average Lifetime Report: Shows average ticket lifetime for requests created using the new onboarding form.",
+        "Old Onboarding – Average Lifetime Report: Displays average ticket lifetime for requests created using the previous form.",
       ],
     },
 
     outcomes: {
       benefits: [
-        "Real-time inventory visibility",
-        "Reduced manual work",
-        "Improved operational efficiency",
-        "Enhanced collaboration across teams",
+        "Reduced processing time: The onboarding process has been reduced from 26 days to 3 days, a significant improvement of approximately 88%.",
+        "Increased efficiency: The elimination of unnecessary approvals and dependencies has streamlined the process, reduced delays and increasing productivity.",
+        "Improved user experience: The simplified process has improved the user experience for new employees, allowing them to get up to speed faster and focus on their roles.",
       ],
     },
   },
 
   {
-    id: "UC-04",
-    img:'/Casestudy/automation_discovery1.png',
-    location: { state: "", country: "" },
-    title: "Automation Discovery Report in ServiceNow",
+    id: "use-case-ii",
+    img: "/Casestudy/multiple_tools.png",
+    title: "Enhancing IT Service Management with Accurate CMDB",
     domain: "IT Service Management",
-    summary: "Automated repetitive incidents like password resets.",
+    location: { state: "", country: "" },
+    summary:
+      "Improved CMDB accuracy by integrating multiple discovery tools and dependency mapping, enabling automated impact analysis and proactive communication to prevent service disruptions.",
 
     background: {
       overview:
-        "ServiceNow Automation Discovery analyzed incident and request data to identify automation opportunities.",
-      keyChallenges: ["Repetitive manual tasks", "High risk of human error"],
+        "The organization faced challenges with its Configuration Management Database (CMDB) accuracy, leading to a lack of visibility into upstream and downstream dependencies. This resulted in unintended consequences, such as service disruptions, when changes were made to IT infrastructure without proper awareness and planning.",
     },
 
     problemStatement: {
+      summary:
+        "Without an accurate CMDB, the organization struggled with multiple issues.",
       issues: [
-        "Repetitive manual tasks",
-        "Inefficient resource utilization",
-        "Increased ticket volume and SLA breaches",
+        "Lack of visibility: IT teams were unaware of dependencies between IT assets and services, making it difficult to assess the impact of changes.",
+        "Inadequate communication: Stakeholders were not informed about planned maintenance or changes, leading to unexpected service disruptions.",
+        "Inefficient change management: IT teams had to manually contact numerous stakeholders to determine dependencies, wasting time and resources.",
+        "Slow recovery: During major events like disaster recovery, without a priority list or dependencies, it becomes difficult to bring up the applications.",
       ],
     },
 
@@ -257,352 +186,171 @@ export const caseStudies = [
       platform: "ServiceNow",
       implementedChanges: [
         {
-          type: "Automation Discovery",
+          type: "Dependency mapping",
           description:
-            "Identified automation candidates using built-in reports",
+            "A clear understanding of upstream and downstream dependencies between IT assets and services.",
         },
         {
-          type: "Template Usage",
-          description: "Used pre-built automation templates for common tasks",
+          type: "Integration",
+          description:
+            "Integrated multiple products/tools like SolarWinds, Intune, Cisco Thousand Island, Gluware, VMWare, Dynatrace, Splunk, SharePoint, AWS, MS Graph Connector, MS Teams etc to discover all CIs in the organization.",
         },
+        {
+          type: "Automated Discovery for Different Assets (CI)",
+          description:
+            "Utilizes scheduled jobs to scan networks, identify new assets, and integrate seamlessly with multiple third-party vendors.",
+        },
+        {
+          type: "Reports",
+          description:
+            "For data gaps like owner, location etc, data gap dashboards were created for every CIs and show the progress.",
+        },
+      ],
+    },
+
+    impactMeasurement: {
+      reports: [
+        "CMDB Accuracy Report: Tracks the percentage of configuration items with complete and accurate data.",
+        "Dependency Mapping Report: Shows upstream/downstream CI relationships and their current health status.",
+        "Change Impact Assessment Report: Measures the reduction in unplanned outages due to improved dependency awareness.",
       ],
     },
 
     outcomes: {
       benefits: [
-        "Reduced SLA breaches",
-        "Improved response times",
-        "Lower operational costs",
-        "Employees focused on higher-value work",
+        "Automated impact analysis: The ability to assess the impact of changes on IT services and stakeholders.",
+        "Proactive communication: Automated notifications to dependent stakeholders about planned maintenance or changes, ensuring awareness and minimizing disruptions.",
+        "Improved change management: IT teams can now assess the impact of changes and plan accordingly, reducing the risk of service disruptions.",
+        "Enhanced communication: Stakeholders are informed about planned maintenance or changes, ensuring awareness and minimizing disruptions.",
+        "Increased efficiency: Dependency mapping helped in understanding upstream/downstream CIs, helped in faster recovery during major events.",
       ],
     },
   },
+
   {
-    id: "UC-05",
-    img:'/Casestudy/customized_dashboards.png',
-    title: "Customized Survey and Dashboard for Service Delivery Improvement",
+    id: "use-case-iii",
+    img: "/Casestudy/customized_dashboards.png",
+    title: "Optimizing ServiceNow Licensing Costs",
+    domain: "IT Service Management",
     location: { state: "", country: "" },
-    domain: "Service Delivery & Customer Experience",
-    summary: "Automated feedback surveys for incidents.",
+    summary:
+      "Significantly reduced ServiceNow licensing costs by gaining clarity on the licensing model, cleaning up CMDB data, and implementing asset lifecycle management to remove retired or unused assets from license counts.",
 
     background: {
       overview:
-        "The service delivery team lacked visibility into customer satisfaction and resolution quality.",
-      keyChallenges: [
-        "No structured feedback mechanism",
-        "Limited management visibility",
-        "Manual post-resolution follow-ups",
-      ],
+        "The organization faced challenges with ServiceNow licensing costs due to a lack of understanding of the licensing model and inadequate management of Configuration Management Database (CMDB) data.",
     },
 
-    problemStatement: {},
+    problemStatement: {
+      summary:
+        "The organization struggled with licensing costs and CMDB data issues.",
+      issues: [
+        "Lack of awareness: Unclear understanding of ServiceNow licensing rules, leading to unexpected costs.",
+        "Inaccurate CMDB data: Failure to update CMDB records for retired or unused assets, resulting in inflated licensing costs.",
+        "Unused assets counted: Active records for retired or unused assets, such as servers, storage, laptops, and mobile devices, were counted towards licensing, increasing costs.",
+      ],
+    },
 
     solution: {
       platform: "ServiceNow",
       implementedChanges: [
         {
-          type: "Customized Surveys",
+          type: "Licensing model understanding",
           description:
-            "Created tailored surveys for Incident and Non-Catalog requests",
+            "Gained a clear understanding of ServiceNow licensing rules and requirements.",
         },
         {
-          type: "Dashboard Creation",
-          description: "Built executive dashboards for satisfaction visibility",
+          type: "CMDB data cleanup",
+          description:
+            "Regularly reviewed and updated CMDB records to ensure accuracy and reflect the current state of assets.",
         },
+        {
+          type: "Asset lifecycle management",
+          description:
+            "Implemented processes to mark assets as retired or inactive when they are no longer in use.",
+        },
+      ],
+    },
+
+    impactMeasurement: {
+      reports: [
+        "License Usage Report: Tracks active vs. inactive assets contributing to licensing costs.",
+        "CMDB Cleanup Progress Report: Shows the number of assets retired/corrected over time.",
       ],
     },
 
     outcomes: {
       benefits: [
-        "Improved customer satisfaction",
-        "Reduced rework",
-        "Lower support costs",
-        "Enhanced customer experience",
+        "Cost savings: Reduced huge licensing costs by ensuring accurate CMDB data and removing unused assets from licensing counts.",
+        "Improved compliance: Ensured compliance with ServiceNow licensing rules and requirements.",
+        "Better asset management: Implemented effective asset lifecycle management processes, reducing waste and improving resource utilization.",
+      ],
+    },
+  },
+
+  {
+    id: "use-case-iv",
+    img: "/Casestudy/automation_discovery1.png",
+    title: "Certificate Management with ServiceNow",
+    domain: "IT Security & Compliance",
+    location: { state: "", country: "" },
+    summary:
+      "Eliminated certificate-related production outages by centralizing certificate inventory, automating renewal workflows, and cleaning up unutilized certificates — reducing security risks and unnecessary costs.",
+
+    background: {
+      overview:
+        "Certificates are essential to encrypt sensitive data (login credentials, credit card details) sent between browsers and servers, preventing interception, securing online communications and transactions. Organizations use various types of certificates, such as wildcard and multi-domain certificates, to protect their digital assets. However, managing these certificates can be complex, especially when dealing with large numbers of certificates across different departments and systems.",
+    },
+
+    problemStatement: {
+      summary:
+        "Organizations struggle with managing certificates, leading to multiple issues.",
+      issues: [
+        "Lack of Visibility: Unknown certificate inventory and status make it difficult for organizations to track and manage their certificates effectively.",
+        "Lack of ownership: Since the inventory is not readily available, owner for each certificate is unknown and not updated when changes happen causing delays in renewals or reaching out during an event.",
+        "Unknown Expiration Dates: Certificates expire without notice, causing disruptions to business operations and potentially leading to security risks.",
+        "Unutilized Certificates: Redundant certificates waste resources and cost money, resulting in unnecessary expenses.",
+        "Inefficient Renewal: Manual renewal processes lead to errors and delays, risking missed renewal deadlines and potential security risks.",
+        "Production Outages: Due to expired certificates, users will not be able to access applications causing huge loss to organizations.",
+      ],
+    },
+
+    solution: {
+      platform: "ServiceNow",
+      implementedChanges: [
+        {
+          type: "Centralized Inventory",
+          description:
+            "All certificates are tracked and visible in one place, providing a single source of truth for certificate management. This centralized tracking enables organizations to easily manage their certificates and reduce the risk of errors or oversights.",
+        },
+        {
+          type: "Automated Workflow for Renewals",
+          description:
+            "Notifications are sent before certificates expire, ensuring that organizations are aware of upcoming expirations and can take timely action to renew or replace certificates. Escalations are triggered based on the organization needs.",
+        },
+        {
+          type: "Automated Cleanup",
+          description:
+            "Unused certificates are removed from the system, eliminating unnecessary expenses and reducing clutter. This automated cleanup process helps organizations optimize their certificate inventory and reduce costs.",
+        },
+      ],
+    },
+
+    impactMeasurement: {
+      reports: [
+        "Certificate Expiry Report: Tracks certificates nearing expiration with owner and renewal status.",
+        "Unutilized Certificate Report: Identifies and lists certificates that are no longer active or in use.",
+        "Renewal Automation Report: Measures the reduction in manual renewal efforts and missed expirations.",
+      ],
+    },
+
+    outcomes: {
+      benefits: [
+        "Improved Visibility: Clear overview of certificate inventory and status enables organizations to effectively manage their certificates and reduce the risk of errors or oversights.",
+        "Reduced Risk: Minimized security risks from expired certificates ensure that organizations can maintain the security and integrity of their digital assets.",
+        "Increased Efficiency: Streamlined certificate management and renewal processes reduce the administrative burden associated with certificate management.",
+        "Cost Savings: Elimination of unutilized certificates reduces costs and optimizes certificate inventory.",
       ],
     },
   },
 ];
-
-// export const  caseStudies = [
-//     {
-//       "id": "UC-01",
-//       "title": "Streamlining Onboarding Process in Healthcare Center using ServiceNow",
-//       "domain": "Healthcare",
-//       "location": {
-//         "state": "Ohio",
-//         "country": "USA"
-//       },
-//       "summary":"Reduced onboarding time from 26 days to 3 days (88% improvement).",
-//       "background": {
-//         "overview": "A renowned healthcare center faced inefficiencies in its employee onboarding process due to excessive templates, approvals, and manual dependencies.",
-//         "keyChallenges": [
-//           "Multiple onboarding templates",
-//           "Unnecessary approvals",
-//           "Manual background verification",
-//           "Inter-team dependencies causing delays"
-//         ]
-//       },
-//       "problemStatement": {
-//         "averageProcessingTimeDays": 26,
-//         "issues": [
-//           "Delayed employee onboarding",
-//           "Complex approval chains",
-//           "Manual background checks",
-//           "Dependency on e-Services and ID Processing teams"
-//         ]
-//       },
-//       "solution": {
-//         "platform": "ServiceNow",
-//         "implementedChanges": [
-//           {
-//             "type": "Template Optimization",
-//             "description": "Consolidated 25–26 onboarding templates into a single unified template"
-//           },
-//           {
-//             "type": "Background Check Integration",
-//             "description": "Integrated background check validation directly into the onboarding form with exception handling"
-//           },
-//           {
-//             "type": "Dependency Removal",
-//             "description": "Removed dependencies on e-Services team and eliminated 24-hour wait timers"
-//           },
-//           {
-//             "type": "Workflow Optimization",
-//             "description": "Removed unnecessary approvals and streamlined workflows"
-//           },
-//           {
-//             "type": "UI & Backend Redesign",
-//             "description": "Redesigned form UI and rebuilt backend workflows to reduce complexity"
-//           }
-//         ]
-//       },
-//       "outcomes": {
-//         "processingTimeReductionDays": {
-//           "before": 26,
-//           "after": 3,
-//           "improvementPercentage": 88
-//         },
-//         "benefits": [
-//           "Faster onboarding",
-//           "Improved productivity",
-//           "Reduced manual intervention",
-//           "Enhanced user experience"
-//         ]
-//       },
-//       "impactMeasurement": {
-//         "reports": [
-//           "New Onboarding – Average Lifetime Report",
-//           "Old Onboarding – Average Lifetime Report"
-//         ]
-//       },
-//       "nextSteps": [
-//         "Monitor onboarding metrics for 3 months",
-//         "Identify further optimization opportunities"
-//       ]
-//     },
-//     {
-//       "id": "UC-02",
-//       "title": "Integrating Multiple Tools for Enhanced Visibility and Efficiency",
-//       "domain": "Enterprise Operations",
-//       "summary":"Integrated SharePoint, Teams, and SolarWinds into ServiceNow.",
-
-//       "background": {
-//         "overview": "The organization aimed to centralize inventory, incident, and request management by integrating multiple tools into ServiceNow.",
-//         "existingChallenges": [
-//           "No centralized inventory system",
-//           "Email-based request handling",
-//           "Disconnected tools causing duplication"
-//         ]
-//       },
-//       "problemStatement": {
-//         "issues": [
-//           "Lack of real-time inventory visibility",
-//           "Manual and error-prone processes",
-//           "Operational inefficiencies"
-//         ]
-//       },
-//       "solution": {
-//         "platform": "ServiceNow",
-//         "integratedTools": [
-//           "SharePoint",
-//           "Microsoft Teams",
-//           "SolarWinds",
-//           "Cisco",
-//           "Aria",
-//           "Dell"
-//         ],
-//         "keyImplementations": [
-//           "Centralized inventory management",
-//           "Form-based request handling",
-//           "Automated workflows replacing email-based processes"
-//         ]
-//       },
-//       "outcomes": {
-//         "benefits": [
-//           "Real-time inventory visibility",
-//           "Reduced manual work",
-//           "Improved operational efficiency",
-//           "Enhanced collaboration across teams"
-//         ]
-//       }
-//     },
-//     {
-//       "id": "UC-03",
-//       "title": "Automation Discovery Report in ServiceNow",
-//       "domain": "IT Service Management",
-//       "summary":"Automated repetitive incidents like password resets.",
-
-//       "background": {
-//         "overview": "ServiceNow Automation Discovery was used to analyze incident and request data to identify automation opportunities.",
-//         "commonManualTasks": [
-//           "Printer setup",
-//           "Password resets"
-//         ]
-//       },
-//       "problemStatement": {
-//         "issues": [
-//           "Repetitive manual tasks",
-//           "High risk of human error",
-//           "Inefficient resource utilization",
-//           "Increased ticket volume and SLA breaches"
-//         ]
-//       },
-//       "solution": {
-//         "platform": "ServiceNow",
-//         "featuresUsed": [
-//           "Automation Discovery Reports",
-//           "Pre-built automation templates"
-//         ],
-//         "automationBenefits": [
-//           "Identification of automation candidates",
-//           "Reduction in manual tracking and follow-ups"
-//         ]
-//       },
-//       "outcomes": {
-//         "efficiencyGains": {
-//           "timeReductionPercentage": "Up to 50%"
-//         },
-//         "benefits": [
-//           "Reduced SLA breaches",
-//           "Improved response and resolution times",
-//           "Lower operational costs",
-//           "Employees focused on higher-value work"
-//         ]
-//       }
-//     },
-//     {
-//       "id": "UC-13",
-//       "title": "Customized Survey and Dashboard for Service Delivery Improvement",
-//       "domain": "Service Delivery & Customer Experience",
-//       "summary":"Automated feedback surveys for incidents.",
-//       "background": {
-//         "overview": "The service delivery team lacked visibility into customer satisfaction and resolution quality.",
-//         "challenges": [
-//           "No structured feedback mechanism",
-//           "Limited management visibility",
-//           "Manual post-resolution follow-ups"
-//         ]
-//       },
-//       "solution": {
-//         "platform": "ServiceNow",
-//         "components": [
-//           "Customized Surveys",
-//           "Automated Feedback Collection",
-//           "Executive Dashboard"
-//         ],
-//         "surveyScope": [
-//           "Incident Requests",
-//           "Non-Catalog Requests"
-//         ]
-//       },
-//       "outcomes": {
-//         "benefits": [
-//           "Improved customer satisfaction",
-//           "Reduced rework",
-//           "Lower support costs",
-//           "Ability for users to reopen incidents if dissatisfied"
-//         ]
-//       },
-//       "keyFeatures": {
-//         "surveys": "Tailored to request type",
-//         "automation": "Automated survey distribution",
-//         "dashboards": "Real-time visibility for senior management"
-//       },
-//       "businessImpact": [
-//         "Data-driven decision making",
-//         "Improved service delivery",
-//         "Enhanced customer experience and loyalty"
-//       ]
-//     }
-//   ]
-
-// export const caseStudies = [
-//   {
-//     id: "1",
-//     title: "Streamlining Onboarding in Healthcare",
-//     summary:
-//       "Reduced onboarding time from 26 days to 3 days (88% improvement).",
-//     background:
-//       "A healthcare center faced lengthy onboarding due to multiple templates.",
-//     problem:
-//       "Manual background checks and unnecessary dependencies caused delays.",
-//     solution:
-//       "Templates were consolidated and background checks automated.",
-//     outcomes: [
-//       "Reduced processing time by 88%",
-//       "Improved productivity",
-//       "Better new hire experience",
-//     ],
-//   },
-//   {
-//     id: "2",
-//     title: "Multi-Tool Integration for Efficiency",
-//     summary:
-//       "Integrated SharePoint, Teams, and SolarWinds into ServiceNow.",
-//     background:
-//       "Organization lacked a centralized inventory management system.",
-//     problem:
-//       "Manual email-based inventory tracking with low visibility.",
-//     solution:
-//       "Integrated multiple tools into a single request platform.",
-//     outcomes: [
-//       "Real-time inventory visibility",
-//       "Reduced manual work",
-//       "Better collaboration",
-//     ],
-//   },
-//   {
-//     id: "3",
-//     title: "ServiceNow Automation Discovery",
-//     summary:
-//       "Automated repetitive incidents like password resets.",
-//     background:
-//       "Incident data showed repetitive patterns.",
-//     problem:
-//       "High ticket volume caused SLA breaches.",
-//     solution:
-//       "Automation Discovery and templates were used.",
-//     outcomes: [
-//       "Fewer SLA breaches",
-//       "50% faster resolution",
-//       "Cost savings",
-//     ],
-//   },
-//   {
-//     id: "13",
-//     title: "Customized Surveys & Dashboards",
-//     summary:
-//       "Automated feedback surveys for incidents.",
-//     background:
-//       "No visibility into customer satisfaction.",
-//     problem:
-//       "Manual follow-ups wasted time.",
-//     solution:
-//       "Automated surveys and dashboards.",
-//     outcomes: [
-//       "Data-driven decisions",
-//       "Improved customer loyalty",
-//       "Lower support cost",
-//     ],
-//   },
-// ];
