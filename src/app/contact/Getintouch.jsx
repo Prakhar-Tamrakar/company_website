@@ -60,7 +60,6 @@ export default function GetinTouch() {
                                         >
                                             {/* Render the specific icon for this line */}
                                             <item.icon className={clsx("h-6 w-6 shrink-0", isFollowUsCard ? "text-gray-800" : "text-blue-800")} />
-                                            
                                                {item.reflink?<span>
                                                 <a 
                                                 href={item.reflink} 

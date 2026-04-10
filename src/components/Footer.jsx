@@ -18,9 +18,9 @@ export default function Footer() {
               <Image
                 src={logo}
                 alt="i-Connectresources Logo"
-                width={115}
+                width={95}
                 height={30}
-                className="opacity-90 hover:opacity-100 transition-opacity"
+                className="opacity-100 transition-opacity"
               />
             </Link>
             <p className="content-default text-base sm:text-base leading-relaxed max-w-sm lg:max-w-xs">

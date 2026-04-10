@@ -84,7 +84,7 @@ export default function JourneySection() {
       <div ref={sectionRef} className="relative min-h-screen  overflow-hidden">
         {/* ================= HEADING ================= */}
         <div className="container">
-          <div ref={headingRef} className=" mb-20">
+          <div ref={headingRef} className="mb-20  sm:mb-44">
             {/* Animated Headline */}
             <h2 className="text-3xl md:text-[48px] font-playfair text-white mb-4 leading-tight">
               {"Our Journey".split(" ").map((word, i) => (
@@ -122,7 +122,7 @@ export default function JourneySection() {
         </div>
 
         {/* ================= TIMELINE ================= */}
-        <div className="container relative">
+        <div className="container relative  ">
           <div
             ref={trackRef}
             className="flex gap-24 w-max will-change-transform opacity-0"
