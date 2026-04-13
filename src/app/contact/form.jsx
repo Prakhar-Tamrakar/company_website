@@ -19,7 +19,7 @@ export default function ContactPage() {
     >
       <div className="max-w-6xl mx-auto">
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        {/* <div className="flex flex-wrap justify-center gap-3 mb-10">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -42,7 +42,7 @@ export default function ContactPage() {
               {tab.name}
             </button>
           ))}
-        </div>
+        </div> */}
         {/* Layout */}
         {activeTab === "General Enquiry" && (   
             <Generalenquiry/>

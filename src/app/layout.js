@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 const SmoothScroll = dynamic(() => import("./SmoothScroll"));
+const ScrollRestoration = dynamic(() => import("@/components/ScrollRestoration"));
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -91,6 +92,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${playfair.variable} font-satoshi antialiased`}>
         <SmoothScroll />
+        <ScrollRestoration />
         <Navbar />
         {children}
         <Footer />

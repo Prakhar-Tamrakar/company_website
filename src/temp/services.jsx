@@ -10,7 +10,7 @@ const services = [
     label: "Strategy",
     accent: "#3B82F6",
     accentLight: "#EFF6FF",
-    link: "/services#digital-ai-transformation",
+    link: "/services#ai-transformation",
   },
   {
     title: "Data Intelligence",
@@ -18,7 +18,7 @@ const services = [
     label: "Analytics",
     accent: "#8B5CF6",
     accentLight: "#F5F3FF",
-    link: "/services#digital-ai-transformation",
+    link: "/services#data-intelligence",
   },
   {
     title: "IT Infrastructure",
@@ -34,7 +34,7 @@ const services = [
     label: "Cloud",
     accent: "#06B6D4",
     accentLight: "#ECFEFF",
-    link: "/services#it-infrastructure",
+    link: "/services#cyber-security",
   },
   {
     title: "Strategic Consulting",
@@ -51,7 +51,7 @@ const services = [
     label: "Security",
     accent: "#EF4444",
     accentLight: "#FEF2F2",
-    link: "/services#it-infrastructure",
+    link: "/services#operational-excellence",
   },
 ];
 

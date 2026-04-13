@@ -45,7 +45,7 @@ export default function Page() {
           </>
         }
         subHeadline="Together, we transform challenges into opportunities — designing digital solutions that power industries, empower people, and shape the future."
-        primaryCta={{ label: "Let's Get Started", href: "/contact" }}
+        primaryCta={{ label: "Learn More", href: "/services" }}
         heroBgImage={HeroBg}
       />
       <Introduction />

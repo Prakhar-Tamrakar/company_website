@@ -221,7 +221,8 @@ function rateLimit(ip) {
 const schema = z.object({
   fullName: z.string().min(2).max(100),
   email: z.string().email().max(255),
-  inquiryType: z.string().min(1),
+  inquiryType: z.enum(["General Inquiry", "Products", "Services / Sales"]),
+  product: z.string().optional(),
   organization: z.string().min(1).max(200),
   phone: z.string().optional(),
   preferredContactTime: z.string().optional(),
@@ -301,6 +302,7 @@ export async function POST(req) {
       fullName: formData.get("fullName"),
       email: formData.get("email"),
       inquiryType: formData.get("inquiryType"),
+      product: formData.get("product"),
       organization: formData.get("organization"),
       phone: formData.get("phone"),
       preferredContactTime: formData.get("preferredContactTime"),
@@ -366,15 +368,19 @@ export async function POST(req) {
     await transporter.sendMail({
       from: `"Website Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.MANAGER_EMAIL,
-      subject: "New Contact Form Submission",
+      subject: `[${clean.inquiryType}] New Contact Form Submission`,
       html: `
         <h3>New Contact Inquiry</h3>
         <p><strong>Name:</strong> ${clean.fullName}</p>
         <p><strong>Email:</strong> ${clean.email}</p>
-        <p><strong>Inquiry:</strong> ${clean.inquiryType}</p>
+        <p><strong>Inquiry Type:</strong> ${clean.inquiryType}</p>
+        ${clean.product ? `<p><strong>Product:</strong> ${clean.product}</p>` : ""}
         <p><strong>Organization:</strong> ${clean.organization}</p>
         <p><strong>Phone:</strong> ${clean.phone || "N/A"}</p>
-        <p><strong>Message:</strong><br/>${clean.howHelp}</p>
+        <p><strong>Preferred Contact Time:</strong> ${clean.preferredContactTime || "N/A"}</p>
+        <p><strong>SMS Consent:</strong> ${clean.check === "true" ? "Yes" : "No"}</p>
+        <p><strong>How can we help:</strong><br/>${clean.howHelp || "N/A"}</p>
+        <p><strong>Additional Comments:</strong><br/>${clean.addComment || "N/A"}</p>
       `,
       attachments,
     });

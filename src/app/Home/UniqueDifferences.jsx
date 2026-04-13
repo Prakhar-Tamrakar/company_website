@@ -54,7 +54,7 @@ export default function Frame() {
     >
       <div className="container">
         <Heading
-          headline="Why Choose Us"
+          headline="The Advantage We Bring"
           subheadline="We deliver enterprise-grade IT solutions backed by decades of expertise and an unwavering commitment to excellence."
           color="black"
           maxWidth="4xl"

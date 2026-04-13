@@ -27,37 +27,44 @@ const Newservice = () => {
         />
       </div>
       <Leftside
-        id="strategic-consulting"
+        id="ai-transformation"
         title="Intelligent Innovation"
-        heading="  AI Transformation"
-        subheading="We modernize our customer’s operations through AI-driven solutions that enhance efficiency and innovation. "
+        heading="AI Transformation"
+        subheading="We modernize our customer's operations through AI-driven solutions that enhance efficiency and innovation. "
         items={content1}
+        accentColor="#3B82F6"
       />
       <Leftside
-        id="digital-ai-transformation"
+        id="data-intelligence"
         title="Data-Driven Intelligence"
         heading="Data Intelligence"
         subheading="We transform data into actionable insights through scalable and AI-ready data ecosystems. "
         items={content2}
+        accentColor="#8B5CF6"
       />
       <Leftside
+        id="it-infrastructure"
         title="Reliable Foundation "
-        heading=" IT Infrastructure"
+        heading="IT Infrastructure"
         subheading="We design and manage secure IT environments that ensure performance, scalability, and reliability."
         items={content3}
+        accentColor="#F59E0B"
       />
       <Leftside
+        id="cyber-security"
         title="Secure & Resilient "
         heading="Cyber Security"
         subheading="We protect digital assets through modern security frameworks and proactive risk management."
         items={content4}
+        accentColor="#06B6D4"
       />
       <Leftside
-        id="it-infrastructure"
+        id="strategic-consulting"
         title="Scale with Confidence "
         heading="Strategic Consulting"
         subheading="We identify structural, operational, and technological gaps and deliver tailored strategies that enable organizations to scale sustainably."
         items={content5}
+        accentColor="#10B981"
       />
       <Leftside
         id="operational-excellence"
@@ -65,6 +72,7 @@ const Newservice = () => {
         heading="Service Delivery & Automation"
         subheading="Streamline operations with intelligent workflows, automation, and real-time service visibility."
         items={content6}
+        accentColor="#EF4444"
       />
     </Section>
   );

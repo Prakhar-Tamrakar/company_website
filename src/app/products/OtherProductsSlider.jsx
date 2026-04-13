@@ -43,7 +43,7 @@ const values = [
       "A preventive oncology screening and healthcare analytics platform focused on early detection, risk assessment, and patient outcome optimization. ",
     outcome:
       "Standardizes and scales cervical screening workflows for early detection and reliable clinical follow-up.",
-    image: "/products/oncologyNew.png",
+    image: "/products/oncology.png",
   },
   // {
   //   id: "05",

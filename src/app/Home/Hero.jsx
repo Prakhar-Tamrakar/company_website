@@ -20,6 +20,8 @@ const Hero = () => {
   const [index, setIndex] = useState(0);
   const [curtainIndex, setCurtainIndex] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const intervalRef = useRef(null);
 
   const containerRef = useRef(null);
   const baseRef = useRef(null);
@@ -57,7 +59,6 @@ const Hero = () => {
       desc: "ServiceNow, Microsoft 365, UiPath, Atlassian Jira & others.",
     },
   ];
-
   const partners = [
     { name: "Microsoft", logo: microsoftLogo },
     { name: "ServiceNow", logo: servicenowLogo },
@@ -71,7 +72,6 @@ const Hero = () => {
     { name: "Gluware", logo: gluwareLogo },
     { name: "Appian", logo: appianLogo },
   ];
-
   /* ---------- Entrance Animations ---------- */
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -111,13 +111,10 @@ const Hero = () => {
         ? forcedIndex
         : (index + 1) % slideFeatures.length;
     const nextImgIndex = nextIndex % slides.length;
-
     setCurtainIndex(nextImgIndex);
-
     const tl = gsap.timeline({
       onComplete: () => setIsAnimating(false),
     });
-
     tl.to(".feature-text", { opacity: 0, y: -10, duration: 0.35 });
     tl.call(() => setIndex(nextIndex));
     tl.fromTo(
@@ -139,10 +136,29 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => runTransition(), 5000);
-    return () => clearInterval(interval);
-  }, [index, isAnimating]);
+  if (isPlaying) {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => runTransition(), 5000);
+  } else if (intervalRef.current) {
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  }
 
+  return () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
+}, [isPlaying, index , isAnimating]);
+
+  // useEffect(() => {
+
+  //   const interval = setInterval(() => runTransition(), 5000);
+  //   return () => clearInterval(interval);
+  // }, [index, isAnimating]);
   return (
     <div
       ref={containerRef}
@@ -177,7 +193,6 @@ const Hero = () => {
         {/* Desktop: directional gradient — left stays opaque, right fades to transparent */}
         <div className="absolute inset-0 hidden md:block bg-linear-to-r from-white/95 via-white/80 to-white/10 z-10" />
       </div>
-
       {/* ---------- Main Content Grid ---------- */}
       <main className="container relative z-30 grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-12 lg:gap-20 w-full items-center pt-28 pb-16 md:pt-24 md:pb-16 lg:pt-0 lg:pb-0 lg:min-h-screen lg:mt-20 xl:mt-10">
         {/* Left Side Container */}
@@ -235,20 +250,20 @@ const Hero = () => {
               </div>
 
               <div className="feature-text">
-                <div className="font-bold text-5xl text-white/10 ">{String(index + 1).padStart(2, "0")}</div>
+                <div className="font-bold text-5xl text-white/10 mb-2">{String(index + 1).padStart(2, "0")}</div>
                 <h2 className="text-2xl font-bold text-white leading-tight mb-4">{slideFeatures[index].title}</h2>
                 <p className="text-white/60 text-sm leading-relaxed">{slideFeatures[index].desc}</p>
               </div>
             </div>
 
             <div className="relative z-10 flex items-center justify-between mt-8">
-              <div className="flex gap-2">
+              <div className="flex gap-2 p-2">
                 {slideFeatures.map((_, i) => (
-                  <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === index ? "w-12 bg-white" : "w-6 bg-white/20"}`} />
+                  <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === index ? "w-7 bg-white" : "w-4 bg-white/20"}`} />
                 ))}
               </div>
 
-              {/* <div className="flex gap-3 ">
+              <div className="flex gap-1 p-1">
                 <button
                   onClick={() => runTransition((index - 1 + slideFeatures.length) % slideFeatures.length)}
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
@@ -256,12 +271,18 @@ const Hero = () => {
                   ←
                 </button>
                 <button
+                  onClick={() => setIsPlaying((current) => !current)}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                >
+                  {isPlaying ? "⏸️" : "▶️"}
+                </button>
+                <button
                   onClick={() => runTransition()}
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
                 >
                   →
                 </button>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

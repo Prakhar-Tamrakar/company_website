@@ -3,15 +3,22 @@ import {
   Shield,
   Bot,
   Rocket,
+  Cog,
   Target,
   BrainCircuit,
+  DatabaseBackup,
   GitBranch,
+  Eye,
+  Shuffle,
   Zap,
+  Siren,
   Users,
   RefreshCcw,
+  Gauge,
   UserPlus,
   Server,
   SlidersHorizontal,
+  ClipboardCheck ,
   RotateCcw,
   Share2,
   ArrowLeftRight,
@@ -29,7 +36,7 @@ export const content1 = [
   },
   {
     id: 2,
-    icon: Shield,
+    icon: Cog,
     heading: "Intelligent Automation: ",
     subhead:
       "AI-powered workflows, chatbots, and predictive capabilities",
@@ -51,9 +58,9 @@ export const content2 = [
   {
     id: 2,
     icon: GitBranch,
-    heading: "AI-Ready Data (DRAaS):",
+    heading: "Data Readiness Framework:",
     subhead:
-      "Prepare structured, high-quality datasets for AI and analytics  .",
+      "Ensure data quality, governance, and consistency to enable AI, analytics, and advanced decision-making.",
   },
   {
     id: 3,
@@ -80,10 +87,10 @@ export const content3 = [
   },
   {
      id: 3,
-    icon: Shield,
-    heading: "Performance & Reliability:",
+    icon: DatabaseBackup,
+    heading: "Disaster Recovery as a Service (DRaaS):",
     subhead:
-      "Monitoring, optimization, and uptime assurance .",
+      "Ensure business continuity with secure backup and rapid recovery.",
   }
 ];
 
@@ -97,14 +104,14 @@ export const content4 = [
   },
   {
     id: 2,
-    icon: Rocket,
+    icon:Siren,
     heading: "Threat Monitoring & Response:",
     subhead:
       "Real-time monitoring and incident response.",
   },
   {
     id: 3,
-    icon: Rocket,
+    icon: ClipboardCheck ,
     heading: "Governance & Compliance:",
     subhead:
       "Security policies aligned with industry standards.",
@@ -127,7 +134,7 @@ export const content5 = [
   },
   {
     id: 3,
-    icon: RefreshCcw,
+    icon: Shuffle,
     heading: "Flexible Engagement Models:",
     subhead:
       "Available as consulting, full implementation, or advisory-led execution.",
@@ -150,7 +157,7 @@ export const content6 = [
   },
   {
     id: 3,
-    icon: Activity,
+    icon: Eye,
     heading: "Monitoring & Reporting:",
     subhead:
       "Real-time dashboards and performance tracking for better decision-making.",
