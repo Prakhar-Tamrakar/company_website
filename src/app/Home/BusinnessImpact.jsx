@@ -7,23 +7,23 @@ const services = [
   {
     desc: "Accelerate ROI with optimized deployments, reducing time to business value. by up to 50%.",
     label: "Business Value – Faster ROI ",
-    img:"https://i-connectresources.com/wp-content/uploads/2023/05/Group-41782.svg"
+    img: "https://i-connectresources.com/wp-content/uploads/2023/05/Group-41782.svg",
   },
   {
     desc: "Boost IT efficiency with automation, reducing service desk calls by up to 40%. ",
     label: "IT Operations – Efficiency Boost ",
-    img :"https://i-connectresources.com/wp-content/uploads/2023/05/Group-41783.svg"
+    img: "https://i-connectresources.com/wp-content/uploads/2023/05/Group-41783.svg",
   },
   {
     desc: "EStreamline processes to save up to 30 minutes per interaction, enabling clinicians to focus on better patient outcomes.",
     label: "Healthcare Management - Time Saved ",
-    img:"https://i-connectresources.com/wp-content/uploads/2023/05/Group-41785.svg"
+    img: "https://i-connectresources.com/wp-content/uploads/2023/05/Group-41785.svg",
   },
   {
     desc: "Boost team productivity by saving 9,000+ hours annually across projects.",
     label: "PMO – Boost Productivity Across Teams ",
-    img:"https://i-connectresources.com/wp-content/uploads/2023/05/Group-41784.svg"
-  }
+    img: "https://i-connectresources.com/wp-content/uploads/2023/05/Group-41784.svg",
+  },
 ];
 function ServiceCard({ service, index }) {
   return (
@@ -44,10 +44,10 @@ function ServiceCard({ service, index }) {
           <span className="text-[10px] font-mono font-bold tracking-[0.3em] text-primary">0{index + 1}</span>
           <div className="h-px flex-1 bg-slate-200/50" />
         </div> */}
-        <h3 className="text-lg font-regular heading-default uppercase tracking-tight">
+        <h3 className="text-lg heading-default font-regular heading-default uppercase tracking-tight">
           {service.label}
         </h3>
-        <p className="text-slate-500 text-sm md:text-base leading-relaxed">
+        <p className="content-default text-sm md:text-base leading-relaxed">
           {service.desc}
         </p>
       </div>
@@ -63,14 +63,15 @@ export default function BusinessImpactSection() {
           subheadline="Driving measurable business outcomes and operational excellence with scalable, intelligent digital solutions."
           align="center"
           className="mb-16"
-        />        
+        />
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Static Illustrative Image */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[450px] aspect-square">
               <Image
-                src="https://i-connectresources.com/wp-content/uploads/2023/05/Group-41788.svg"
-                alt="Business Impact Illustration"   
+                // src="https://i-connectresources.com/wp-content/uploads/2023/05/Group-41788.svg"
+                src="/Home/business_impact/businessImpact.png"
+                alt="Business Impact Illustration"
                 fill
                 className="object-contain"
                 priority
@@ -78,7 +79,7 @@ export default function BusinessImpactSection() {
               {/* Optional: Add a subtle glow or background decoration to match other sections */}
               <div className="absolute inset-0 bg-primary/5 rounded-full blur-3xl -z-10" />
             </div>
-          </div>    
+          </div>
           {/* Cards Grid */}
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -86,8 +87,8 @@ export default function BusinessImpactSection() {
                 <ServiceCard key={index} service={service} index={index} />
               ))}
             </div>
-          </div>        
-        </div>   
+          </div>
+        </div>
       </div>
     </Section>
   );
