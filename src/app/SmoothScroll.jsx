@@ -36,18 +36,24 @@ export default function SmoothScroll() {
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
       const hash = window.location.hash;
-      const target = document.querySelector(hash);
       
-      if (target && lenisRef.current) {
-        // Small delay to ensure components are rendered
-        setTimeout(() => {
+      let attempts = 0;
+      const checkForTargetAndScroll = () => {
+        const target = document.querySelector(hash);
+        if (target && lenisRef.current) {
           lenisRef.current.scrollTo(target, {
             offset: -80, // Offset for navbar
             duration: 1.5,
             immediate: false,
           });
-        }, 150);
-      }
+        } else if (attempts < 10) {
+          attempts++;
+          setTimeout(checkForTargetAndScroll, 100);
+        }
+      };
+
+      // Start the checks
+      setTimeout(checkForTargetAndScroll, 50);
     }
   }, [pathname]);
 

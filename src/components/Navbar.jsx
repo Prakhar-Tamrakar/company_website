@@ -92,7 +92,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden xl:block shrink-0">
             <Link
-              href="/contact"
+              href="/contact#form"
               className="px-7 py-3 rounded-full text-xs font-bold uppercase tracking-widest bg-primary text-white transition-all hover:opacity-90 active:scale-95"
             >
               Contact Us

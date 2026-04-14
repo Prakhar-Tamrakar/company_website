@@ -201,10 +201,10 @@ const Hero = () => {
         <div className="flex flex-col justify-center px-4 md:px-0 ">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl text-left font-regular heading-default leading-[1.1] mb-6 md:mb-8">
             <span className="hero-line-1 block overflow-hidden pb-1">
-              <span className="reveal-inner block">Transform IT</span>
+              <span className="reveal-inner block">Transform IT Intelligently</span>
             </span>
             <span className="hero-line-2 block overflow-hidden pb-1">
-              <span className="reveal-inner block">Intelligently</span>
+              <span className="reveal-inner block"></span>
             </span>
           </h1>
           <div className="hero-sub-text text-sm sm:text-base md:text-lg text-left leading-relaxed mb-8 md:mb-10 max-w-lg text-slate-600">
