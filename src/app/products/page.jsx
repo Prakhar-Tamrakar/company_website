@@ -49,7 +49,7 @@ const page = () => {
              }
              subHeadline="Purpose-driven platforms designed to solve complex operational challenges and scale with your organization."
              primaryCta={{ label: "Explore Products", href: "/products#Products" }}
-             secondaryCta={{label:"Request Demo" , href:"/contact"}}
+             secondaryCta={{label:"Request Demo" , href:"/contact#form"}}
              heroBgImage="https://images.pexels.com/photos/7653780/pexels-photo-7653780.jpeg"
            />
       <ProductsSection  />

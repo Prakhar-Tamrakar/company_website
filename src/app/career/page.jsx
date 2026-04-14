@@ -1,6 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import HeroBg from "../../../public/career/careerHero.jpg"
+import HeroBg from "../../../public/career/careerHero.jpg";
 
 const HeroSection = dynamic(() => import("@/components/HeroSection"));
 const JourneySection = dynamic(() => import("./JourneySection"));
@@ -45,7 +45,7 @@ const page = () => {
           </>
         }
         subHeadline="Join a team redefining what technology can do. At i-Connectresources, we build more than solutions—we create opportunities, push boundaries, and drive real-world impact. Grow with the freedom, tools, and mentorship to succeed."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        primaryCta={{ label: "Contact Us", href: "/contact#form" }}
         heroBgImage={HeroBg}
       />
       <HowWeWorkSection />

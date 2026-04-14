@@ -143,7 +143,7 @@ export default function NewsletterSection() {
             >
               <div className="relative h-80 sm:h-96 w-full">
                 <Image
-                  src="/Home/newsletter.jpg"
+                  src="/Home/newsletter/newsletterNew.jpg"
                   alt="Newsletter"
                   fill
                   className="object-cover rounded-2xl"

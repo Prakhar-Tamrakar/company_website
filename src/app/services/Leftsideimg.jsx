@@ -42,9 +42,8 @@ export default function ServiceGrid({ id, title, heading, subheading, head2, ite
                 >
                   {/* Icon */}
                   {/* <div className="shrink-0 p-3 rounded-lg bg-primary/10"> */}
-                    <item.icon className="h-6 w-6 text-black" />
+                    <item.icon className="h-6 w-6 text-black" style={accentColor ? { color: accentColor } : {}} />
                   {/* </div> */}
-
                   {/* Text */}
                   <div className="flex flex-col gap-2">
                     <p className="text-base font-semibold text-primary leading-snug">

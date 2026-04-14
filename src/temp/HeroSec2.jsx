@@ -32,12 +32,30 @@ const Hero = () => {
   ];
 
   const slideFeatures = [
-    { title: "AI-Driven Automation", desc: "AI-driven efficiency, reduced manual effort." },
-    { title: "Security & Compliance", desc: "Built for regulated industries and growth-focused businesses." },
-    { title: "Digital Transformation", desc: "Modernize legacy IT systems with intelligent workflows." },
-    { title: "Proactive Managed Services", desc: "24/7 monitoring, predictable SLAs, continuous optimization." },
-    { title: "Operational Resilience", desc: "Reduce downtime, accelerate decision-making, scale with confidence." },
-    { title: "Platform Expertise", desc: "ServiceNow, Microsoft 365, UiPath, Atlassian Jira & others." },
+    {
+      title: "AI-Driven Automation",
+      desc: "AI-driven efficiency, reduced manual effort.",
+    },
+    {
+      title: "Security & Compliance",
+      desc: "Built for regulated industries and growth-focused businesses.",
+    },
+    {
+      title: "Digital Transformation",
+      desc: "Modernize legacy IT systems with intelligent workflows.",
+    },
+    {
+      title: "Proactive Managed Services",
+      desc: "24/7 monitoring, predictable SLAs, continuous optimization.",
+    },
+    {
+      title: "Operational Resilience",
+      desc: "Reduce downtime, accelerate decision-making, scale with confidence.",
+    },
+    {
+      title: "Platform Expertise",
+      desc: "ServiceNow, Microsoft 365, UiPath, Atlassian Jira & others.",
+    },
   ];
 
   const partners = [
@@ -55,10 +73,18 @@ const Hero = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.set(".reveal-inner", { y: "105%" });
-      gsap.set(".hero-sub-text, .partners-marquee, .right-content-box, .hero-cta", { opacity: 0, y: 20 });
+      gsap.set(
+        ".hero-sub-text, .partners-marquee, .right-content-box, .hero-cta",
+        { opacity: 0, y: 20 },
+      );
 
       const tl = gsap.timeline({ delay: 0.1 });
-      tl.to(".hero-line-1 .reveal-inner, .hero-line-2 .reveal-inner", { y: "0%", duration: 1, stagger: 0.2, ease: "expo.out" })
+      tl.to(".hero-line-1 .reveal-inner, .hero-line-2 .reveal-inner", {
+        y: "0%",
+        duration: 1,
+        stagger: 0.2,
+        ease: "expo.out",
+      })
         .to(".hero-sub-text", { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
         .to(".hero-cta", { opacity: 1, y: 0, duration: 0.7 }, "-=0.5")
         .to(".right-content-box", { opacity: 1, y: 0, duration: 1 }, "-=0.4")
@@ -69,50 +95,52 @@ const Hero = () => {
 
   /* ---------- Background & Dynamic Content Cycle ---------- */
   const runTransition = (forcedIndex = null) => {
-  if (isAnimating) return;
-  setIsAnimating(true);
+    if (isAnimating) return;
+    setIsAnimating(true);
 
-  const nextIndex =
-    forcedIndex !== null
-      ? forcedIndex
-      : (index + 1) % slideFeatures.length;
-  const nextImgIndex = nextIndex % slides.length;
+    const nextIndex =
+      forcedIndex !== null ? forcedIndex : (index + 1) % slideFeatures.length;
+    const nextImgIndex = nextIndex % slides.length;
 
-  // Pre-load the next background on the curtain
-  setCurtainIndex(nextImgIndex);
+    // Pre-load the next background on the curtain
+    setCurtainIndex(nextImgIndex);
 
-  const tl = gsap.timeline({
-    onComplete: () => setIsAnimating(false),
-  });
+    const tl = gsap.timeline({
+      onComplete: () => setIsAnimating(false),
+    });
 
-  // 1. Fade out text
-  tl.to(".feature-text", { opacity: 0, y: -10, duration: 0.35 });
+    // 1. Fade out text
+    tl.to(".feature-text", { opacity: 0, y: -10, duration: 0.35 });
 
-  // 2. Update index ONCE — right after text is gone, before curtain moves
-  tl.call(() => setIndex(nextIndex));
+    // 2. Update index ONCE — right after text is gone, before curtain moves
+    tl.call(() => setIndex(nextIndex));
 
-  // 3. Fade text back in with new content
-  tl.fromTo(
-    ".feature-text",
-    { opacity: 0, y: 12 },
-    { opacity: 1, y: 0, duration: 0.5 }
-  );
+    // 3. Fade text back in with new content
+    tl.fromTo(
+      ".feature-text",
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.5 },
+    );
 
-  // 4. Curtain slides up (runs in parallel with text fade-in)
-  tl.set(curtainRef.current, { yPercent: 100, display: "block", opacity: 1 }, "<-=0.5");
-  tl.to(
-    curtainRef.current,
-    { yPercent: 0, duration: 1.1, ease: "power3.inOut" },
-    "<"
-  );
+    // 4. Curtain slides up (runs in parallel with text fade-in)
+    tl.set(
+      curtainRef.current,
+      { yPercent: 100, display: "block", opacity: 1 },
+      "<-=0.5",
+    );
+    tl.to(
+      curtainRef.current,
+      { yPercent: 0, duration: 1.1, ease: "power3.inOut" },
+      "<",
+    );
 
-  // 5. Fade out and hide curtain
-  tl.to(curtainRef.current, {
-    opacity: 0,
-    duration: 0.3,
-    onComplete: () => gsap.set(curtainRef.current, { display: "none" }),
-  });
-};
+    // 5. Fade out and hide curtain
+    tl.to(curtainRef.current, {
+      opacity: 0,
+      duration: 0.3,
+      onComplete: () => gsap.set(curtainRef.current, { display: "none" }),
+    });
+  };
 
   useEffect(() => {
     const interval = setInterval(() => runTransition(), 5000);
@@ -120,15 +148,29 @@ const Hero = () => {
   }, [index, isAnimating]);
 
   return (
-    <div ref={containerRef} className="relative min-h-[90svh] md:min-h-screen w-full overflow-hidden bg-white flex items-center">
-      
+    <div
+      ref={containerRef}
+      className="relative min-h-[90svh] md:min-h-screen w-full overflow-hidden bg-white flex items-center"
+    >
       {/* ---------- Background Layers ---------- */}
       <div className="absolute inset-0 z-0">
         <div ref={baseRef} className="absolute inset-0">
-          <Image src={slides[index % slides.length].src} alt="bg" fill priority className="object-cover" />
+          <Image
+            src={slides[index % slides.length].src}
+            alt="bg"
+            fill
+            priority
+            className="object-cover"
+          />
         </div>
         <div ref={curtainRef} className="absolute inset-0 hidden z-10">
-          <Image src={slides[curtainIndex].src} alt="bg-next" fill priority className="object-cover" />
+          <Image
+            src={slides[curtainIndex].src}
+            alt="bg-next"
+            fill
+            priority
+            className="object-cover"
+          />
         </div>
         {/* Gradients to keep text readable */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-20" />
@@ -136,7 +178,6 @@ const Hero = () => {
 
       {/* ---------- Main Content Grid ---------- */}
       <main className="container relative z-30 grid grid-cols-1 md:grid-cols-2 gap-12 w-full items-center py-20">
-        
         {/* Left Side */}
         <div className="flex flex-col justify-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-6 text-slate-900">
@@ -148,17 +189,29 @@ const Hero = () => {
             </span>
           </h1>
           <div className="hero-sub-text text-lg sm:text-xl text-slate-500 mb-10 max-w-md">
-            <p>Turning IT into a future-ready, intelligent digital engine with AI-driven automation.</p>
+            <p>
+              Turning IT into a future-ready, intelligent digital engine with
+              AI-driven automation.
+            </p>
           </div>
           <div className="w-fit hero-cta mb-16">
-            <ModernCapsuleCTA href="/contact" text="Schedule a Consultation" />
+            <ModernCapsuleCTA
+              href="/contact#form"
+              text="Schedule a Consultation"
+            />
           </div>
 
           {/* Partner Logos */}
           <div className="partners-marquee w-full max-w-md overflow-hidden opacity-50">
             <div className="flex w-max animate-marquee gap-10 items-center">
               {partners.map((partner, i) => (
-                <Image key={i} src={partner.logo} alt={partner.name} height={30} className="grayscale hover:grayscale-0 transition-all object-contain h-6 w-auto" />
+                <Image
+                  key={i}
+                  src={partner.logo}
+                  alt={partner.name}
+                  height={30}
+                  className="grayscale hover:grayscale-0 transition-all object-contain h-6 w-auto"
+                />
               ))}
             </div>
           </div>
@@ -178,33 +231,48 @@ const Hero = () => {
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-8 h-[2px] bg-blue-500" />
-                <span className="text-[10px] uppercase tracking-widest font-bold text-blue-400">Capabilities</span>
+                <span className="text-[10px] uppercase tracking-widest font-bold text-blue-400">
+                  Capabilities
+                </span>
               </div>
 
               <div className="feature-text">
-                <div className="font-bold text-6xl text-white/10 mb-[-1rem]">{String(index + 1).padStart(2, "0")}</div>
-                <h2 className="text-3xl font-bold text-white leading-tight mb-4">{slideFeatures[index].title}</h2>
-                <p className="text-white/60 text-base leading-relaxed">{slideFeatures[index].desc}</p>
+                <div className="font-bold text-6xl text-white/10 mb-[-1rem]">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <h2 className="text-3xl font-bold text-white leading-tight mb-4">
+                  {slideFeatures[index].title}
+                </h2>
+                <p className="text-white/60 text-base leading-relaxed">
+                  {slideFeatures[index].desc}
+                </p>
               </div>
             </div>
 
             <div className="relative z-10 flex items-center justify-between mt-12">
               <div className="flex gap-2">
                 {slideFeatures.map((_, i) => (
-                  <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === index ? "w-8 bg-blue-500" : "w-3 bg-white/20"}`} />
+                  <div
+                    key={i}
+                    className={`h-1 rounded-full transition-all duration-500 ${i === index ? "w-8 bg-blue-500" : "w-3 bg-white/20"}`}
+                  />
                 ))}
               </div>
-              
+
               <div className="flex gap-3">
-                <button 
-                   onClick={() => runTransition((index - 1 + slideFeatures.length) % slideFeatures.length)}
-                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                <button
+                  onClick={() =>
+                    runTransition(
+                      (index - 1 + slideFeatures.length) % slideFeatures.length,
+                    )
+                  }
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
                 >
                   ←
                 </button>
-                <button 
-                   onClick={() => runTransition()}
-                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                <button
+                  onClick={() => runTransition()}
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
                 >
                   →
                 </button>

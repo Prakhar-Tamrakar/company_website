@@ -101,7 +101,7 @@ export default function Introduction() {
 
             {/* Background Image */}
             <Image
-              src={whoWeAre}
+              src={whoWeAreColor}
               alt="Who We Are background"
               fill
               className="object-cover opacity-80 rounded-2xl"

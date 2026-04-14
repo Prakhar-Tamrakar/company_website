@@ -35,11 +35,11 @@ export default function YourJourney() {
                   height={300}
                 />
                 {/* Floating Icon */}
-                <div className="absolute right-4 top-4 sm:right-6 sm:top-6">
+                {/* <div className="absolute right-4 top-4 sm:right-6 sm:top-6">
                   <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-primary  shadow-lg">
                     <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* Content Wrapper */}
               <div className=" flex flex-col grow px-5 py-6 sm:px-6">
@@ -53,7 +53,7 @@ export default function YourJourney() {
                 <p className="card-subtitle content-default text-base text-left flex-grow ">
                   {item.subHeading}
                 </p>
-                <Link href="\contact">
+                <Link href="\contact#form">
                   {" "}
                   <button className="bg-primary text-white rounded-lg h-[30px] w-full mt-2 cursor-pointer">
                     {item.buttonText}{" "}

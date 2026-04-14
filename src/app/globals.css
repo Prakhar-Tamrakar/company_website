@@ -174,7 +174,7 @@ body {
 }
 
 .card-heading-blog {
-  @apply text-cardheading text-base lg:text-xl font-semibold;
+  @apply text-cardheading text-base lg:text-xl ;
 }
 
 

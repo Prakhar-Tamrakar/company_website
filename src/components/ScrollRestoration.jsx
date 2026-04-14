@@ -26,6 +26,12 @@ export default function ScrollRestoration() {
     // Try to restore scroll position for the new page
     const saved = sessionStorage.getItem(`scrollPos:${pathname}`);
 
+    // Skip restoration if we have a hash in the URL (let the browser/Lenis handle anchor links)
+    if (window.location.hash) {
+      prevPathname.current = pathname;
+      return;
+    }
+
     if (saved) {
       // Small timeout lets the page content render first
       const timer = setTimeout(() => {

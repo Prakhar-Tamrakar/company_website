@@ -65,8 +65,8 @@ const page = () => {
           </>
         }
         subHeadline="Beyond building IT solutions, our focus is on delivering measurable impact. Through a deep understanding of your operations and priorities, services are designed to improve efficiency, enhance performance, and drive sustainable growth."
-        primaryCta={{ label: "Get Started", href: "/contact" }}
-        secondaryCta={{ label: "Explore Our Services", href: "#OldServices" }}
+        primaryCta={{ label: "Get Started", href: "/contact#form" }}
+        // secondaryCta={{ label: "Explore Our Services", href: "#NewServices" }}
         heroBgImage="https://images.pexels.com/photos/7658380/pexels-photo-7658380.jpeg"
       />
       {/* <OurCapabilities /> */}

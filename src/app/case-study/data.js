@@ -3,15 +3,15 @@ export const caseStudies = [
   {
     id: "use-case-v",
     img: "/Casestudy/case-study-doctors.png",
-    title: "Turning Microsoft Teams into a Clinical Communication Platform",
+    title:
+      "All-In-One (AIO) Devices: Modernizing Workflows and Communication for Clinical Staff",
     domain: "Healthcare",
     location: { state: "Ohio", country: "USA" },
     summary:
-      "Our AIO solution transforms Microsoft Teams into a unified clinical platform, consolidating fragmented legacy systems to deliver a $15.17M annual benefit and a 279% Year 1 ROI through improved workflow efficiency.",
+      " Our All-In-One (AIO) Devices solution transforms Microsoft Teams into a unified clinical platform, consolidating fragmented legacy systems to deliver a $15.17M annual benefit and a 279% Year 1 ROI through improved workflow efficiency.",
 
     background: {
-      overview:
-        "Major Healthcare CIOs in past couple years are facing a 'margin emergency' characterized by rising labor costs and fragmented digital assets. A top-ranked academic medical center in Ohio partnered with i-Connectresources to execute an All-in-One (AIO) strategy. The goal was to operationalize Gartner's 'Intelligent Health' imperatives—precision, equity, ethics, and interoperability—by leveraging their existing Microsoft 365 and Teams infrastructure.",
+      overview: `Major Healthcare CIOs in past couple years are facing a "margin emergency" characterized by rising labor costs and fragmented digital assets. A top-ranked academic medical center in Ohio partnered with  i-Connectresources to execute an All-in-One (AIO) Devices strategy. The goal was to operationalize Gartner’s "Intelligent Health" imperatives—precision, equity, ethics, and interoperability—by leveraging their existing Microsoft 365 and Teams infrastructure.  `,
     },
 
     problemStatement: {
@@ -27,7 +27,10 @@ export const caseStudies = [
     },
 
     solution: {
+      description:
+        "The All-in-One (AIO) Devices solution consolidated the fragmented ecosystem into a single, secure experience on Microsoft Teams, deployed via 4,000 iPhone SE devices. Key implementation steps included:",
       platform: "Microsoft 365 + Microsoft Teams (AIO Strategy)",
+
       implementedChanges: [
         {
           type: "Voice Migration",
@@ -57,6 +60,34 @@ export const caseStudies = [
       ],
     },
 
+    KeyFeatures: {
+      content: [
+        {
+          title: "Single Device Strategy",
+          description:
+            "Consolidation of calling, messaging, and alarms onto a single iPhone.  ",
+        },
+        {
+          title: "Ambient Alerting",
+          description: "Real-time integration with bedside alarms (Rover).  ",
+        },
+        {
+          title: "Cloud-Native Infrastructure",
+          description:
+            "High-availability Teams environment replacing legacy on-premises hardware.  ",
+        },
+        {
+          title: "One-Tap Clinical Bookmarks",
+          description: "Instant access to essential web-based medical tools. ",
+        },
+        {
+          title: "Centralized Governance",
+          description:
+            "Microsoft 365 policy enforcement for security and compliance.   ",
+        },
+      ],
+    },
+
     impactMeasurement: {
       reports: [
         "Cisco Licensing Elimination: $2.70M annual savings",
@@ -76,13 +107,32 @@ export const caseStudies = [
         "IT Optimization: Realized a 40–50% reduction in device-related support tickets.",
       ],
     },
+    Benefits: {
+      content: [
+        {
+          title: "Margin Stabilization",
+          description: `Significantly reduced technology "sunk costs" and redirected funds toward clinical care.`,
+        },
+        {
+          title: "Workforce Sustainability",
+          description: ` Combated burnout by reducing "toil" and simplifying the digital workspace for nurses and allied health professionals.`,
+        },
+        {
+          title: "Improved Interoperability",
+          description: ` Used Teams as a "communication fabric" to bridge gaps between alarms, collaboration tools, and clinical data.  `,
+        },
+        {
+          title: "Scalable Blueprint: ",
+          description: `Established a repeatable model for modernizing Clinical Communication and Collaboration (CCC) without purchasing a new standalone platform. `,
+        },
+      ],
+    },
   },
   // ─── ServiceNow Use Cases ─────────────────────────────────────────────────
   {
     id: "use-case-i",
     img: "/Casestudy/health_onboard.png",
-    title:
-      "Streamlining Onboarding Process in Healthcare Center using ServiceNow",
+    title: "Streamlining Onboarding Process in Healthcare  using ServiceNow",
     domain: "Healthcare",
     location: { state: "Ohio", country: "USA" },
     summary:
@@ -90,7 +140,7 @@ export const caseStudies = [
 
     background: {
       overview:
-        "A renowned healthcare Center in the state of Ohio, USA, faced significant challenges with its onboarding process, which was lengthy and inefficient. The process involved multiple templates, unnecessary approvals, and dependencies that hindered the onboarding of new employees.",
+        "A renowned Medical center in the state of Ohio, USA, faced significant challenges with its onboarding process, which was lengthy and inefficient. The process involved multiple templates, unnecessary approvals, and dependencies that hindered the onboarding of new employees.",
     },
 
     problemStatement: {
@@ -106,7 +156,7 @@ export const caseStudies = [
     },
 
     solution: {
-      platform: "ServiceNow",
+      platform: "ServiceNow and custom UI/UX",
       implementedChanges: [
         {
           type: "Consolidated templates",

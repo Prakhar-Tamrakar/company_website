@@ -8,10 +8,42 @@ import logo from "../../public/navbar/logo.png";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#f7f7f7] text-slate-600 border-t border-gray-200">
+    <footer className="relative w-full bg-[#f7f7f7] text-slate-600 border-t border-gray-200 overflow-hidden">
+      {/* ---------------- DECORATIVE ILLUSTRATIONS ---------------- */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* Top-left dot pattern */}
+        <div className="absolute -top-12 -left-12 opacity-40">
+          <svg width="350" height="350" fill="none" viewBox="0 0 404 404">
+            <defs>
+              <pattern
+                id="footer-dots-left"
+                x="0"
+                y="0"
+                width="20"
+                height="20"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect x="0" y="0" width="3" height="3" className="text-blue-600/20" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="404" height="404" fill="url(#footer-dots-left)" />
+          </svg>
+        </div>
+
+        {/* Bottom-right organic blob */}
+        <div className="absolute -bottom-40 -right-40 opacity-[0.03] transform -rotate-12">
+          <svg width="600" height="600" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#2563eb" d="M45.7,-76.4C58.9,-69.3,69.2,-55.4,78.2,-41.2C87.2,-27,94.9,-12.4,94.3,1.9C93.7,16.2,84.9,30.2,74.5,41.9C64.1,53.6,52.2,63,38.8,70.5C25.4,78,10.6,83.6,-4.8,88.7C-20.2,93.8,-36.2,98.5,-49.2,92C-62.2,85.5,-72.2,67.8,-80.4,50.7C-88.6,33.6,-95.1,17.1,-94.1,1.1C-93.1,-14.9,-84.7,-30.5,-74,-43.3C-63.3,-56,-50.2,-66.1,-36.6,-73.4C-23,-80.7,-8.9,-85.2,6,-91.7C20.9,-98.2,41.8,-106.7,45.7,-76.4Z" transform="translate(100 100)" />
+          </svg>
+        </div>
+        
+        {/* Soft top-right blue glow */}
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-[100px] mix-blend-multiply"></div>
+      </div>
+
       {/* ---------------- MAIN FOOTER ---------------- */}
-      <div className="container max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="relative z-10 container max-w-7xl mx-auto px-6 py-16 md:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-4 space-y-4 lg:space-y-6">
             <Link href="/" className="inline-block rounded-md focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 outline-hidden">
@@ -23,7 +55,7 @@ export default function Footer() {
                 className="opacity-100 transition-opacity"
               />
             </Link>
-            <p className="content-default text-base sm:text-base leading-relaxed max-w-sm lg:max-w-xs">
+            <p className="content-default text-base sm:text-base leading-relaxed max-w-sm lg:max-w-lg">
               Digital Transformation with Intelligent IT Solutions.
             </p>
             <div className="flex items-center gap-4">
@@ -54,7 +86,7 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3.5">
                 <FooterLink label="Case Studies" href="/case-study" />
-                <FooterLink label="Resources" href="/resources" />
+                <FooterLink label="Products" href="/products" />
                 <FooterLink label="Careers" href="/career" />
               </ul>
             </nav>

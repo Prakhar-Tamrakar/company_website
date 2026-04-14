@@ -108,7 +108,10 @@ export default function GeneralEnquiry() {
       data.append("recaptchaToken", recaptchaToken);
       data.append("website", ""); // honeypot
 
-      const res = await fetch("/api/contact", { method: "POST", body: data });
+      const res = await fetch("/api/contact#form", {
+        method: "POST",
+        body: data,
+      });
       const result = await res.json();
 
       if (!res.ok) {
@@ -266,7 +269,10 @@ export default function GeneralEnquiry() {
                   <DatePicker
                     selected={formData.preferredContactDate}
                     onChange={(date) =>
-                      setFormData((prev) => ({ ...prev, preferredContactDate: date }))
+                      setFormData((prev) => ({
+                        ...prev,
+                        preferredContactDate: date,
+                      }))
                     }
                     showTimeInput
                     timeInputLabel="Time:"
@@ -307,7 +313,9 @@ export default function GeneralEnquiry() {
                   </select>
                   <SelectArrow />
                 </div>
-                <p className="mt-1.5 text-xs text-gray-400">Helps us call at the right local time.</p>
+                <p className="mt-1.5 text-xs text-gray-400">
+                  Helps us call at the right local time.
+                </p>
               </div>
             </div>
 

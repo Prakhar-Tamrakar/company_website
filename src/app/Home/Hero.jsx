@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import ModernCapsuleCTA from "@/components/ModernCapsuleCTA";
-
+import { Play, Pause } from "lucide-react";
 // Backgrounds
 import backgroundImage01 from "../../../public/Home/HomeBg01.jpg";
 import backgroundImage02 from "../../../public/Home/HomeBg02.jpg";
@@ -107,9 +107,7 @@ const Hero = () => {
     setIsAnimating(true);
 
     const nextIndex =
-      forcedIndex !== null
-        ? forcedIndex
-        : (index + 1) % slideFeatures.length;
+      forcedIndex !== null ? forcedIndex : (index + 1) % slideFeatures.length;
     const nextImgIndex = nextIndex % slides.length;
     setCurtainIndex(nextImgIndex);
     const tl = gsap.timeline({
@@ -120,13 +118,17 @@ const Hero = () => {
     tl.fromTo(
       ".feature-text",
       { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: 0.5 }
+      { opacity: 1, y: 0, duration: 0.5 },
     );
-    tl.set(curtainRef.current, { yPercent: 100, display: "block", opacity: 1 }, "<-=0.5");
+    tl.set(
+      curtainRef.current,
+      { yPercent: 100, display: "block", opacity: 1 },
+      "<-=0.5",
+    );
     tl.to(
       curtainRef.current,
       { yPercent: 0, duration: 1.1, ease: "power3.inOut" },
-      "<"
+      "<",
     );
     tl.to(curtainRef.current, {
       opacity: 0,
@@ -136,23 +138,23 @@ const Hero = () => {
   };
 
   useEffect(() => {
-  if (isPlaying) {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    intervalRef.current = setInterval(() => runTransition(), 5000);
-  } else if (intervalRef.current) {
-    clearInterval(intervalRef.current);
-    intervalRef.current = null;
-  }
-
-  return () => {
-    if (intervalRef.current) {
+    if (isPlaying) {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      intervalRef.current = setInterval(() => runTransition(), 5000);
+    } else if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-  };
-}, [isPlaying, index , isAnimating]);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [isPlaying, index, isAnimating]);
 
   // useEffect(() => {
 
@@ -205,11 +207,17 @@ const Hero = () => {
               <span className="reveal-inner block">Intelligently</span>
             </span>
           </h1>
-          <div className="hero-sub-text text-sm sm:text-base md:text-lg text-left leading-relaxed mb-8 md:mb-10 max-w-md text-slate-600">
-            <p>Turning IT into a future-ready, intelligent digital engine. AI-driven automation that modernizes systems and workflows.</p>
+          <div className="hero-sub-text text-sm sm:text-base md:text-lg text-left leading-relaxed mb-8 md:mb-10 max-w-lg text-slate-600">
+            <p>
+              Turning IT into a future-ready, intelligent digital engine.
+              AI-driven automation that modernizes systems and workflows.
+            </p>
           </div>
           <div className="flex flex-col items-start w-fit hero-cta mb-10 md:mb-14">
-            <ModernCapsuleCTA href="/contact" text="Schedule a Consultation" />
+            <ModernCapsuleCTA
+              href="/contact#form"
+              text="Schedule a Consultation"
+            />
           </div>
 
           {/* --- PARTNERS INFINITE SCROLL --- */}
@@ -246,26 +254,41 @@ const Hero = () => {
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-[2px] bg-blue-500" />
-                <span className="text-[10px] uppercase tracking-widest font-bold text-white">Capabilities</span>
+                <span className="text-[10px] uppercase tracking-widest font-bold text-white">
+                  Capabilities
+                </span>
               </div>
 
               <div className="feature-text">
-                <div className="font-bold text-5xl text-white/10 mb-2">{String(index + 1).padStart(2, "0")}</div>
-                <h2 className="text-2xl font-bold text-white leading-tight mb-4">{slideFeatures[index].title}</h2>
-                <p className="text-white/60 text-sm leading-relaxed">{slideFeatures[index].desc}</p>
+                <div className="font-bold text-5xl text-white/10 mb-2">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <h2 className="text-2xl font-bold text-white leading-tight mb-4">
+                  {slideFeatures[index].title}
+                </h2>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  {slideFeatures[index].desc}
+                </p>
               </div>
             </div>
 
             <div className="relative z-10 flex items-center justify-between mt-8">
               <div className="flex gap-2 p-2">
                 {slideFeatures.map((_, i) => (
-                  <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === index ? "w-7 bg-white" : "w-4 bg-white/20"}`} />
+                  <div
+                    key={i}
+                    className={`h-1 rounded-full transition-all duration-500 ${i === index ? "w-7 bg-white" : "w-4 bg-white/20"}`}
+                  />
                 ))}
               </div>
 
               <div className="flex gap-1 p-1">
                 <button
-                  onClick={() => runTransition((index - 1 + slideFeatures.length) % slideFeatures.length)}
+                  onClick={() =>
+                    runTransition(
+                      (index - 1 + slideFeatures.length) % slideFeatures.length,
+                    )
+                  }
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
                 >
                   ←
@@ -274,7 +297,14 @@ const Hero = () => {
                   onClick={() => setIsPlaying((current) => !current)}
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
                 >
-                  {isPlaying ? "⏸️" : "▶️"}
+                  <div className="relative">
+                    <Play
+                      className={`h-4 w-4 transition-opacity duration-500 ease-in-out ${isPlaying ? "opacity-0" : "opacity-100"}`}
+                    />
+                    <Pause
+                      className={`h-4 w-4 transition-opacity duration-500 ease-in-out absolute inset-0 ${isPlaying ? "opacity-100" : "opacity-0"}`}
+                    />
+                  </div>
                 </button>
                 <button
                   onClick={() => runTransition()}
@@ -287,10 +317,8 @@ const Hero = () => {
           </div>
         </div>
       </main>
-
       {/* Tailwind Animation Config (Add to tailwind.config.ts) */}
     </div>
   );
 };
-
 export default Hero;

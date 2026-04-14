@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import ModernCapsuleCTA from "@/components/ModernCapsuleCTA";
 
-
 import Image from "next/image";
 
 import microsoftLogo from "../../../public/logos/MicrosoftLogo.png";
@@ -133,7 +132,7 @@ export default function HeroNewSection() {
       className="relative  py-36 sm:py-24 md:py-28 lg:py-36  w-full bg-white overflow-hidden flex items-center justify-center"
     >
       {/* -------- AMBIENT BACKGROUND -------- */}
-     
+
       <div
         className="absolute inset-0 pointer-events-none z-2"
         style={{
@@ -149,7 +148,7 @@ export default function HeroNewSection() {
       />
 
       {/* -------- GRID LAYER -------- */}
-      <div className= "  absolute inset-0 pointer-events-none">
+      <div className="  absolute inset-0 pointer-events-none">
         {/* Base grid */}
         <div
           className="absolute inset-0 opacity-[0.13]"
@@ -187,11 +186,12 @@ export default function HeroNewSection() {
 
       {/* -------- CONTENT -------- */}
       <div className="hero-content container relative z-10 px-4 sm:px-6 text-center">
-        
         <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-regular  tracking-tight text-slate-900 leading-normal mb-8">
-          Where <span className="font-playfair italic">Innovation</span> Meets <span className="font-playfair italic"> Purpose —</span>
+          Where <span className="font-playfair italic">Innovation</span> Meets{" "}
+          <span className="font-playfair italic"> Purpose —</span>
           <br className="hidden md:block" />
-          IT That Moves Your <span className="font-playfair italic">Business Forward</span>
+          IT That Moves Your{" "}
+          <span className="font-playfair italic">Business Forward</span>
         </h1>
 
         <p className="hero-subtitle max-w-[90%] sm:max-w-xl md:max-w-2xl mx-auto text-slate-500 text-base sm:text-lg md:text-xl leading-relaxed mb-12">
@@ -201,32 +201,33 @@ export default function HeroNewSection() {
         </p>
 
         <div className="hero-buttons flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 px-4 sm:px-0">
-          
-          <ModernCapsuleCTA href="/contact" text="Schedule a Consultation" />
+          <ModernCapsuleCTA
+            href="/contact#form"
+            text="Schedule a Consultation"
+          />
           {/* <ModernCapsuleCTA href="/services" text="Explore Services" theme="light"/> */}
         </div>
 
         {/* -------partnership--------- */}
 
-
         <div className=" mx-auto mt-8 md:mt-12 lg:mt-16  max-w-2xl md:max-w-4xl lg:max-w-5xl relative overflow-hidden">
-        {/* -------- Fade overlays -------- */}
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-linear-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-linear-to-l from-white to-transparent z-10" />
+          {/* -------- Fade overlays -------- */}
+          <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-linear-to-r from-white to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-linear-to-l from-white to-transparent z-10" />
 
-        {/* -------- Marquee -------- */}
-        <div className="relative overflow-hidden">
-          <div className="flex w-max animate-marquee gap-12">
-            {partners.map((partner, index) => (
-              <PartnerItem
-                key={index}
-                name={partner.name}
-                logo={partner.logo}
-              />
-            ))}
+          {/* -------- Marquee -------- */}
+          <div className="relative overflow-hidden">
+            <div className="flex w-max animate-marquee gap-12">
+              {partners.map((partner, index) => (
+                <PartnerItem
+                  key={index}
+                  name={partner.name}
+                  logo={partner.logo}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

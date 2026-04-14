@@ -73,7 +73,7 @@ const ProductsSection = () => {
       description:
         "An AI-powered sports player auction and analytics platform that enhances decision making, performance insights, and team strategy. ",
       outcome:
-        "Enables AI-driven sports decisions using player performance predictions and budget optimization for leagues like IPL, PKL etc",
+        "Enables AI-driven sports decisions using player performance predictions and budget optimization for leagues like IPL",
       image: "/products/cricketNew.png",
     },
     {
@@ -125,7 +125,7 @@ const ProductsSection = () => {
       <div className="mx-4 sm:mx-10">
         <Heading
           maxWidth="2xl"
-          headline="Where Ideas Become Production-Ready Products"
+          headline="From Spark to Scale"
           subheadline="Carefully designed solutions that balance usability, scalability, and long-term business value."
         />
 

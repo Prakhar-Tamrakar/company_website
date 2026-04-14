@@ -17,7 +17,6 @@ export default function HeroSection() {
         {/* Minimalist Glass Panel */}
         <div className="bg-white/[0.02] border border-white/5 backdrop-blur-md p-6 sm:p-8 md:p-12 rounded-[2rem] shadow-2xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
-            
             {/* Left Side: Content */}
             <div className="flex-1 text-center md:text-left space-y-4 md:space-y-6">
               <div className="flex items-center justify-center md:justify-start gap-3">
@@ -37,29 +36,31 @@ export default function HeroSection() {
                 platform innovation with{" "}
                 <span className="text-white font-medium">
                   i-Connectresources
-                </span>.
+                </span>
+                .
               </p>
             </div>
 
             {/* Right Side: Action */}
             <div className="shrink-0 flex flex-col gap-4 w-full md:w-auto">
               <Link
-                href="/contact"
+                href="/contact#form"
                 className="group flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-white text-[#010518] text-sm font-bold transition-all hover:bg-blue-50 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-white/5"
               >
                 <Calendar className="w-4 h-4" />
-                <span className="whitespace-nowrap">Schedule Strategy Call</span>
+                <span className="whitespace-nowrap">
+                  Schedule Strategy Call
+                </span>
               </Link>
 
               <Link
                 href="/services"
                 className="group flex items-center justify-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors py-2"
               >
-                Explore all solutions 
+                Explore all solutions
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
-            
           </div>
         </div>
       </div>

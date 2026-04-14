@@ -55,7 +55,6 @@ export default function Navbar() {
       {/* ===== TOP NAVBAR ===== */}
       <header className="fixed top-0 left-0 z-50 w-full bg-white/70 backdrop-blur-xl border-b border-slate-200/60 shadow-sm">
         <div className="mx-auto flex h-18 w-full max-w-[1440px] items-center justify-between px-5 md:px-10">
-
           {/* Logo */}
           <Link href="/#index" className="flex items-center gap-3 shrink-0">
             <Image src={logo} alt="Logo" width={36} height={36} />
@@ -205,7 +204,7 @@ export default function Navbar() {
         {/* Bottom CTA */}
         <div className="px-5 py-6 border-t border-slate-100">
           <Link
-            href="/contact"
+            href="/contact#form"
             onClick={() => setMenuOpen(false)}
             className="block w-full text-center py-3.5 rounded-full bg-primary text-white text-sm font-bold uppercase tracking-widest transition-all hover:opacity-90 active:scale-95"
           >

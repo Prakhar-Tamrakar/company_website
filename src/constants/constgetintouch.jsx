@@ -10,7 +10,6 @@ const cards = [
             { icon: Phone, text: '+1 609-474-0093'},
             { icon: Mail, text: 'info@i-connectresources.com',
               reflink :'mailto:info@i-connectresources.com'
-
              }
         ]
     },
@@ -20,7 +19,7 @@ const cards = [
         heading: '  India Delivery Center',
         subHeading: ' STPI Nehru Nagar (East), Bhilai-490020, Chhattisgarh',
         details: [
-             { icon: Phone, text: '+91 9893079653'},
+             { icon: Phone, text: '+91 9893079653'},{ icon: Phone, text: '+91 7999187014'},
             { icon: Mail, 
                 text: 'info@i-connectresources.com',
                 reflink :'mailto:info@i-connectresources.com'

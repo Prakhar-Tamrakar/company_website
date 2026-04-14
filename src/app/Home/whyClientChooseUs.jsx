@@ -49,7 +49,7 @@ export default function WhyClientsChooseUs() {
             
           </div>
           <h2 className="text-5xl  font-regular heading-default mb-8 ">
-            WHY <br /> CHOOSE US
+           The Advantage We Bring
           </h2>
           <p className="text-lg content-default mb-10 max-w-sm font-medium leading-relaxed">
             We deliver enterprise-grade IT solutions backed by decades of expertise and an unwavering commitment to excellence.

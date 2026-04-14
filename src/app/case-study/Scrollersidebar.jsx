@@ -14,6 +14,7 @@ import {
   MapPin,
   ClipboardList,
   TrendingUp,
+  ShieldCheck,
 } from "lucide-react";
 
 export default function Scrollersidebar({ data }) {
@@ -24,10 +25,11 @@ export default function Scrollersidebar({ data }) {
     { id: "Background", label: "Background" },
     { id: "Problem_Statement", label: "Problem Statement" },
     { id: "Solution", label: "Solution" },
+    ...(data.KeyFeatures ? [{ id: "Key_Features", label: "Key Features" }] : []),
     { id: "Impact_Measurement", label: "Impact Measurement" },
     { id: "Outcomes", label: "Outcomes" },
+    ...(data.Benefits ? [{ id: "Benefits", label: "Benefits" }] : []),
   ];
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,9 +42,8 @@ export default function Scrollersidebar({ data }) {
       {
         rootMargin: "-50% 0px -50% 0px",
         threshold: 0,
-      }
+      },
     );
-
     Sections.forEach((sec) => {
       const el = document.getElementById(sec.id);
       if (el) observer.observe(el);
@@ -50,15 +51,14 @@ export default function Scrollersidebar({ data }) {
 
     return () => observer.disconnect();
   }, []);
-
   return (
     <div className="min-h-screen bg-slate-50/50 mt-20">
       {/* Sticky Nav */}
-      <nav className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div className="max-w-5xl mx-auto px-6 py-4">
+      <nav className="sticky top-0 z-10 bg-white/80 backdrop-blur-md ">
+        <div className="container py-4">
           <Link
             href="/case-study"
-            className="flex items-center gap-2 text-slate-600 hover:text-blue-600 font-medium text-sm"
+            className="flex items-center gap-2 content-default hover:text-blue-600 font-medium text-sm"
           >
             <ArrowLeft size={18} />
             Back to Case Studies
@@ -68,7 +68,6 @@ export default function Scrollersidebar({ data }) {
 
       <Section id="case-study-detail" background="bg-transparent" size="xl">
         <div className="container">
-
           {/* Header */}
           <div className="grid grid-cols-2 gap-8">
             <header className="mb-16">
@@ -79,13 +78,13 @@ export default function Scrollersidebar({ data }) {
               )}
 
               {data.title && (
-                <h1 className="text-4xl md:text-5xl font-playfair font-semibold text-slate-900 tracking-tight mb-4">
+                <h1 className="text-4xl md:text-5xl font-playfair font-semibold heading-default tracking-tight mb-4">
                   {data.title}
                 </h1>
               )}
 
               {data.summary && (
-                <p className="text-lg text-slate-600 max-w-3xl mb-6">
+                <p className="text-lg content-default max-w-3xl mb-6">
                   {data.summary}
                 </p>
               )}
@@ -111,16 +110,16 @@ export default function Scrollersidebar({ data }) {
             </section>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
+          <div
+            className="relative grid grid-cols-1 lg:grid-cols-12 gap-12"
+          >
             {/* Main Content */}
-            <div className="lg:col-span-8 space-y-16">
-
+            <div className="lg:col-span-8 space-y-16" >
               {/* Background */}
               {data.background?.overview && (
                 <section id="Background">
                   <SectionHeader icon={Rocket} title="Background" />
-                  <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                  <p className="text-lg content-default leading-relaxed mb-6">
                     {data.background.overview}
                   </p>
                 </section>
@@ -130,7 +129,7 @@ export default function Scrollersidebar({ data }) {
               {data.problemStatement?.issues?.length > 0 && (
                 <section id="Problem_Statement">
                   <SectionHeader icon={AlertCircle} title="Problem Statement" />
-                  <ul className="space-y-4">
+                  <ul className="space-y-4" id="main-content">
                     {data.problemStatement.issues.map((issue, i) => (
                       <li key={i} className="flex gap-3 text-slate-700">
                         <span className="text-red-500 font-bold">•</span>
@@ -141,15 +140,22 @@ export default function Scrollersidebar({ data }) {
                 </section>
               )}
 
-               {/* Solution */}
-              {(data.solution?.platform || data.solution?.implementedChanges?.length > 0) && (
+              {/* Solution */}
+              {(data.solution?.platform ||
+                data.solution?.implementedChanges?.length > 0) && (
                 <section id="Solution">
                   <SectionHeader icon={Settings} title="Solution" />
 
+                  {data.solution?.description && (
+                    <p className="content-default mb-6">
+                      {data.solution.description}
+                    </p>
+                  )}
+
                   {data.solution?.platform && (
-                    <p className="text-slate-600 mb-6">
+                    <p className="content-default mb-6">
                       Platform Used:{" "}
-                      <span className="font-semibold text-slate-900">
+                      <span className="font-semibold heading-default">
                         {data.solution.platform}
                       </span>
                     </p>
@@ -158,11 +164,14 @@ export default function Scrollersidebar({ data }) {
                   {data.solution?.implementedChanges?.length > 0 && (
                     <div className="space-y-5">
                       {data.solution.implementedChanges.map((item, i) => (
-                        <div key={i} className="bg-white rounded-xl border border-slate-200 p-5">
-                          <h4 className="font-semibold text-slate-900 mb-1">
+                        <div
+                          key={i}
+                          className="bg-white rounded-xl border border-slate-200 p-5"
+                        >
+                          <h4 className="font-semibold heading-default mb-1">
                             {item.type}
                           </h4>
-                          <p className="text-slate-600 text-sm">
+                          <p className="content-default text-sm">
                             {item.description}
                           </p>
                         </div>
@@ -171,10 +180,35 @@ export default function Scrollersidebar({ data }) {
                   )}
                 </section>
               )}
+
+              {/* Key Features */}
+              {data.KeyFeatures?.content?.length > 0 && (
+                <section id="Key_Features">
+                  <SectionHeader icon={TrendingUp} title="Key Features" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {data.KeyFeatures.content.map((feature, i) => (
+                      <div
+                        key={i}
+                        className="p-5 rounded-xl border border-blue-100 bg-blue-50/30 hover:bg-blue-50 transition-colors"
+                      >
+                        <h4 className="font-bold heading-default mb-2">
+                          {feature.title}
+                        </h4>
+                        <p className="content-default text-sm leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
               {/* Impact Measurement */}
               {data.impactMeasurement?.reports?.length > 0 && (
                 <section id="Impact_Measurement">
-                  <SectionHeader icon={ClipboardList} title="Impact Measurement" />
+                  <SectionHeader
+                    icon={ClipboardList}
+                    title="Impact Measurement"
+                  />
                   <ul className="space-y-3">
                     {data.impactMeasurement.reports.map((report, i) => (
                       <li key={i} className="flex gap-3 text-slate-700">
@@ -191,42 +225,40 @@ export default function Scrollersidebar({ data }) {
                   <SectionHeader icon={BarChart3} title="Outcomes" />
                   <ul className="space-y-4">
                     {data.outcomes.benefits.map((benefit, i) => (
-                      <li key={i} className="flex gap-3 text-sm text-slate-600">
-                        <CheckCircle2 size={16} className="text-blue-400 shrink-0" />
+                      <li key={i} className="flex gap-3 text-sm content-default">
+                        <CheckCircle2
+                          size={16}
+                          className="text-blue-400 shrink-0"
+                        />
                         {benefit}
                       </li>
                     ))}
                   </ul>
                 </section>
               )}
+ 
+              {/* Benefits */}
+              {data.Benefits?.content?.length > 0 && (
+                <section id="Benefits">
+                  <SectionHeader icon={ShieldCheck} title="Benefits" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {data.Benefits.content.map((feature, i) => (
+                      <div
+                        key={i}
+                        className="p-5 rounded-xl border border-blue-100 bg-blue-50/30 hover:bg-blue-50 transition-colors"
+                      >
+                        <h4 className="font-bold heading-default mb-2">
+                          {feature.title}
+                        </h4>
+                        <p className="content-default text-sm leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
-
-            {/* Sidebar */}
-            <aside className="lg:col-span-4">
-              <div className="sticky top-20 bg-primary rounded-lg p-8 text-white shadow-xl space-y-2">
-                <h1 className="text-xl tracking-wide" >This Page Contains</h1>
-                {Sections.map((sec) => (
-                  <li
-                    key={sec.id}
-                    className={`py-2 cursor-pointer transition-colors tracking-wide ${
-                      activeSection === sec.id
-                        ? "text-blue-300 font-semibold"
-                        : "text-white"
-                    }`}
-                    onClick={() => {
-                      document
-                        .getElementById(sec.id)
-                        ?.scrollIntoView({ behavior: "smooth" });
-                        setActiveSection(sec.id);
-                    }}
-                  >
-                    {sec.label}
-                  </li>
-                ))}
-               
-              </div>
-            </aside>
-
           </div>
         </div>
       </Section>
@@ -239,7 +271,7 @@ function SectionHeader({ icon: Icon, title }) {
       <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
         <Icon size={24} />
       </div>
-      <h2 className="text-2xl font-bold text-slate-900 font-playfair">
+      <h2 className="text-2xl font-bold heading-default font-playfair">
         {title}
       </h2>
     </div>
