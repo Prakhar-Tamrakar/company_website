@@ -1,7 +1,8 @@
 const cards = [
     {
         id:1,
-        img:'/Services/contect-section/Services_contact.jpg',
+        // img:'/Services/contect-section/Services_contact.jpg',
+        img:'/Services/yourjourney1.jpg',
         heading:'Contact Us',
         subHeading:'Contact our team to discuss your requirements and get started with the right solutions.',
         buttonText:'Contact Us',
@@ -15,7 +16,8 @@ const cards = [
         // },
     {
         id:3,
-        img:'/Services/contect-section/Broucher.jpg',
+        // img:'/Services/contect-section/Broucher.jpg',
+        img:'/Services/journey3.jpeg',
         heading:'Download Capability Brochure',
         subHeading:'Explore Our Services Stories and experties in our comprehensive brochure',
         buttonText:'Download Now',

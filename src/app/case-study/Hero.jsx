@@ -1,7 +1,6 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import heroBg from "../../../public/Casestudy/caseStudyHero.jpg";
-const HeroSection = dynamic(() => import("@/components/HeroSection"));
+import HeroSection from "@/components/HeroSection";
 const Hero = () => {
   return (
     <div>

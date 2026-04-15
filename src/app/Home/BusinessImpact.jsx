@@ -69,8 +69,8 @@ export default function BusinessImpactSection() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-[450px] aspect-square">
               <Image
-                // src="https://i-connectresources.com/wp-content/uploads/2023/05/Group-41788.svg"
-                src="/Home/business_impact/businessImpact.png"
+                src="https://i-connectresources.com/wp-content/uploads/2023/05/Group-41788.svg"
+                // src="/Home/business_impact/businessImpact.png"
                 alt="Business Impact Illustration"
                 fill
                 className="object-contain"

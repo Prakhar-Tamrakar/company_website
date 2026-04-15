@@ -402,7 +402,8 @@ export default function JobApplySection() {
               maxLength={50}
               disabled={submitted}
               required
-              className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
+              className="w-full rounded-xl bg-gray-100 px-4 py-2 text-sm border border-gray-200 focus:border-blue-600 outline-none"
+              // className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
             />
 
             <input
@@ -414,7 +415,8 @@ export default function JobApplySection() {
               maxLength={255}
               disabled={submitted}
               required
-              className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
+              className="w-full rounded-xl bg-gray-100 px-4 py-2 text-sm border border-gray-200 focus:border-blue-600 outline-none"
+              // className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
@@ -425,7 +427,8 @@ export default function JobApplySection() {
                 onChange={handleChange}
                 maxLength={20}
                 disabled={submitted}
-                className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
+                className="w-full rounded-xl bg-gray-100 px-4 py-2 text-sm border border-gray-200 focus:border-blue-600 outline-none"  
+               // className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
               />
               <input
                 type="text"
@@ -435,7 +438,8 @@ export default function JobApplySection() {
                 onChange={handleChange}
                 maxLength={255}
                 disabled={submitted}
-                className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
+                className="w-full rounded-xl bg-gray-100 px-4 py-2 text-sm border border-gray-200 focus:border-blue-600 outline-none"
+                // className="w-full rounded-lg border px-4 py-2 disabled:opacity-60"
               />
             </div>
 
@@ -443,13 +447,15 @@ export default function JobApplySection() {
               <label className="block text-sm font-medium mb-2">
                 Upload Resume <span className="text-red-500">*</span>
               </label>
-              <div className="relative flex items-center justify-between gap-3 rounded-lg border px-4 py-2 bg-white">
+              <div className="relative flex items-center justify-between gap-3 rounded-lg w-full rounded-xl bg-gray-100 px-4 py-2 text-sm border border-gray-200 focus:border-blue-600 outline-none">
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx"
                   onChange={handleFileChange}
                   disabled={submitted}
                   required
+
+                  // className="w-full rounded-xl bg-gray-100 px-4 py-2 text-sm border border-gray-200 focus:border-blue-600 outline-none"
                   className="absolute inset-0 opacity-0 cursor-pointer"
                 />
                 <span className="text-sm text-slate-600 truncate">
@@ -482,7 +488,7 @@ export default function JobApplySection() {
         <div className="hidden lg:block flex-1 w-full">
           <div className="relative h-110 w-full rounded-2xl overflow-hidden">
             <Image
-              src="/career/resume/career.jpg"
+              src="https://images.unsplash.com/photo-1686771416537-bf4a4f263d88?q=80&w=1142&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Join our team"
               fill
               className="object-cover"

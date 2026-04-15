@@ -68,11 +68,11 @@ export default function Footer() {
           </div>
           <div className="lg:col-span-4 grid grid-cols-2 gap-8">
             {/* Company */}
-            <nav aria-label="Company Links">
-              <h4 className="heading-default font-bold text-sm uppercase tracking-wider mb-6">
+            <nav aria-label="Company Links ">
+              <h4 className="heading-default font-bold text-sm uppercase tracking-wider mb-6 md:pl-8 pl-0">
                 Company
               </h4>
-              <ul className="space-y-3.5">
+              <ul className="space-y-3.5 md:pl-8 pl-0 ">
                 <FooterLink label="Home" href="/" />
                 <FooterLink label="About Us" href="/about" />
                 <FooterLink label="Services" href="/services" />
@@ -81,10 +81,10 @@ export default function Footer() {
 
             {/* Resources */}
             <nav aria-label="Resource Links">
-              <h4 className="heading-default font-bold text-sm uppercase tracking-wider mb-6">
+              <h4 className="heading-default font-bold text-sm uppercase tracking-wider mb-6 md:pl-8 pl-0">
                 Resources
               </h4>
-              <ul className="space-y-3.5">
+              <ul className="space-y-3.5 md:pl-8 pl-0 ">
                 <FooterLink label="Case Studies" href="/case-study" />
                 <FooterLink label="Products" href="/products" />
                 <FooterLink label="Careers" href="/career" />
@@ -94,10 +94,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="sm:col-span-2 lg:col-span-4">
-            <h4 className="heading-default font-bold text-sm uppercase tracking-wider mb-6">
+            <h4 className="heading-default font-bold text-sm uppercase tracking-wider mb-6 md:pl-8 pl-0">
               Contact
             </h4>
-            <div className="space-y-5">
+            <div className="space-y-5 md:pl-8 pl-0">
               <ContactBlock
                 icon={<MapPin size={18} aria-hidden="true" />}
                 title="USA"

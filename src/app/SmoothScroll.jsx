@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import Lenis from "lenis"
+import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { usePathname } from "next/navigation";
@@ -14,7 +14,7 @@ export default function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({
       smooth: true,
-      lerp: 0.08,       // lower = smoother
+      lerp: 0.08, // lower = smoother
       wheelMultiplier: 1,
     });
     lenisRef.current = lenis;
@@ -36,7 +36,7 @@ export default function SmoothScroll() {
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
       const hash = window.location.hash;
-      
+
       let attempts = 0;
       const checkForTargetAndScroll = () => {
         const target = document.querySelector(hash);
