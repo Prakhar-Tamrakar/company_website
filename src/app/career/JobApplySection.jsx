@@ -488,7 +488,8 @@ export default function JobApplySection() {
         <div className="hidden lg:block flex-1 w-full">
           <div className="relative h-110 w-full rounded-2xl overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1686771416537-bf4a4f263d88?q=80&w=1142&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="/shutterstock/Career/careerNew.jpg"
+              // src="https://images.unsplash.com/photo-1686771416537-bf4a4f263d88?q=80&w=1142&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Join our team"
               fill
               className="object-cover"

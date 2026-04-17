@@ -139,7 +139,8 @@ const IntroSection = () => {
             className="overflow-hidden rounded-2xl aspect-video sm:aspect-square relative group bg-slate-900 w-full sm:max-w-md lg:max-w-none mx-auto shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070"
+              // src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2070"
+              src="/shutterstock/Home/introSection.jpg"
               alt="Corporate Workspace"
               className="object-cover w-full h-full "
             />

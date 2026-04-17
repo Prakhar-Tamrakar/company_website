@@ -5,12 +5,19 @@ import Section from "@/components/layouts/Section";
 import Heading from "@/components/Heading";
 
 // Image Imports
-import mentor from "../../../public/career/mentor.png";
-import colab from "../../../public/career/Global_Clients.jpg";
-import learning from "../../../public/career/learning.jpg";
-import agile from "../../../public/career/agile.png";
-import workLife from "../../../public/career/worklife.png";
-import diversity from "../../../public/career/diversity.jpg";
+// import mentor from "../../../public/career/mentor.png";
+// import colab from "../../../public/career/Global_Clients.jpg";
+// import learning from "../../../public/career/learning.jpg";
+// import agile from "../../../public/career/agile.png";
+// import workLife from "../../../public/career/worklife.png";
+// import diversity from "../../../public/career/diversity.jpg";
+
+import mentor from "../../../public/shutterstock/Career/careeerHowWEWork.png";
+import colab from "../../../public/shutterstock/Career/careerHowWeWork2.png";
+import learning from "../../../public/shutterstock/Career/careerHowWeWork3.png";
+import agile from "../../../public/shutterstock/Career/careerHowWeWork4.png";
+import workLife from "../../../public/shutterstock/Career/careerHowWeWork5.png";
+import diversity from "../../../public/shutterstock/Career/careerHowWeWork6.png";
 
 const workItems = [
   {

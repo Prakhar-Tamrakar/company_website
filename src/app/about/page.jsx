@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
-import HeroBg from "../../../public/About/aboutHome.jpg"
+import HeroBg from "../../../public/shutterstock/About/aboutHero.png"
+// import HeroBg from "../../../public/About/aboutHome.jpg"
+
 const HeroSection = dynamic(() => import("@/components/HeroSection"));
 const JourneySection = dynamic(() => import("./JourneySection"));
 const Introduction = dynamic(() => import("./Introduction"));

@@ -6,6 +6,7 @@ import DrivingOutcomes from "./DrivingOutcomes";
 import Journey from "./Journey";
 import OurCapabilities from "./OurCapabilities";
 import WhyClientstay from "./WhyClientstay";
+import heroBg from "../../../public/shutterstock/Services/servicesHero.png"
 
 const HeroSection = dynamic(() => import("@/components/HeroSection"));
 
@@ -67,7 +68,9 @@ const page = () => {
         subHeadline="Beyond building IT solutions, our focus is on delivering measurable impact. Through a deep understanding of your operations and priorities, services are designed to improve efficiency, enhance performance, and drive sustainable growth."
         primaryCta={{ label: "Get Started", href: "/contact#form" }}
         // secondaryCta={{ label: "Explore Our Services", href: "#NewServices" }}
-        heroBgImage="https://images.pexels.com/photos/7658380/pexels-photo-7658380.jpeg"
+        // heroBgImage="https://images.pexels.com/photos/7658380/pexels-photo-7658380.jpeg"
+        heroBgImage={heroBg}
+
       />
       {/* <OurCapabilities /> */}
       {/* <DrivingOutcomes /> */}

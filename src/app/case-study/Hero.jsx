@@ -1,5 +1,6 @@
 import React from "react";
-import heroBg from "../../../public/Casestudy/caseStudyHero.jpg";
+// import heroBg from "../../../public/Casestudy/caseStudyHero.jpg";
+import heroBg from "../../../public/shutterstock/Case-Studies/caseStudyHero.png";
 import HeroSection from "@/components/HeroSection";
 const Hero = () => {
   return (

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Section from "@/components/layouts/Section";
 import Image from "next/image";
-
 import {
   ArrowLeft,
   CheckCircle2,
@@ -16,7 +15,6 @@ import {
   TrendingUp,
   ShieldCheck,
 } from "lucide-react";
-
 export default function Scrollersidebar({ data }) {
   const [activeSection, setActiveSection] = useState("Background");
 
@@ -58,7 +56,7 @@ export default function Scrollersidebar({ data }) {
         <div className="container py-4">
           <Link
             href="/case-study"
-            className="flex items-center gap-2 content-default hover:text-blue-600 font-medium text-sm"
+            className="flex items-center gap-2 content-default hover:text-blue-600 font-medium text-base"
           >
             <ArrowLeft size={18} />
             Back to Case Studies
@@ -78,19 +76,19 @@ export default function Scrollersidebar({ data }) {
               )}
 
               {data.title && (
-                <h1 className="text-4xl md:text-5xl font-playfair font-semibold heading-default tracking-tight mb-4">
+                <h1 className="text-4xl md:text-5xl font-regular font-playfair heading-default tracking-tight mb-4">
                   {data.title}
                 </h1>
               )}
 
               {data.summary && (
-                <p className="text-lg content-default max-w-3xl mb-6">
+                <p className="text-base content-default max-w-3xl mb-6">
                   {data.summary}
                 </p>
               )}
 
               {data.location?.state && data.location?.country && (
-                <div className="flex items-center gap-2 text-sm text-slate-500">
+                <div className="flex items-center gap-2 text-base text-slate-500">
                   <MapPin size={16} />
                   {data.location.state}, {data.location.country}
                 </div>
@@ -119,7 +117,7 @@ export default function Scrollersidebar({ data }) {
               {data.background?.overview && (
                 <section id="Background">
                   <SectionHeader icon={Rocket} title="Background" />
-                  <p className="text-lg content-default leading-relaxed mb-6">
+                  <p className="text-base content-default leading-relaxed mb-6">
                     {data.background.overview}
                   </p>
                 </section>
@@ -131,7 +129,7 @@ export default function Scrollersidebar({ data }) {
                   <SectionHeader icon={AlertCircle} title="Problem Statement" />
                   <ul className="space-y-4" id="main-content">
                     {data.problemStatement.issues.map((issue, i) => (
-                      <li key={i} className="flex gap-3 text-slate-700">
+                      <li key={i} className="flex gap-3 content-default">
                         <span className="text-red-500 font-bold">•</span>
                         {issue}
                       </li>
@@ -171,7 +169,7 @@ export default function Scrollersidebar({ data }) {
                           <h4 className="font-semibold heading-default mb-1">
                             {item.type}
                           </h4>
-                          <p className="content-default text-sm">
+                          <p className="content-default text-base">
                             {item.description}
                           </p>
                         </div>
@@ -194,7 +192,7 @@ export default function Scrollersidebar({ data }) {
                         <h4 className="font-bold heading-default mb-2">
                           {feature.title}
                         </h4>
-                        <p className="content-default text-sm leading-relaxed">
+                        <p className="content-default text-base leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
@@ -225,7 +223,7 @@ export default function Scrollersidebar({ data }) {
                   <SectionHeader icon={BarChart3} title="Outcomes" />
                   <ul className="space-y-4">
                     {data.outcomes.benefits.map((benefit, i) => (
-                      <li key={i} className="flex gap-3 text-sm content-default">
+                      <li key={i} className="flex gap-3 text-base content-default">
                         <CheckCircle2
                           size={16}
                           className="text-blue-400 shrink-0"
@@ -250,7 +248,7 @@ export default function Scrollersidebar({ data }) {
                         <h4 className="font-bold heading-default mb-2">
                           {feature.title}
                         </h4>
-                        <p className="content-default text-sm leading-relaxed">
+                        <p className="content-default text-base leading-relaxed">
                           {feature.description}
                         </p>
                       </div>
@@ -269,9 +267,9 @@ function SectionHeader({ icon: Icon, title }) {
   return (
     <div className="flex items-center gap-3 mb-6">
       <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
-        <Icon size={24} />
+        <Icon size={20} />
       </div>
-      <h2 className="text-2xl font-bold heading-default font-playfair">
+      <h2 className="text-xl font-bold heading-default font-playfair">
         {title}
       </h2>
     </div>

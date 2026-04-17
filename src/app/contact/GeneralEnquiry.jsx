@@ -136,15 +136,15 @@ export default function GeneralEnquiry() {
     >
       <form onSubmit={handleSubmit}>
         <div ref={formRef}>
-          <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-8 space-y-6">
-            <h2 className="text-xl font-semibold text-gray-900">
+          <div className="bg-white rounded-2xl shadow-md border border-gray-200 p-8 space-y-8">
+            <h2 className="text-2xl font-bold text-gray-900">
               Connect with us
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Full Name */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-black">
+                <label className="block mb-2 text-lg font-semibold text-black">
                   Full Name <span className="text-red-500 ml-1">*</span>
                 </label>
                 <input
@@ -160,7 +160,7 @@ export default function GeneralEnquiry() {
 
               {/* Email */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-black">
+                <label className="block mb-2 text-lg font-semibold  text-black">
                   Email <span className="text-red-500 ml-1">*</span>
                 </label>
                 <input
@@ -176,7 +176,7 @@ export default function GeneralEnquiry() {
 
               {/* Inquiry Type */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-black">
+                <label className="block mb-2 text-lg font-semibold  text-black">
                   Inquiry Type <span className="text-red-500 ml-1">*</span>
                 </label>
                 <div className="relative">
@@ -199,7 +199,7 @@ export default function GeneralEnquiry() {
               {/* Product — nested dropdown, visible only when inquiryType is "Products" */}
               {formData.inquiryType === "Products" && (
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-black">
+                  <label className="block mb-2 text-lg font-medium text-black">
                     Select Product <span className="text-red-500 ml-1">*</span>
                   </label>
                   <div className="relative">
@@ -231,7 +231,7 @@ export default function GeneralEnquiry() {
 
               {/* Organization */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-black">
+                <label className="block mb-2 text-lg font-semibold text-black">
                   Organization <span className="text-red-500 ml-1">*</span>
                 </label>
                 <input
@@ -247,7 +247,7 @@ export default function GeneralEnquiry() {
 
               {/* Phone Number */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-black">
+                <label className="block mb-2 text-lg font-medium text-black">
                   Phone Number
                 </label>
                 <input
@@ -262,7 +262,7 @@ export default function GeneralEnquiry() {
               {/* Preferred Contact Date & Time — calendar picker */}
               {/* Preferred Contact Date & Time — calendar picker */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-black">
+                <label className="block mb-2 text-lg font-medium text-black">
                   Preferred Contact Date &amp; Time
                 </label>
                 <div className="relative">
@@ -294,7 +294,7 @@ export default function GeneralEnquiry() {
 
               {/* Timezone */}
               <div>
-                <label className="block mb-2 text-sm font-medium text-black">
+                <label className="block mb-2 text-lg font-medium text-black">
                   Your Timezone
                 </label>
                 <div className="relative">
@@ -313,7 +313,7 @@ export default function GeneralEnquiry() {
                   </select>
                   <SelectArrow />
                 </div>
-                <p className="mt-1.5 text-xs text-black">
+                <p className="mt-1.5 text-sm text-black">
                   Helps us call at the right local time.
                 </p>
               </div>
@@ -337,7 +337,7 @@ export default function GeneralEnquiry() {
                 </span>
               </label>
 
-              <label className="block mb-2 text-sm font-medium text-black">
+              <label className="block mb-2 text-lg font-medium text-black">
                 How can we help you?
               </label>
               <textarea
@@ -352,7 +352,7 @@ export default function GeneralEnquiry() {
 
             {/* File Upload */}
             <div>
-              <label className="block mb-2 text-base font-medium text-black">
+              <label className="block mb-2 text-lg font-medium text-black">
                 Upload Document
               </label>
               <input
@@ -369,7 +369,7 @@ export default function GeneralEnquiry() {
 
             {/* Additional Comments */}
             <div>
-              <label className="block mb-2 text-base font-medium text-black">
+              <label className="block mb-2 text-lg font-medium text-black">
                 Additional Comments
               </label>
               <textarea

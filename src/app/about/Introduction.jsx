@@ -1,10 +1,15 @@
 import Section from "@/components/layouts/Section";
-import ourMissionGray from "../../../public/About/ourMission.png";
+import ourMissionGray from "../../../public/shutterstock/About/aboutOurMission.png";
+// import ourMissionGray from "../../../public/About/ourMission.png";
 import ourMissionColor from "../../../public/About/ourMissionColor.png";
-import ourVision from "../../../public/About/vision.png";
+// import ourVision from "../../../public/About/vision.png";
+import ourVision from "../../../public/shutterstock/About/aboutOurvision.png";
+
 import ourVisionColor from "../../../public/About/ourVisionColor.png";
 import whoWeAre from "../../../public/About/whoWeAre.jpg";
-import whoWeAreColor from "../../../public/About/whoWeAreColor.jpg";
+// import whoWeAreColor from "../../../public/About/whoWeAreColor.jpg";
+import whoWeAreColor from "../../../public/shutterstock/About/aboutusWhoWeAre.png";
+
 import Image from "next/image";
 
 export default function Introduction() {

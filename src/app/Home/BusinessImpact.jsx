@@ -67,13 +67,15 @@ export default function BusinessImpactSection() {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           {/* Static Illustrative Image */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[450px] aspect-square">
+            <div className="relative w-full max-w-132.5  aspect-square ">
               <Image
-                src="https://i-connectresources.com/wp-content/uploads/2023/05/Group-41788.svg"
-                // src="/Home/business_impact/businessImpact.png"
+                // src="https://i-connectresources.com/wp-content/uploads/2023/05/Group-41788.svg"
+                src="/shutterstock/Home/businessImpact.jpg"
                 alt="Business Impact Illustration"
-                fill
-                className="object-contain"
+                width={450}
+                height={600}
+                // fill
+                className="object-contain rounded-2xl "
                 priority
               />
               {/* Optional: Add a subtle glow or background decoration to match other sections */}

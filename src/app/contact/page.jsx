@@ -33,7 +33,8 @@ const page = () => {
             {/* Hero background layer (light mode) */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="https://images.pexels.com/photos/7709288/pexels-photo-7709288.jpeg"
+                    // src="https://images.pexels.com/photos/7709288/pexels-photo-7709288.jpeg"
+                    src="/shutterstock/Contact/contactUsHero.png"
                     alt="Contact hero background"
                     className="w-full h-full object-cover opacity-40"
                 />

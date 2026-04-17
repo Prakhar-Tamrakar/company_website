@@ -8,6 +8,7 @@ import {
   BrainCircuit,
   DatabaseBackup,
   GitBranch,
+  Code2,
   Eye,
   Shuffle,
   Zap,
@@ -29,7 +30,7 @@ import {
 export const content1 = [
   {
     id: 1,
-    icon: BarChart3,
+    icon: Code2,
     heading: "AI-Enabled Development:",
     subhead:
       "Custom web, mobile, and Generative AI applications ",

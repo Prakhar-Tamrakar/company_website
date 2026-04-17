@@ -7,6 +7,8 @@
   --background: hsl(0 0% 100%);
   --foreground: hsl(222.2 84% 4.9%);
   /* --primary: hsl(221.2 83.2% 53.3%); */
+  /* --primary: #0c5988; */
+
   --primary: #0d458d;
   /* --primary: #1f4286; */
   --primary-hover: oklch(37.213% 0.2034 264.376);

@@ -5,9 +5,12 @@ import Image from "next/image";
 import ModernCapsuleCTA from "@/components/ModernCapsuleCTA";
 import { Play, Pause } from "lucide-react";
 // Backgrounds
-import backgroundImage01 from "../../../public/Home/HomeBg01.jpg";
-import backgroundImage02 from "../../../public/Home/HomeBg02.jpg";
-import backgroundImage03 from "../../../public/Home/HomeBg03.jpg";
+import backgroundImage01 from "../../../public/shutterstock/Hero/homeHero1.png";
+import backgroundImage02 from "../../../public/shutterstock/Hero/homeHero2.png";
+import backgroundImage03 from "../../../public/shutterstock/Hero/homeHero3.png";
+import backgroundImage04 from "../../../public/shutterstock/Hero/homeHero4.png";
+import backgroundImage05 from "../../../public/shutterstock/Hero/homeHero5.png";
+import backgroundImage06 from "../../../public/shutterstock/Hero/homeHero6.png";
 
 // Partner Logos
 import microsoftLogo from "../../../public/logos/MicrosoftLogo.png";
@@ -31,6 +34,9 @@ const Hero = () => {
     { src: backgroundImage01, alt: "Hero Background 1" },
     { src: backgroundImage02, alt: "Hero Background 2" },
     { src: backgroundImage03, alt: "Hero Background 3" },
+    { src: backgroundImage04, alt: "Hero Background 4" },
+    { src: backgroundImage05, alt: "Hero Background 5" },
+    { src: backgroundImage06, alt: "Hero Background 6" },
   ];
 
   const slideFeatures = [
